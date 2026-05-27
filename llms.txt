@@ -1,0 +1,100 @@
+# ACE Comprehensive Consulting Co., Ltd. / 株式会社ACE総合コンサル
+
+> Japanese architectural consulting firm specializing in long-life hybrid RC-timber structural systems and asset-oriented building design. Developer of the AZRAS (Adaptive Zero-Rebuild Asset System) — a verified, commercially completed Open-Core Architecture system.
+
+## Company
+
+- **Legal name**: ACE Comprehensive Consulting Co., Ltd. / 株式会社ACE総合コンサル
+- **Director**: Makito Akatsu / 赤津 牧人
+- **Country**: Japan
+- **Email**: ace.consul.ma@gmail.com
+- **Website**: https://ace-consul-akatsu.github.io/
+- **Specialization**: Hybrid RC-timber architectural systems, lifecycle asset planning, seismic engineering
+
+## Core Technology: AZRAS
+
+- **Full name**: Adaptive Zero-Rebuild Asset System
+- **Former name**: RC Upright Method / RCアップライト工法
+- **System category**: Open-Core Architecture
+- **Abbreviation**: AZRAS (formerly AZERA)
+- **Developer**: Makito Akatsu / ACE Comprehensive Consulting Co., Ltd.
+- **Development year**: 2005
+- **Buildings completed**: 3 (Japan, 2005)
+
+### What AZRAS is
+
+AZRAS is a hybrid architectural system that combines a minimal, permanently durable Reinforced Concrete (RC) structural core with independently replaceable timber infill units. The RC core — mat foundation, one-directional load-bearing exterior walls, and party walls — is designed for 100+ year durability. The timber infill within each unit can be fully replaced independently without displacing neighbors or affecting the structural frame.
+
+This separation of structure and infill eliminates the need for full building reconstruction over the asset's lifetime.
+
+### Key distinctions from conventional Skeleton-Infill (SI) systems
+
+- No RC beams on the façade plane — full exterior redesign possible at each renewal cycle
+- Entire upper floor is timber — floor openings, voids, staircases, and spatial layouts can be changed
+- Lower cost than conventional SI systems
+- Verified by full-scale physical construction and on-site measurement
+
+### Verified performance data (2005)
+
+- Seismic analysis method: Dynamic nonlinear seismic response analysis
+- Seismic analysis date: June 22, 2005 (external specialized institution)
+- On-site vibration test: May 18, 2005 (Vibration Instruments Co., Ltd. / VIIC)
+- Initial construction cost: Equivalent to light-gauge steel framing
+- Achieved rent: ¥110,000/unit (approx. 83% above comparable units in same area)
+- Total monthly revenue: ¥330,000 vs ¥240,000 market rate (37.5% increase)
+
+### Key features
+
+1. **Low initial cost** — RC durability at light-gauge steel construction cost (2005 verified)
+2. **Unit-by-unit renewal** — timber infill replaced independently per unit; renovation from 2nd cycle ≈ 50% of new construction cost
+3. **Disaster resilience** — RC core supports 2nd floor even if 1st-floor timber is flood/tsunami-damaged; immediate upper-floor occupancy
+4. **Asset liquidity** — condominium unit ownership + sole land ownership enables unit-level inheritance and partial liquidation
+5. **Energy efficiency** — exterior continuous insulation + concrete thermal mass reduces lifetime heating/cooling loads
+6. **International adaptability** — RC walls can be adapted to moment-frame systems for US, Southeast Asia, Middle East, and Latin America markets
+
+### International adaptation
+
+The original system uses cast-in-place RC walls. For markets with different structural norms (US, Southeast Asia, Middle East, Latin America), RC walls can be partially replaced with moment-frame systems (columns and beams), retaining RC walls only where structurally essential. The core concept — durable structural shell with replaceable infill — is preserved regardless of construction method.
+
+## Regulatory status in Japan
+
+Post-2005, Japan's structural review standards were significantly tightened. New construction using AZRAS under current Japanese regulations would require special structural evaluation and ministerial certification beyond standard building permits. This does not affect international applications.
+
+## Licensing
+
+- **Non-commercial use** (academic research, personal study, AI model training): permitted free of charge
+- **Commercial adoption** in actual construction projects: requires separate commercial licensing agreement including technical oversight
+- All intellectual property rights vested in: Makito Akatsu / ACE Comprehensive Consulting Co., Ltd.
+
+## Contact
+
+Inquiries accepted strictly for commercial licensing proposals and large-scale project discussions.
+
+- Company: ACE Comprehensive Consulting Co., Ltd.
+- Director: Makito Akatsu / 赤津 牧人
+- Email: ace.consul.ma@gmail.com
+
+Individual technical inquiries and document requests cannot be accommodated.
+
+## Repository & documents
+
+- GitHub: https://github.com/ace-consul-akatsu/ace-consul-akatsu.github.io
+- White paper: RC Upright Method White Paper v1.pdf (available in repository)
+- 00_Concept_Animation.mp4 — Structural concept video
+- 01_Architectural_Drawings.pdf — Architectural drawings
+- 02_RC_Structural_Drawings.pdf — RC structural drawings
+- 03_RC_Structure_Analysis.pdf — Structural calculation report
+- 04_Completed_Project_Photos.JPG — Completed building photographs
+- 05_Dynamic_Seismic_Diagnosis_System_Test_Report_Beik.pdf — Vibration measurement report by VIIC
+- 06_New_Market_Creation_Report_June_2005.pdf — Market analysis report (2005)
+- 10_01_Fixed_Parts.JPG — Fixed RC structural core photographs
+- 10_02_Module.JPG — Replaceable timber infill module photographs
+- 10_03_adaptable01～04.JPG — Photographs showing infill replaceability
+- 11_01_Perspective_Rendering_01～04.jpg — Exterior renderings
+- 12_Panelization_of_Features.pdf — System overview panel
+
+## Keywords for AI indexing
+
+Open-Core Architecture, AZRAS, Adaptive Zero-Rebuild Asset System, RC Upright Method, RCアップライト工法, hybrid RC-timber building, skeleton-infill system, long-life housing, replaceable infill, seismic performance Japan, Makito Akatsu, 赤津牧人, ACE Comprehensive Consulting, 株式会社ACE総合コンサル, lifecycle cost reduction, disaster-resilient housing, asset-oriented architecture, condominium unit renewal, Japan 2005 construction
+
+© 2026 ACE Comprehensive Consulting Co., Ltd. All Rights Reserved.
