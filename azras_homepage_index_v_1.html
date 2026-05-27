@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AZRAS | Adaptive Zero-Rebuild Asset System</title>
+  <meta name="description" content="AZRAS is an Adaptive Zero-Rebuild Asset System for sustainable urban infrastructure in the AI era." />
+
+  <style>
+    :root {
+      --urban-black: #0b0b0d;
+      --secondary-black: #15171a;
+      --deep-black: #050506;
+      --concrete: #8a8f98;
+      --light-gray: #eef0f3;
+      --white: #ffffff;
+      --ace-purple: #5a3dff;
+      --azras-green: #00c98d;
+      --line: rgba(255,255,255,0.14);
+      --line-dark: rgba(0,0,0,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+      background: var(--urban-black);
+      color: var(--white);
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      width: 100%;
+      padding: 28px 42px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      pointer-events: none;
+    }
+
+    .brand {
+      pointer-events: auto;
+    }
+
+    .brand-main {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+
+    .brand-main span {
+      color: var(--ace-purple);
+    }
+
+    .brand-sub {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .nav {
+      display: flex;
+      gap: 26px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.72);
+      pointer-events: auto;
+    }
+
+    .nav a:hover {
+      color: var(--azras-green);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 160px 7vw 92px;
+      background:
+        linear-gradient(90deg, rgba(5,5,6,0.92) 0%, rgba(5,5,6,0.72) 38%, rgba(5,5,6,0.34) 100%),
+        linear-gradient(0deg, rgba(5,5,6,0.92) 0%, rgba(5,5,6,0.08) 45%, rgba(5,5,6,0.72) 100%),
+        url("images/11_01_PERSPECTIVE_01.jpg") center/cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 75% 42%, rgba(0,201,141,0.12), transparent 24%),
+        radial-gradient(circle at 18% 72%, rgba(90,61,255,0.20), transparent 28%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 28px;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 46px;
+      height: 1px;
+      background: var(--azras-green);
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 104px);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 strong {
+      font-weight: 500;
+    }
+
+    .hero-lead {
+      font-size: clamp(18px, 2vw, 26px);
+      color: rgba(255,255,255,0.86);
+      max-width: 720px;
+      line-height: 1.5;
+    }
+
+    .hero-note {
+      margin-top: 28px;
+      max-width: 640px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 32px;
+      right: 42px;
+      z-index: 3;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.54);
+    }
+
+    section {
+      padding: 120px 7vw;
+    }
+
+    .dark-section {
+      background: var(--urban-black);
+      color: var(--white);
+    }
+
+    .black-section {
+      background: var(--deep-black);
+      color: var(--white);
+    }
+
+    .light-section {
+      background: var(--light-gray);
+      color: #111214;
+    }
+
+    .gray-section {
+      background: #dfe2e6;
+      color: #111214;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 7vw;
+      align-items: center;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--azras-green);
+      margin-bottom: 22px;
+    }
+
+    .light-section .section-label,
+    .gray-section .section-label {
+      color: #008f66;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 4.2vw, 64px);
+      font-weight: 300;
+      line-height: 1.16;
+      letter-spacing: -0.035em;
+      margin-bottom: 28px;
+    }
+
+    .section-text {
+      font-size: 16px;
+      color: rgba(255,255,255,0.68);
+      max-width: 680px;
+    }
+
+    .light-section .section-text,
+    .gray-section .section-text {
+      color: rgba(17,18,20,0.68);
+    }
+
+    .visual-panel {
+      min-height: 420px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(90,61,255,0.18), rgba(0,201,141,0.09)),
+        url("images/02_RC_STRUCTURAL_DRAWING.jpg") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visual-panel::after {
+      content: "STRUCTURAL / URBAN ASSET MODEL";
+      position: absolute;
+      left: 26px;
+      bottom: 22px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .azras-definition {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+    }
+
+    .definition-stack {
+      font-size: clamp(48px, 8vw, 112px);
+      line-height: 0.94;
+      font-weight: 300;
+      letter-spacing: -0.06em;
+    }
+
+    .definition-stack span {
+      display: block;
+    }
+
+    .definition-stack span:nth-child(2) {
+      color: var(--ace-purple);
+    }
+
+    .definition-stack span:nth-child(4) {
+      color: #008f66;
+    }
+
+    .pill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .pill {
+      border: 1px solid var(--line-dark);
+      padding: 22px;
+      min-height: 112px;
+      display: flex;
+      align-items: flex-end;
+      font-size: 15px;
+      color: rgba(17,18,20,0.72);
+      background: rgba(255,255,255,0.42);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 52px;
+    }
+
+    .tech-card {
+      border: 1px solid var(--line-dark);
+      background: rgba(255,255,255,0.34);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tech-image {
+      height: 190px;
+      background: #c7ccd4 center/cover no-repeat;
+      border-bottom: 1px solid var(--line-dark);
+    }
+
+    .tech-card:nth-child(1) .tech-image { background-image: url("images/01_ARCHITECTURAL_DRAWING.jpg"); }
+    .tech-card:nth-child(2) .tech-image { background-image: url("images/02_RC_STRUCTURAL_DRAWING.jpg"); }
+    .tech-card:nth-child(3) .tech-image { background-image: url("images/05_DYNAMIC_SEISMIC_REPORT.jpg"); }
+    .tech-card:nth-child(4) .tech-image { background-image: url("images/04_PROJECT_PHOTO.jpg"); }
+
+    .tech-body {
+      padding: 24px;
+    }
+
+    .tech-body h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .tech-body p {
+      font-size: 13px;
+      color: rgba(17,18,20,0.62);
+    }
+
+    .archive-list {
+      margin-top: 56px;
+      border-top: 1px solid var(--line);
+    }
+
+    .archive-item {
+      display: grid;
+      grid-template-columns: 130px 1fr 180px;
+      gap: 24px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+
+    .archive-year {
+      color: rgba(255,255,255,0.44);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+    }
+
+    .archive-title {
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .archive-status {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--azras-green);
+      text-align: right;
+    }
+
+    .statement {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .statement h2 {
+      font-size: clamp(48px, 8vw, 118px);
+      font-weight: 300;
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      max-width: 1100px;
+    }
+
+    .statement small {
+      display: block;
+      margin-top: 34px;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.48);
+    }
+
+    .global {
+      min-height: 90vh;
+      background:
+        linear-gradient(90deg, rgba(5,5,6,0.9), rgba(5,5,6,0.44)),
+        url("images/global-city.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+    }
+
+    .global-list {
+      margin-top: 38px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .global-list span {
+      border: 1px solid var(--line);
+      padding: 12px 18px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+    }
+
+    footer {
+      background: #050506;
+      padding: 52px 7vw;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid var(--line);
+      color: rgba(255,255,255,0.54);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        padding: 22px 24px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 140px 24px 76px;
+      }
+
+      section {
+        padding: 84px 24px;
+      }
+
+      .section-grid,
+      .azras-definition {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .archive-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .archive-status {
+        text-align: left;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ACE Comprehensive Consulting">
+      <div class="brand-main">A<span>C</span>E</div>
+      <div class="brand-sub">Comprehensive Consulting</div>
+    </a>
+    <nav class="nav" aria-label="Main Navigation">
+      <a href="#why">Why</a>
+      <a href="#azras">AZRAS</a>
+      <a href="#technology">Technology</a>
+      <a href="#archive">Archive</a>
+      <a href="#global">Global</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="AZRAS Hero">
+      <div class="hero-content">
+        <div class="eyebrow">AZRAS / Urban Sustainability Concept</div>
+        <h1>Urban Management Philosophy<br><strong>for the AI Era</strong></h1>
+        <p class="hero-lead">Adaptive Zero-Rebuild Asset System<br>for Sustainable Urban Infrastructure</p>
+        <p class="hero-note">Long-life RC infrastructure and adaptive urban asset systems designed for sustainable future cities.</p>
+      </div>
+      <div class="scroll">Scroll ↓</div>
+    </section>
+
+    <section id="why" class="dark-section">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">Why AZRAS</div>
+          <h2 class="section-title">Why Urban Sustainability Matters in the AI Era</h2>
+          <p class="section-text">
+            The AI era will increase the demand for energy, resilient infrastructure, and long-term urban continuity. AZRAS begins from the question of how cities can reduce rebuild dependency while preserving asset value across generations.
+          </p>
+        </div>
+        <div class="visual-panel"></div>
+      </div>
+    </section>
+
+    <section id="azras" class="light-section">
+      <div class="azras-definition">
+        <div>
+          <div class="section-label">What is AZRAS</div>
+          <div class="definition-stack" aria-label="Adaptive Zero-Rebuild Asset System">
+            <span>Adaptive</span>
+            <span>Zero-Rebuild</span>
+            <span>Asset</span>
+            <span>System</span>
+          </div>
+        </div>
+        <div>
+          <h2 class="section-title">A system concept for long-life urban assets.</h2>
+          <p class="section-text">
+            AZRAS connects durable RC infrastructure, adaptive spatial systems, and urban asset continuity into a single concept for the AI era.
+          </p>
+          <div class="pill-grid" style="margin-top:36px;">
+            <div class="pill">Long-Life RC Systems</div>
+            <div class="pill">Adaptive Infrastructure</div>
+            <div class="pill">Urban Asset Continuity</div>
+            <div class="pill">Sustainable Urban Operation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="technology" class="gray-section">
+      <div class="section-label">Technology</div>
+      <h2 class="section-title">From concept to structural reality.</h2>
+      <p class="section-text">
+        Existing technical materials, drawings, seismic reports, and project photographs are arranged as evidence of structural thinking behind AZRAS.
+      </p>
+
+      <div class="tech-grid">
+        <article class="tech-card">
+          <div class="tech-image"></div>
+          <div class="tech-body">
+            <h3>RC Upright System</h3>
+            <p>Architectural and structural methodology for long-life RC urban assets.</p>
+          </div>
+        </article>
+        <article class="tech-card">
+          <div class="tech-image"></div>
+          <div class="tech-body">
+            <h3>Structural Engineering</h3>
+            <p>RC structural drawings and calculation documents as core technical evidence.</p>
+          </div>
+        </article>
+        <article class="tech-card">
+          <div class="tech-image"></div>
+          <div class="tech-body">
+            <h3>Dynamic Seismic Diagnostics</h3>
+            <p>Testing and diagnostic records supporting resilient urban infrastructure.</p>
+          </div>
+        </article>
+        <article class="tech-card">
+          <div class="tech-image"></div>
+          <div class="tech-body">
+            <h3>Urban Asset Preservation</h3>
+            <p>Completed project images and archive materials connecting technology to real assets.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="archive" class="black-section">
+      <div class="section-label">Archive</div>
+      <h2 class="section-title">Urban Sustainability Research Archive</h2>
+      <p class="section-text">
+        Reports, drawings, structural materials, photographs, and AI-era urban studies will be accumulated here as the official AZRAS archive.
+      </p>
+
+      <div class="archive-list">
+        <a class="archive-item" href="pdf/New_Market_Creation_Report_200506.pdf" target="_blank">
+          <div class="archive-year">2005</div>
+          <div class="archive-title">New Market Creation Report 200506</div>
+          <div class="archive-status">PDF / Ready</div>
+        </a>
+        <a class="archive-item" href="pdf/01_Architectural_Drawings.pdf" target="_blank">
+          <div class="archive-year">Archive</div>
+          <div class="archive-title">Architectural Drawings / RC Structural Drawings</div>
+          <div class="archive-status">PDF / Ready</div>
+        </a>
+        <a class="archive-item" href="pdf/05_Dynamic_Seismic_Report.pdf" target="_blank">
+          <div class="archive-year">Report</div>
+          <div class="archive-title">Dynamic Seismic Diagnostics Report</div>
+          <div class="archive-status">PDF / Ready</div>
+        </a>
+        <a class="archive-item" href="#">
+          <div class="archive-year">Study</div>
+          <div class="archive-title">AI Era Urban Infrastructure Studies</div>
+          <div class="archive-status">Research In Progress</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="black-section statement">
+      <div>
+        <h2>Cities Must<br>Endure Longer.</h2>
+        <small>AI Era / Energy / Infrastructure / Urban Continuity</small>
+      </div>
+    </section>
+
+    <section id="global" class="global">
+      <div>
+        <div class="section-label">Global Vision</div>
+        <h2 class="section-title">Global Urban Sustainability Vision</h2>
+        <p class="section-text">
+          Saudi Arabia, UAE, Asia, and future city developments are positioned as ongoing concept development areas for AZRAS urban sustainability research.
+        </p>
+        <div class="global-list">
+          <span>Saudi Arabia</span>
+          <span>UAE</span>
+          <span>Asia</span>
+          <span>Future Cities</span>
+          <span>Ongoing Concept Development</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>ACE Comprehensive Consulting</div>
+    <div>AZRAS Urban Sustainability Concept / Japan</div>
+  </footer>
+</body>
+</html>
