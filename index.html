@@ -1,659 +1,107 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACE General Consulting Co., Ltd. | 株式会社ACE総合コンサル</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --green-dark:#1C3D2A;
-  --green-mid:#2D6A42;
-  --green-accent:#4A8C5C;
-  --green-light:#7AB893;
-  --concrete:#8C8C84;
-  --concrete-light:#C8C8C0;
-  --concrete-bg:#F2F0EB;
-  --white:#FFFFFF;
-  --off-white:#F8F7F3;
-  --text-dark:#1A1C1A;
-  --text-mid:#4A4E4A;
-  --text-light:#8A8E8A;
-  --gold:#C8962E;
-}
-html{scroll-behavior:smooth;}
-body{font-family:'Noto Sans JP',sans-serif;color:var(--text-dark);background:var(--white);line-height:1.7;overflow-x:hidden;}
-
-/* ===== NAV ===== */
-nav{
-  position:fixed;top:0;width:100%;z-index:200;
-  background:rgba(28,61,42,0.96);backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(74,140,92,0.2);
-  padding:0 56px;height:72px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
-.nav-logo-ace{
-  font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:700;
-  color:var(--white);letter-spacing:0.05em;line-height:1;
-}
-.nav-logo-ace span{color:var(--green-light);}
-.nav-logo-divider{width:1px;height:28px;background:rgba(255,255,255,0.2);}
-.nav-logo-text{font-size:11px;color:rgba(255,255,255,0.65);letter-spacing:0.12em;line-height:1.4;font-weight:400;}
-.nav-links{display:flex;gap:36px;list-style:none;}
-.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:12px;letter-spacing:0.1em;font-weight:400;transition:color 0.2s;}
-.nav-links a:hover{color:var(--green-light);}
-.nav-cta{background:var(--green-mid);color:var(--white);font-size:11px;font-weight:700;padding:9px 20px;text-decoration:none;letter-spacing:0.12em;transition:background 0.2s;}
-.nav-cta:hover{background:var(--green-accent);}
-
-/* ===== HERO ===== */
-.hero{
-  min-height:100vh;padding-top:72px;
-  background:var(--green-dark);
-  position:relative;overflow:hidden;
-  display:flex;flex-direction:column;
-}
-.hero-banner{
-  flex:1;position:relative;
-  background:linear-gradient(135deg,#F2F0EB 0%,#E8E6E0 40%,#D0D4CC 100%);
-  display:flex;align-items:center;min-height:calc(100vh - 72px - 120px);
-}
-.hero-banner-bg{
-  position:absolute;right:0;top:0;bottom:0;width:55%;
-  background:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80') center/cover no-repeat;
-  opacity:0.45;
-}
-.hero-banner-fade{
-  position:absolute;right:54%;top:0;bottom:0;width:200px;
-  background:linear-gradient(to right,#F2F0EB,transparent);
-  z-index:1;
-}
-.hero-banner-inner{
-  position:relative;z-index:2;
-  padding:80px 56px 80px 64px;
-  max-width:700px;
-}
-.hero-developed{
-  display:flex;align-items:center;gap:10px;margin-bottom:36px;
-  font-family:'Barlow',sans-serif;font-size:11px;letter-spacing:0.2em;color:var(--text-mid);
-}
-.hero-developed-ace{
-  font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;
-  color:var(--green-dark);letter-spacing:0.05em;
-}
-.hero-developed-divider{width:1px;height:18px;background:var(--concrete-light);}
-.hero-logo-row{display:flex;align-items:center;gap:24px;margin-bottom:16px;}
-.hero-azras-mark{
-  display:flex;align-items:flex-end;gap:3px;
-}
-.hero-azras-mark .bar-wrap{display:flex;align-items:flex-end;gap:2px;}
-.hero-azras-mark .bar{border-radius:1px;}
-.bar-rc{background:var(--concrete);} 
-.bar-wood{background:var(--green-mid);}
-.hero-azras-text{
-  font-family:'Barlow Condensed',sans-serif;font-size:72px;font-weight:700;
-  color:var(--text-dark);letter-spacing:-0.01em;line-height:1;
-}
-.hero-azras-sub{
-  font-family:'Barlow',sans-serif;font-size:13px;font-weight:300;
-  letter-spacing:0.18em;color:var(--text-mid);margin-bottom:28px;
-  border-bottom:2px solid var(--green-mid);padding-bottom:10px;display:inline-block;
-}
-.hero-tagline{
-  font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:700;
-  color:var(--text-dark);line-height:1.2;margin-bottom:8px;letter-spacing:0.01em;
-}
-.hero-tagline-sub{
-  font-family:'Barlow',sans-serif;font-size:16px;font-weight:300;
-  color:var(--text-mid);margin-bottom:36px;letter-spacing:0.05em;
-}
-.hero-kpis{
-  display:flex;gap:0;margin-bottom:40px;
-  border:1px solid rgba(28,61,42,0.15);
-}
-.hero-kpi{
-  padding:16px 24px;border-right:1px solid rgba(28,61,42,0.15);
-  background:rgba(255,255,255,0.6);
-}
-.hero-kpi:last-child{border-right:none;}
-.hero-kpi-val{
-  font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:700;
-  color:var(--green-dark);line-height:1;
-}
-.hero-kpi-label{font-size:10px;color:var(--text-mid);letter-spacing:0.1em;margin-top:3px;}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-green{
-  background:var(--green-dark);color:var(--white);
-  font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;
-  padding:14px 32px;text-decoration:none;letter-spacing:0.15em;
-  transition:background 0.2s;display:inline-block;
-}
-.btn-green:hover{background:var(--green-mid);}
-.btn-ghost{
-  border:1.5px solid var(--green-dark);color:var(--green-dark);
-  font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;
-  padding:13px 32px;text-decoration:none;letter-spacing:0.15em;
-  transition:all 0.2s;display:inline-block;
-}
-.btn-ghost:hover{background:var(--green-dark);color:var(--white);}
-
-/* Hero bottom bar */
-.hero-bottom{
-  background:var(--green-dark);padding:28px 64px;
-  display:flex;gap:0;
-}
-.hero-feature{
-  flex:1;display:flex;align-items:flex-start;gap:12px;
-  padding-right:32px;border-right:1px solid rgba(255,255,255,0.1);
-  margin-right:32px;
-}
-.hero-feature:last-child{border-right:none;margin-right:0;padding-right:0;}
-.hero-feature-icon{
-  width:32px;height:32px;border:1px solid rgba(122,184,147,0.5);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
-}
-.hero-feature-title{font-family:'Barlow',sans-serif;font-size:11px;font-weight:600;color:var(--green-light);letter-spacing:0.15em;margin-bottom:3px;}
-.hero-feature-desc{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.7;}
-
-/* ===== SECTIONS ===== */
-section{padding:96px 64px;}
-.section-header{text-align:center;margin-bottom:72px;}
-.section-eyebrow{font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:0.3em;color:var(--green-mid);font-weight:600;margin-bottom:12px;display:block;}
-.section-title{font-family:'Noto Serif JP',serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--text-dark);line-height:1.5;}
-.section-title-w{color:var(--white);}
-.section-rule{width:40px;height:2px;background:var(--green-mid);margin:16px auto 0;}
-.section-desc{margin-top:18px;color:var(--text-mid);font-size:14px;line-height:2;max-width:560px;margin-left:auto;margin-right:auto;}
-.section-desc-w{color:rgba(255,255,255,0.5);}
-
-/* ===== SERVICES ===== */
-.services{background:var(--off-white);}
-.services-inner{max-width:1100px;margin:0 auto;}
-
-/* AZRAS Hero Card */
-.azras-hero-card{
-  background:var(--green-dark);margin-bottom:24px;
-  display:grid;grid-template-columns:5fr 4fr;
-  position:relative;overflow:hidden;
-}
-.azras-hero-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--green-light);}
-.azras-card-left{padding:56px 56px 56px 64px;position:relative;}
-.azras-card-watermark{
-  position:absolute;bottom:-20px;right:20px;
-  font-family:'Barlow Condensed',sans-serif;font-size:120px;font-weight:700;
-  color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;letter-spacing:-0.02em;
-}
-.azras-card-num{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.25em;color:var(--green-light);margin-bottom:20px;font-weight:600;}
-.azras-card-logo-row{display:flex;align-items:center;gap:16px;margin-bottom:8px;}
-.azras-mark-sm{display:flex;align-items:flex-end;gap:2px;}
-.azras-mark-sm .s-bar{border-radius:1px;}
-.azras-card-name{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:700;color:var(--white);letter-spacing:0.01em;}
-.azras-card-fullname{font-family:'Barlow',sans-serif;font-size:12px;font-weight:300;letter-spacing:0.15em;color:rgba(255,255,255,0.5);margin-bottom:20px;}
-.azras-card-tagline{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:600;color:var(--green-light);margin-bottom:16px;line-height:1.3;}
-.azras-card-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:2;margin-bottom:32px;}
-.azras-card-link{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--green-mid);color:var(--white);
-  font-family:'Barlow',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.15em;
-  padding:12px 24px;text-decoration:none;transition:background 0.2s;
-}
-.azras-card-link:hover{background:var(--green-accent);}
-.azras-card-link-arrow{font-size:16px;}
-.azras-card-right{background:rgba(0,0,0,0.2);padding:56px 48px;display:flex;flex-direction:column;gap:0;}
-.azras-feature-item{padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:14px;align-items:flex-start;}
-.azras-feature-item:last-child{border-bottom:none;}
-.azras-feature-dot{width:6px;height:6px;background:var(--green-light);flex-shrink:0;margin-top:7px;}
-.azras-feature-body{}
-.azras-feature-name{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;color:var(--green-light);letter-spacing:0.12em;margin-bottom:4px;}
-.azras-feature-text{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.8;}
-
-/* Service 2 — Design */
-.design-card{
-  border:1.5px solid rgba(28,61,42,0.12);padding:48px 52px;
-  display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start;
-  background:var(--white);
-}
-.design-num{font-family:'Barlow Condensed',sans-serif;font-size:64px;font-weight:700;color:rgba(28,61,42,0.08);line-height:1;}
-.design-title{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:700;color:var(--text-dark);margin-bottom:12px;}
-.design-desc{font-size:13px;color:var(--text-mid);line-height:2;}
-
-/* ===== TRACK RECORD ===== */
-.results{background:var(--green-dark);}
-.results-inner{max-width:1100px;margin:0 auto;}
-.results-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);margin-bottom:48px;}
-.results-kpi{background:var(--green-dark);padding:36px 28px;text-align:center;}
-.results-kpi-val{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:700;color:var(--green-light);line-height:1;}
-.results-kpi-unit{font-size:18px;}
-.results-kpi-label{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.12em;margin-top:6px;}
-.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
-.result-card{background:rgba(255,255,255,0.04);border:1px solid rgba(122,184,147,0.12);padding:32px 28px;transition:background 0.3s;}
-.result-card:hover{background:rgba(122,184,147,0.07);}
-.result-tag{font-family:'Barlow',sans-serif;font-size:9px;letter-spacing:0.22em;color:var(--green-light);font-weight:600;margin-bottom:10px;}
-.result-title{font-family:'Noto Serif JP',serif;font-size:14px;color:var(--white);font-weight:600;margin-bottom:10px;line-height:1.7;}
-.result-desc{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.9;}
-
-/* ===== DEVELOPER ===== */
-.developer{background:var(--concrete-bg);}
-.developer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:72px;align-items:start;}
-.developer-profile{}
-.developer-name-plate{background:var(--green-dark);padding:36px 32px;position:relative;overflow:hidden;}
-.developer-name-plate::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green-light);}
-.developer-title-en{font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:0.2em;color:var(--green-light);font-weight:600;margin-bottom:8px;}
-.developer-name-ja{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:4px;}
-.developer-name-en{font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);letter-spacing:0.08em;}
-.developer-company{font-size:11px;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.7;}
-.developer-content{}
-.developer-intro{font-size:14px;color:var(--text-mid);line-height:2.1;margin-bottom:40px;}
-.developer-section-label{font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:0.25em;color:var(--green-mid);font-weight:600;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid rgba(28,61,42,0.15);}
-.developer-track{}
-.track-category{margin-bottom:32px;}
-.track-cat-title{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:14px;}
-.track-items{display:flex;flex-direction:column;gap:8px;}
-.track-item{display:flex;gap:12px;align-items:flex-start;}
-.track-dot{width:5px;height:5px;background:var(--green-mid);flex-shrink:0;margin-top:8px;}
-.track-text{font-size:13px;color:var(--text-mid);line-height:1.8;}
-.track-company{font-weight:500;color:var(--text-dark);}
-
-/* ===== CONTACT ===== */
-.contact{background:var(--white);}
-.contact-inner{max-width:680px;margin:0 auto;}
-.contact-box{background:var(--off-white);border:1px solid rgba(28,61,42,0.1);padding:56px;position:relative;overflow:hidden;}
-.contact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green-mid);}
-.contact-row{margin-bottom:20px;}
-.contact-label{font-size:11px;letter-spacing:0.1em;color:var(--text-mid);font-weight:500;margin-bottom:7px;display:block;}
-.contact-input{width:100%;border:1px solid rgba(28,61,42,0.15);padding:11px 14px;font-size:13px;color:var(--text-dark);font-family:'Noto Sans JP',sans-serif;outline:none;transition:border-color 0.2s;background:var(--white);border-radius:0;}
-.contact-input:focus{border-color:var(--green-mid);}
-.contact-input::placeholder{color:rgba(28,61,42,0.25);}
-textarea.contact-input{height:110px;resize:vertical;}
-select.contact-input{appearance:none;cursor:pointer;}
-.contact-submit{width:100%;background:var(--green-dark);color:var(--white);border:none;padding:15px;font-size:13px;font-weight:700;letter-spacing:0.14em;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:background 0.2s;margin-top:6px;}
-.contact-submit:hover{background:var(--green-mid);}
-.contact-note{text-align:center;font-size:11px;color:var(--text-light);margin-top:14px;line-height:1.8;}
-
-/* ===== FOOTER ===== */
-footer{background:var(--green-dark);padding:48px 64px;border-top:1px solid rgba(122,184,147,0.1);}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
-.footer-left{}
-.footer-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
-.footer-ace{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;color:var(--white);}
-.footer-ace span{color:var(--green-light);}
-.footer-name{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;}
-.footer-right{text-align:right;}
-.footer-copy{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.06em;line-height:1.9;}
-
-@media(max-width:900px){
-  nav{padding:0 24px;}
-  .nav-links{display:none;}
-  section{padding:72px 24px;}
-  .hero-banner-inner{padding:60px 24px;}
-  .hero-banner-bg{width:100%;opacity:0.2;}
-  .hero-bottom{flex-direction:column;gap:24px;padding:32px 24px;}
-  .hero-feature{border-right:none;margin-right:0;padding-right:0;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.1);}
-  .hero-feature:last-child{border-bottom:none;padding-bottom:0;}
-  .azras-hero-card{grid-template-columns:1fr;}
-  .azras-card-left{padding:40px 28px;}
-  .azras-card-right{padding:32px 28px;}
-  .design-card{grid-template-columns:1fr;}
-  .results-kpi-row{grid-template-columns:repeat(2,1fr);}
-  .results-grid{grid-template-columns:1fr;}
-  .developer-inner{grid-template-columns:1fr;}
-  .contact-box{padding:36px 28px;}
-  .footer-inner{grid-template-columns:1fr;}
-  .footer-right{text-align:left;}
-  footer{padding:40px 24px;}
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACE Total Consulting | AZRAS</title>
+  <meta name="description" content="ACE Total Consulting introduces AZRAS: Open-Core Architecture · Adaptive Zero-Rebuild Asset System." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <span class="nav-logo-ace">A<span>C</span>E</span>
-    <div class="nav-logo-divider"></div>
-    <span class="nav-logo-text">ACE General Consulting Co., Ltd.<br>株式会社ACE総合コンサル</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#services">事業内容</a></li>
-    <li><a href="#results">実績</a></li>
-    <li><a href="#developer">開発者</a></li>
-    <li><a href="#contact">お問い合わせ</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">CONTACT</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-banner">
-    <div class="hero-banner-bg"></div>
-    <div class="hero-banner-fade"></div>
-    <div class="hero-banner-inner">
-      <div class="hero-developed">
-        <span>Developed by</span>
-        <div class="hero-developed-divider"></div>
-        <span class="hero-developed-ace">ACE</span>
-        <span>ACE General Consulting Co., Ltd.</span>
-      </div>
-      <div class="hero-logo-row">
-        <div class="hero-azras-mark">
-          <div class="bar-wrap">
-            <div class="bar bar-rc" style="width:10px;height:28px;"></div>
-            <div class="bar bar-wood" style="width:10px;height:38px;"></div>
-            <div class="bar bar-rc" style="width:10px;height:20px;"></div>
-            <div class="bar bar-wood" style="width:10px;height:44px;"></div>
-            <div class="bar bar-rc" style="width:10px;height:32px;"></div>
-          </div>
-        </div>
-        <div class="hero-azras-text">AZRAS</div>
-      </div>
-      <div class="hero-azras-sub">Adaptive Zero-Rebuild Asset System</div>
-      <div class="hero-tagline">Build Once. Value Endures.</div>
-      <div class="hero-tagline-sub">Zero rebuild. Value for 100 years ahead.</div>
-      <div class="hero-kpis">
-        <div class="hero-kpi">
-          <div class="hero-kpi-val">100<span style="font-size:16px;">年+</span></div>
-          <div class="hero-kpi-label">RC コア耐久年数</div>
-        </div>
-        <div class="hero-kpi">
-          <div class="hero-kpi-val">2005</div>
-          <div class="hero-kpi-label">実棟竣工・耐震実証</div>
-        </div>
-        <div class="hero-kpi">
-          <div class="hero-kpi-val">1/2</div>
-          <div class="hero-kpi-label">2回目以降の更新コスト</div>
-        </div>
-      </div>
-      <div class="hero-btns">
-        <a href="azras.html" class="btn-green">AZRAS 詳細を見る →</a>
-        <a href="#contact" class="btn-ghost">お問い合わせ</a>
-      </div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ACE Total Consulting home">
+      <img src="assets/ace-logo.jpg" alt="ACE" />
+      <span>ACE Total Consulting</span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#about" data-en="About" data-ja="会社概要">About</a>
+      <a href="#azras" data-en="AZRAS" data-ja="AZRAS">AZRAS</a>
+      <a href="#projects" data-en="Projects" data-ja="実績・構想">Projects</a>
+      <a href="#documents" data-en="Documents" data-ja="資料">Documents</a>
+      <a href="#contact" data-en="Contact" data-ja="お問い合わせ">Contact</a>
+    </nav>
+    <div class="lang-switch" aria-label="Language switch">
+      <button class="active" data-lang="en">EN</button>
+      <button data-lang="ja">JP</button>
     </div>
-  </div>
-  <div class="hero-bottom">
-    <div class="hero-feature">
-      <div class="hero-feature-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 6V14H2V6L8 2Z" stroke="#7AB893" stroke-width="1.2"/></svg>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="First view">
+      <picture>
+        <source media="(max-width: 760px)" srcset="assets/hero-en.png" id="hero-mobile-source" />
+        <img id="hero-image" src="assets/hero-en.png" alt="ACE Total Consulting first view" />
+      </picture>
+      <div class="hero-overlay">
+        <p class="eyebrow">AZRAS</p>
+        <h1 data-en="Designing the Future." data-ja="未来を、設計する。">Designing the Future.</h1>
+        <p data-en="We maximize sustainable society and asset value through the power of technology and design." data-ja="持続可能な社会と資産価値の最大化を、テクノロジーとデザインの力で実現します。">We maximize sustainable society and asset value through the power of technology and design.</p>
       </div>
+    </section>
+
+    <section class="section intro" id="about">
       <div>
-        <div class="hero-feature-title">DURABILITY</div>
-        <div class="hero-feature-desc">100年以上のRC構造コアで建物の資産価値を永続的に維持</div>
+        <p class="eyebrow" data-en="About ACE" data-ja="ACEについて">About ACE</p>
+        <h2 data-en="Architecture, construction, estate and energy — integrated as one strategy." data-ja="建築・建設・不動産・エネルギーを、ひとつの戦略として統合する。">Architecture, construction, estate and energy — integrated as one strategy.</h2>
       </div>
-    </div>
-    <div class="hero-feature">
-      <div class="hero-feature-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C8 2 2 5 2 9C2 12 4.7 14 8 14C11.3 14 14 12 14 9C14 5 8 2 8 2Z" stroke="#7AB893" stroke-width="1.2"/><path d="M8 6V10M6 8H10" stroke="#7AB893" stroke-width="1.2"/></svg>
+      <p data-en="ACE Total Consulting develops architectural concepts that preserve long-term asset value, adapt to changing lifestyles, and support resilient, sustainable communities." data-ja="ACE総合コンサルは、長期的な資産価値を守り、暮らしの変化に対応し、持続可能で強靭な社会に貢献する建築コンセプトを提案します。">ACE Total Consulting develops architectural concepts that preserve long-term asset value, adapt to changing lifestyles, and support resilient, sustainable communities.</p>
+    </section>
+
+    <section class="section cards" id="azras">
+      <article>
+        <h3 data-en="Open-Core Architecture" data-ja="オープンコア・アーキテクチャ">Open-Core Architecture</h3>
+        <p data-en="A durable RC core is separated from replaceable infill modules, allowing the building to evolve without full reconstruction." data-ja="耐久性の高いRCコアと交換可能なインフィルを分離し、全体の建て替えに頼らず建物を進化させます。">A durable RC core is separated from replaceable infill modules, allowing the building to evolve without full reconstruction.</p>
+      </article>
+      <article>
+        <h3 data-en="Adaptive Asset System" data-ja="可変する資産システム">Adaptive Asset System</h3>
+        <p data-en="Homes, restaurants, garages and next-generation residences can be planned as stages of one asset lifecycle." data-ja="住宅、レストラン、車庫付き先進住宅などを、ひとつの資産ライフサイクルとして計画できます。">Homes, restaurants, garages and next-generation residences can be planned as stages of one asset lifecycle.</p>
+      </article>
+      <article>
+        <h3 data-en="Sustainable Value" data-ja="持続する価値">Sustainable Value</h3>
+        <p data-en="Designed for long life, easier renewal, and international adaptation across urban and suburban markets." data-ja="長寿命化、更新の容易さ、海外市場への適応を見据えた建築システムです。">Designed for long life, easier renewal, and international adaptation across urban and suburban markets.</p>
+      </article>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-title">
+        <p class="eyebrow" data-en="Projects & Concepts" data-ja="実績・構想">Projects & Concepts</p>
+        <h2 data-en="From residential life to adaptive mixed-use futures." data-ja="住宅から、用途が変化する未来の建築へ。">From residential life to adaptive mixed-use futures.</h2>
       </div>
+      <div class="gallery">
+        <figure><img src="assets/project-house.jpg" alt="AZRAS house concept"><figcaption data-en="South-facing home with wood deck" data-ja="南側にウッドデッキのある住宅">South-facing home with wood deck</figcaption></figure>
+        <figure><img src="assets/project-terrace-1.jpg" alt="Terrace house"><figcaption data-en="Terrace house concept" data-ja="テラスハウス構想">Terrace house concept</figcaption></figure>
+        <figure><img src="assets/adaptability-board.png" alt="Adaptive use board"><figcaption data-en="Adaptive transformation stages" data-ja="可変性のある用途転換">Adaptive transformation stages</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section documents" id="documents">
+      <div class="section-title">
+        <p class="eyebrow" data-en="Documents" data-ja="資料">Documents</p>
+        <h2 data-en="Technical data and published materials" data-ja="技術資料・公開資料">Technical data and published materials</h2>
+      </div>
+      <div class="doc-list">
+        <a href="01_Architectural_Drawings.pdf">01 Architectural Drawings</a>
+        <a href="02_RC_Structural_Drawings.pdf">02 RC Structural Drawings</a>
+        <a href="03_RC_Structure_Analysis.pdf">03 RC Structure Analysis</a>
+        <a href="05_Dynamic_Seismic_Diagnosis_System_Test_Report_Beik.pdf">05 Dynamic Seismic Diagnosis System Test Report</a>
+        <a href="06_New Market Creation Report – June 2005.pdf">06 New Market Creation Report — June 2005</a>
+        <a href="12_Panelization of Features.pdf">12 Panelization of Features</a>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
       <div>
-        <div class="hero-feature-title">FLEXIBILITY</div>
-        <div class="hero-feature-desc">木造インフィルを住戸単位で独立交換・建て替え不要</div>
+        <p class="eyebrow" data-en="Contact" data-ja="お問い合わせ">Contact</p>
+        <h2 data-en="For commercial licensing proposals and large-scale project discussions." data-ja="商業ライセンス提案・大規模プロジェクトのご相談について。">For commercial licensing proposals and large-scale project discussions.</h2>
       </div>
-    </div>
-    <div class="hero-feature">
-      <div class="hero-feature-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2,12 6,8 10,10 14,4" stroke="#7AB893" stroke-width="1.2"/></svg>
-      </div>
-      <div>
-        <div class="hero-feature-title">ASSET VALUE</div>
-        <div class="hero-feature-desc">建て替えなしで資産価値を維持・向上。賃料83%超を実証</div>
-      </div>
-    </div>
-    <div class="hero-feature">
-      <div class="hero-feature-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#7AB893" stroke-width="1.2"/><path d="M8 2C8 2 5 5 5 8C5 11 8 14 8 14" stroke="#7AB893" stroke-width="1.2"/><path d="M2 8H14" stroke="#7AB893" stroke-width="1.2"/></svg>
-      </div>
-      <div>
-        <div class="hero-feature-title">GLOBAL</div>
-        <div class="hero-feature-desc">米国・東南アジア・中東・中南米への国際展開に対応</div>
-      </div>
-    </div>
-  </div>
-</section>
+      <a class="button" href="mailto:ace.consul.ma@gmail.com">ace.consul.ma@gmail.com</a>
+    </section>
+  </main>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="section-header">
-    <span class="section-eyebrow">SERVICES</span>
-    <h2 class="section-title">事業内容</h2>
-    <div class="section-rule"></div>
-    <p class="section-desc">次世代ハイブリッド建築システム「AZRAS」の普及と建築設計監理の2軸で、建築資産の新たな価値基準を創ります。</p>
-  </div>
-  <div class="services-inner">
-    <div class="azras-hero-card">
-      <div class="azras-card-left">
-        <div class="azras-card-watermark">AZRAS</div>
-        <div class="azras-card-num">SERVICE 01</div>
-        <div class="azras-card-logo-row">
-          <div class="azras-mark-sm">
-            <div class="s-bar bar-rc" style="width:7px;height:18px;border-radius:1px;"></div>
-            <div class="s-bar bar-wood" style="width:7px;height:26px;border-radius:1px;"></div>
-            <div class="s-bar bar-rc" style="width:7px;height:14px;border-radius:1px;"></div>
-            <div class="s-bar bar-wood" style="width:7px;height:30px;border-radius:1px;"></div>
-            <div class="s-bar bar-rc" style="width:7px;height:20px;border-radius:1px;"></div>
-          </div>
-          <div class="azras-card-name">AZRAS</div>
-        </div>
-        <div class="azras-card-fullname">Adaptive Zero-Rebuild Asset System</div>
-        <div class="azras-card-tagline">"Build Once. Value Endures."<br>建て替えゼロで、100年先まで価値を。</div>
-        <div class="azras-card-desc">RC構造コアと独立交換可能な木造インフィルを融合したハイブリッド建築システム。住戸単位での更新を可能にし、建物生涯にわたる全面建て替えを不要にします。低コスト・高耐震・高耐久・省エネを同時に実現し、国内外への商用展開を推進します。</div>
-        <a href="azras.html" class="azras-card-link">
-          AZRAS 詳細・技術資料 <span class="azras-card-link-arrow">→</span>
-        </a>
-      </div>
-      <div class="azras-card-right">
-        <div class="azras-feature-item">
-          <div class="azras-feature-dot"></div>
-          <div class="azras-feature-body">
-            <div class="azras-feature-name">LOW COST · HIGH DURABILITY</div>
-            <div class="azras-feature-text">初期建設コストを軽量鉄骨造並みに抑えながら、RCコアは100年以上の耐久性。2回目以降の更新費は新築の約半額。</div>
-          </div>
-        </div>
-        <div class="azras-feature-item">
-          <div class="azras-feature-dot"></div>
-          <div class="azras-feature-body">
-            <div class="azras-feature-name">SEISMIC &amp; DISASTER RESILIENCE</div>
-            <div class="azras-feature-text">動的非線形解析と実棟振動計測で耐震性を二重実証（2005年）。津波・洪水時も2階での即時事業継続が可能。</div>
-          </div>
-        </div>
-        <div class="azras-feature-item">
-          <div class="azras-feature-dot"></div>
-          <div class="azras-feature-body">
-            <div class="azras-feature-name">UNIT-BY-UNIT RENEWAL</div>
-            <div class="azras-feature-text">隣戸の居住状態を維持したまま退去住戸から順次インフィルを交換。区分所有×単有地で相続・部分売却にも対応。</div>
-          </div>
-        </div>
-        <div class="azras-feature-item">
-          <div class="azras-feature-dot"></div>
-          <div class="azras-feature-body">
-            <div class="azras-feature-name">INTERNATIONAL ADAPTABILITY</div>
-            <div class="azras-feature-text">RC壁をモーメントフレームに置換することで米国・東南アジア・中東・中南米の構造基準にも対応可能。</div>
-          </div>
-        </div>
-        <div class="azras-feature-item">
-          <div class="azras-feature-dot"></div>
-          <div class="azras-feature-body">
-            <div class="azras-feature-name">ENERGY EFFICIENCY</div>
-            <div class="azras-feature-text">外断熱とコンクリートの蓄熱性の組み合わせにより、建物生涯を通じて冷暖房負荷を低減。</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="design-card">
-      <div class="design-num">02</div>
-      <div>
-        <div class="design-title">建築設計監理</div>
-        <div class="design-desc">AZRASシステムを用いた建築プロジェクトの設計・施工監理を一貫して提供します。RC構造コアの品質確保から木造インフィルの施工管理まで、プロジェクト全体を責任をもってサポート。食品工場・物流施設・商業施設・エネルギーインフラ・住宅など、多様な用途の設計監理実績を有します。AZRAS以外の案件についても、ご相談に応じます。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section class="results" id="results">
-  <div class="results-inner">
-    <div class="section-header">
-      <span class="section-eyebrow">TRACK RECORD</span>
-      <h2 class="section-title section-title-w">実績・検証データ</h2>
-      <div class="section-rule"></div>
-      <p class="section-desc section-desc-w">2005年の開発以来、実棟竣工と複数の独立機関による技術検証を経てきました。</p>
-    </div>
-    <div class="results-kpi-row">
-      <div class="results-kpi">
-        <div class="results-kpi-val">3<span class="results-kpi-unit">棟</span></div>
-        <div class="results-kpi-label">実棟竣工実績（日本・2005）</div>
-      </div>
-      <div class="results-kpi">
-        <div class="results-kpi-val">100<span class="results-kpi-unit">年+</span></div>
-        <div class="results-kpi-label">RC コア設計耐久年数</div>
-      </div>
-      <div class="results-kpi">
-        <div class="results-kpi-val">+83<span class="results-kpi-unit">%</span></div>
-        <div class="results-kpi-label">周辺相場比 賃料実績</div>
-      </div>
-      <div class="results-kpi">
-        <div class="results-kpi-val">2<span class="results-kpi-unit">機関</span></div>
-        <div class="results-kpi-label">独立機関による耐震実証</div>
-      </div>
-    </div>
-    <div class="results-grid">
-      <div class="result-card">
-        <div class="result-tag">耐震性能検証 ／ 2005.06.22</div>
-        <div class="result-title">動的非線形地震応答解析による耐震安全性の独立実証</div>
-        <div class="result-desc">外部専門機関による動的非線形解析にて耐震性能を検証。設計値の妥当性を第三者機関が確認しています。</div>
-      </div>
-      <div class="result-card">
-        <div class="result-tag">実棟振動計測 ／ 2005.05.18</div>
-        <div class="result-title">ビイック株式会社（VIIC）による実棟振動応答特性計測</div>
-        <div class="result-desc">竣工建物にて実際の振動応答特性を現場計測し、設計値との整合性を確認。実棟データによる実証です。</div>
-      </div>
-      <div class="result-card">
-        <div class="result-tag">賃料実績 ／ 日本・2005</div>
-        <div class="result-title">周辺相場比 83%超の賃料を達成。月額収益37.5%増を実現</div>
-        <div class="result-desc">¥110,000/戸（周辺相場比+83%）を達成。月額総収益¥330,000対 市場相場¥240,000（37.5%増）。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DEVELOPER -->
-<section class="developer" id="developer">
-  <div class="section-header">
-    <span class="section-eyebrow">DEVELOPER</span>
-    <h2 class="section-title">開発者・赤津牧人の実績</h2>
-    <div class="section-rule"></div>
-  </div>
-  <div class="developer-inner">
-    <div class="developer-profile">
-      <div class="developer-name-plate">
-        <div class="developer-title-en">DEVELOPER / DIRECTOR</div>
-        <div class="developer-name-ja">赤津 牧人</div>
-        <div class="developer-name-en">Makito Akatsu</div>
-        <div class="developer-company">株式会社ACE総合コンサル 代表<br>（旧・有限会社赤津設計 代表）<br>RCアップライト工法（AZRAS）開発者</div>
-      </div>
-    </div>
-    <div class="developer-content">
-      <p class="developer-intro">赤津は、長年にわたり日本の大手企業や重要インフラ、最先端の建築プロジェクトにおいて、設計監理・建築／不動産／エネルギーの総合コンサルティング・建設業の実務に深く携わってきました。AZRASは、これら多様な現場で培われた高度な技術と経験の結集から生まれたシステムです。</p>
-
-      <div class="developer-section-label">主な設計監理実績</div>
-      <div class="developer-track">
-        <div class="track-category">
-          <div class="track-cat-title">食品・流通インフラ</div>
-          <div class="track-items">
-            <div class="track-item"><div class="track-dot"></div><div class="track-text"><span class="track-company">カネ美食品株式会社</span>――食品工場の設計監理</div></div>
-            <div class="track-item"><div class="track-dot"></div><div class="track-text"><span class="track-company">ジャペル株式会社</span>――本社・配送センター・物販店舗の設計監理</div></div>
-          </div>
-        </div>
-        <div class="track-category">
-          <div class="track-cat-title">商業施設・店舗</div>
-          <div class="track-items">
-            <div class="track-item"><div class="track-dot"></div><div class="track-text"><span class="track-company">ツルヤ靴店（現・株式会社ジーフット）</span>――物販店舗の設計監理</div></div>
-            <div class="track-item"><div class="track-dot"></div><div class="track-text"><span class="track-company">北城屋</span>――和菓子店舗の設計監理</div></div>
-          </div>
-        </div>
-        <div class="track-category">
-          <div class="track-cat-title">最先端アグリ・次世代エネルギーインフラ</div>
-          <div class="track-items">
-            <div class="track-item"><div class="track-dot"></div><div class="track-text"><span class="track-company">ヤンマーホールディングス株式会社</span>――先端ビニルハウスの設計監理</div></div>
-            <div class="track-item"><div class="track-dot"></div><div class="track-text"><span class="track-company">東邦ガスエナジーエンジニアリング株式会社</span>――顧客向け水素ステーション・愛知万博（EXPO 2005）水素ステーション・コジェネレーション建屋・精密機械基礎の設計監理</div></div>
-          </div>
-        </div>
-        <div class="track-category">
-          <div class="track-cat-title">民間住宅</div>
-          <div class="track-items">
-            <div class="track-item"><div class="track-dot"></div><div class="track-text">個人顧客向け鉄骨造賃貸住宅・戸建専用住宅の設計監理</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="developer-section-label" style="margin-top:32px;">コンサルティング・実務実績</div>
-      <div class="developer-track">
-        <div class="track-items">
-          <div class="track-item"><div class="track-dot"></div><div class="track-text"><span class="track-company">岐阜車体工業株式会社</span>――工場の建築コンサルティング</div></div>
-          <div class="track-item"><div class="track-dot"></div><div class="track-text">豊富な実務経験に基づく不動産コンサルティング・エネルギーコンサルティング</div></div>
-          <div class="track-item"><div class="track-dot"></div><div class="track-text">設計・コンサルティングの枠にとどまらない建設業の現場実務と経営の経験</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="section-header">
-    <span class="section-eyebrow">CONTACT</span>
-    <h2 class="section-title">お問い合わせ</h2>
-    <div class="section-rule"></div>
-    <p class="section-desc">商用ライセンスに関するご提案・大口案件の商談・建築設計監理のご依頼を承ります。</p>
-  </div>
-  <div class="contact-inner">
-    <div class="contact-box">
-      <div class="contact-row">
-        <label class="contact-label">会社名・お名前 *</label>
-        <input type="text" class="contact-input" placeholder="株式会社〇〇　山田 太郎">
-      </div>
-      <div class="contact-row">
-        <label class="contact-label">メールアドレス *</label>
-        <input type="email" class="contact-input" placeholder="example@company.com">
-      </div>
-      <div class="contact-row">
-        <label class="contact-label">お問い合わせ種別</label>
-        <select class="contact-input">
-          <option value="">選択してください</option>
-          <option>AZRAS 商用ライセンスのご相談（国内）</option>
-          <option>AZRAS 海外展開・国際ライセンスのご相談</option>
-          <option>建築設計監理のご依頼</option>
-          <option>その他</option>
-        </select>
-      </div>
-      <div class="contact-row">
-        <label class="contact-label">お問い合わせ内容</label>
-        <textarea class="contact-input" placeholder="具体的なご相談内容をご記入ください"></textarea>
-      </div>
-      <button class="contact-submit">送信する</button>
-      <p class="contact-note">内容確認後、2営業日以内にご連絡いたします。<br>個別の技術的質問・資料請求への対応は承っておりません。</p>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-left">
-      <div class="footer-logo-row">
-        <span class="footer-ace">A<span>C</span>E</span>
-        <span style="font-size:13px;color:rgba(255,255,255,0.5);">General Consulting Co., Ltd.</span>
-      </div>
-      <div class="footer-name">株式会社ACE総合コンサル<br>代表：赤津 牧人　ace.consul.ma@gmail.com</div>
-    </div>
-    <div class="footer-right">
-      <div class="footer-copy">
-        © 2026 ACE General Consulting Co., Ltd.<br>
-        株式会社ACE総合コンサル All Rights Reserved.<br>
-        All IP rights vested in Makito Akatsu / ACE General Consulting Co., Ltd.
-      </div>
-    </div>
-  </div>
-</footer>
-
+  <footer>
+    <span>© ACE Total Consulting Co., Ltd.</span>
+    <span>AZRAS — Open-Core Architecture · Adaptive Zero-Rebuild Asset System</span>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
