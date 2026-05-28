@@ -195,20 +195,23 @@ p{
     border:1px solid rgba(0,0,0,0.08);
     border-radius:16px;
     overflow:hidden;
+    transition:0.3s;
 }
 
-.card img{
-    width:100%;
-    display:block;
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
 }
 
 .card-content{
-    padding:24px;
+    padding:36px;
 }
 
 .card-title{
     font-size:28px;
-    margin-bottom:12px;
+    margin-bottom:18px;
+    color:#6c35ff;
+    line-height:1.2;
 }
 
 .footer{
@@ -274,31 +277,109 @@ ABOUT
 
 <div class="en-content hidden">
 
-<div class="label">ABOUT</div>
+<div class="label">ABOUT AZRAS</div>
 
-<h2>ACE Comprehensive Consulting</h2>
+<h2>
+Urban Sustainability<br>
+Beyond Rebuilding
+</h2>
 
 <p>
-ACE develops sustainable architecture,
-urban systems,
-and adaptive asset concepts.
+AZRAS stands for
+Adaptive Zero-Rebuild Asset System.
+
+It integrates long-life RC structures,
+urban asset continuity,
+adaptive infrastructure,
+and sustainable urban operation
+for the AI era.
+
+AZRAS proposes a transition from
+“cities that repeatedly rebuild”
+to
+“cities that evolve while being maintained.”
 </p>
 
 </div>
 
 <div class="jp-content">
 
-<div class="label">会社概要</div>
+<div class="label">AZRASとは</div>
 
-<h2>ACE総合コンサル</h2>
+<h2>
+建替え依存を超える<br>
+都市持続思想
+</h2>
 
 <p>
-ACE総合コンサルは、
-持続可能都市、
+AZRASは、
+Adaptive Zero-Rebuild Asset System
+の略称です。
+
+AI時代における都市維持、
 長寿命RC構造、
-資産継続思想を基盤とした
-都市運営システムを提案します。
+資産継続、
+持続可能インフラを統合し、
+
+「壊して建て直す都市」から、
+「維持しながら進化する都市」
+への転換を目指します。
 </p>
+
+</div>
+
+<!-- ABOUT CONCEPT CARDS -->
+
+<div class="cards">
+
+<div class="card">
+<div class="card-content">
+
+<div class="card-title">
+LONG-LIFE RC
+</div>
+
+<p>
+長寿命RC構造
+
+都市資産を長期に維持する
+構造思想。
+</p>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+
+<div class="card-title">
+URBAN ASSET CONTINUITY
+</div>
+
+<p>
+都市資産継続思想
+
+建替え依存を減らし、
+都市価値を維持する概念。
+</p>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+
+<div class="card-title">
+AI-ERA URBAN MANAGEMENT
+</div>
+
+<p>
+AI社会に適応する
+持続型都市システム。
+</p>
+
+</div>
+</div>
 
 </div>
 
@@ -309,23 +390,6 @@ VISION
 ====================================================== -->
 
 <section id="vision" class="dark">
-
-<div class="en-content hidden">
-
-<div class="label">VISION</div>
-
-<h2>
-Urban Management Philosophy
-for the AI Era
-</h2>
-
-<p>
-Future cities require adaptive systems,
-sustainability,
-and resilient infrastructure.
-</p>
-
-</div>
 
 <div class="jp-content">
 
@@ -345,6 +409,23 @@ AI時代には、
 
 </div>
 
+<div class="en-content hidden">
+
+<div class="label">VISION</div>
+
+<h2>
+Urban Management Philosophy
+for the AI Era
+</h2>
+
+<p>
+Future cities require adaptive systems,
+sustainability,
+and resilient infrastructure.
+</p>
+
+</div>
+
 </section>
 
 <!-- ======================================================
@@ -352,21 +433,6 @@ AZRAS
 ====================================================== -->
 
 <section id="azras" class="light">
-
-<div class="en-content hidden">
-
-<div class="label">AZRAS</div>
-
-<h2>
-Adaptive Zero-Rebuild Asset System
-</h2>
-
-<p>
-AZRAS integrates adaptive urban systems
-with long-life structural concepts.
-</p>
-
-</div>
 
 <div class="jp-content">
 
@@ -382,6 +448,21 @@ AZRASは、
 建替え依存を減らし、
 長期資産維持を可能とする
 都市思想システムです。
+</p>
+
+</div>
+
+<div class="en-content hidden">
+
+<div class="label">AZRAS</div>
+
+<h2>
+Adaptive Zero-Rebuild Asset System
+</h2>
+
+<p>
+AZRAS integrates adaptive urban systems
+with long-life structural concepts.
 </p>
 
 </div>
@@ -497,10 +578,6 @@ info@ace-consul.jp
 </div>
 
 </section>
-
-<!-- ======================================================
-SCRIPT
-====================================================== -->
 
 <script>
 
