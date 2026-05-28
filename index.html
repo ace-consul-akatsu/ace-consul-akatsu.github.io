@@ -33,10 +33,6 @@ a{
     display:none;
 }
 
-/* ======================================================
-TOP IMAGE
-====================================================== */
-
 .first-view{
     position:relative;
     width:100%;
@@ -47,10 +43,6 @@ TOP IMAGE
     width:100%;
     display:block;
 }
-
-/* ======================================================
-HOTSPOT
-====================================================== */
 
 .hotspot{
     position:absolute;
@@ -63,10 +55,6 @@ HOTSPOT
     background:rgba(120,80,255,0.18);
 }
 
-/* ======================================================
-HEADER MENU
-====================================================== */
-
 .hs-about{ top:2.1%; left:44.2%; width:5.3%; height:4.4%; }
 .hs-vision{ top:2.1%; left:50.0%; width:4.8%; height:4.4%; }
 .hs-azras{ top:2.1%; left:55.2%; width:5.6%; height:4.4%; }
@@ -74,16 +62,8 @@ HEADER MENU
 .hs-documents{ top:2.1%; left:68.9%; width:10.3%; height:4.4%; }
 .hs-contact{ top:2.1%; left:80.0%; width:8.0%; height:4.4%; }
 
-/* ======================================================
-JP EN BUTTON
-====================================================== */
-
 .hs-jp{ top:1.4%; left:88.7%; width:4.3%; height:5.8%; }
 .hs-en{ top:1.4%; left:93.4%; width:4.3%; height:5.8%; }
-
-/* ======================================================
-EXPLORE BUTTON
-====================================================== */
 
 .hs-explore{
     top:56.0%;
@@ -91,10 +71,6 @@ EXPLORE BUTTON
     width:16.5%;
     height:7.5%;
 }
-
-/* ======================================================
-SECTION
-====================================================== */
 
 section{
     padding:110px 8vw;
@@ -140,10 +116,6 @@ p{
     color:rgba(255,255,255,0.82);
 }
 
-/* ======================================================
-CARDS
-====================================================== */
-
 .cards{
     margin-top:70px;
     display:grid;
@@ -182,19 +154,20 @@ CARDS
     color:#444;
 }
 
-/* ======================================================
-FOOTER
-====================================================== */
+.dark .card{
+    background:#151515;
+    border:1px solid rgba(255,255,255,0.12);
+}
+
+.dark .card p{
+    color:rgba(255,255,255,0.76);
+}
 
 .footer{
     background:#050506;
     color:#fff;
     padding:80px 8vw;
 }
-
-/* ======================================================
-RESPONSIVE
-====================================================== */
 
 @media(max-width:900px){
 
@@ -217,10 +190,6 @@ RESPONSIVE
 
 <body>
 
-<!-- ======================================================
-TOP IMAGE
-====================================================== -->
-
 <div class="first-view">
 
 <img
@@ -229,8 +198,6 @@ src="images/azras-top-page_en.jpg"
 alt="AZRAS"
 />
 
-<!-- HEADER -->
-
 <a class="hotspot hs-about" href="#about"></a>
 <a class="hotspot hs-vision" href="#vision"></a>
 <a class="hotspot hs-azras" href="#azras"></a>
@@ -238,20 +205,12 @@ alt="AZRAS"
 <a class="hotspot hs-documents" href="#documents"></a>
 <a class="hotspot hs-contact" href="#contact"></a>
 
-<!-- JP EN -->
-
 <a class="hotspot hs-jp" onclick="switchLanguage('jp')"></a>
 <a class="hotspot hs-en" onclick="switchLanguage('en')"></a>
-
-<!-- EXPLORE -->
 
 <a class="hotspot hs-explore" href="#azras"></a>
 
 </div>
-
-<!-- ======================================================
-ABOUT
-====================================================== -->
 
 <section id="about" class="light">
 
@@ -365,10 +324,6 @@ AI社会と未来インフラに適応する、持続型都市システム。
 
 </section>
 
-<!-- ======================================================
-VISION
-====================================================== -->
-
 <section id="vision" class="dark">
 
 <div class="en-content">
@@ -431,114 +386,490 @@ AZRASは、
 <div class="cards">
 
 <div class="card">
-
 <div class="card-content">
 
 <div class="en-content">
-
-<div class="card-title">
-AI ERA
-</div>
-
+<div class="card-title">AI ERA</div>
 <p>
-Urban pressure created
-by AI evolution,
-automation,
-and computational infrastructure.
+Urban pressure created by AI evolution,
+automation, and computational infrastructure.
 </p>
-
 </div>
 
 <div class="jp-content hidden">
-
-<div class="card-title">
-AI ERA
-</div>
-
+<div class="card-title">AI ERA</div>
 <p>
-AI進化、
-自動化、
-計算インフラ拡大によって
+AI進化、自動化、計算インフラ拡大によって
 増大する都市負荷。
 </p>
-
 </div>
 
 </div>
-
 </div>
 
 <div class="card">
-
 <div class="card-content">
 
 <div class="en-content">
-
-<div class="card-title">
-ENERGY
-</div>
-
+<div class="card-title">ENERGY</div>
 <p>
-Energy sustainability
-and future urban resilience
+Energy sustainability and future urban resilience
 in the age of massive power demand.
 </p>
-
 </div>
 
 <div class="jp-content hidden">
-
-<div class="card-title">
-ENERGY
-</div>
-
+<div class="card-title">ENERGY</div>
 <p>
 莫大な電力需要時代における
-エネルギー持続性と
-都市レジリエンス。
+エネルギー持続性と都市レジリエンス。
 </p>
-
 </div>
 
 </div>
-
 </div>
 
 <div class="card">
-
 <div class="card-content">
 
 <div class="en-content">
-
-<div class="card-title">
-INFRASTRUCTURE
+<div class="card-title">INFRASTRUCTURE</div>
+<p>
+Long-life infrastructure and adaptive urban assets
+for future generations.
+</p>
 </div>
 
+<div class="jp-content hidden">
+<div class="card-title">INFRASTRUCTURE</div>
 <p>
-Long-life infrastructure
-and adaptive urban assets
-for future generations.
+未来世代へ継承する
+長寿命インフラと適応型都市資産。
+</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="azras" class="light">
+
+<div class="en-content">
+
+<div class="label">AZRAS</div>
+
+<h2>
+Adaptive Zero-Rebuild<br>
+Asset System
+</h2>
+
+<p>
+AZRAS integrates architecture,
+urban infrastructure,
+asset continuity,
+and adaptive management systems
+into a unified urban sustainability platform.
+
+It proposes a new urban model
+where buildings,
+infrastructure,
+and city assets
+continue evolving without repetitive destruction and rebuilding.
 </p>
 
 </div>
 
 <div class="jp-content hidden">
 
-<div class="card-title">
-INFRASTRUCTURE
-</div>
+<div class="label">AZRAS</div>
+
+<h2>
+適応型ゼロ建替え<br>
+資産システム
+</h2>
 
 <p>
-未来世代へ継承する
-長寿命インフラと
-適応型都市資産。
+AZRASは、
+建築、
+都市インフラ、
+資産継続、
+適応型運営システムを統合した
+都市持続化プラットフォームです。
+
+建築、
+インフラ、
+都市資産を、
+繰り返し壊して更新するのではなく、
+
+維持しながら進化させる
+新しい都市モデルを提案します。
 </p>
 
 </div>
 
+<div class="cards">
+
+<div class="card">
+<div class="card-content">
+
+<div class="en-content">
+<div class="card-title">STRUCTURAL SYSTEM</div>
+<p>
+Long-life RC structures,
+seismic resilience,
+and adaptive architectural systems.
+</p>
+</div>
+
+<div class="jp-content hidden">
+<div class="card-title">STRUCTURAL SYSTEM</div>
+<p>
+長寿命RC構造、
+耐震性能、
+可変型建築システム。
+</p>
 </div>
 
 </div>
+</div>
+
+<div class="card">
+<div class="card-content">
+
+<div class="en-content">
+<div class="card-title">URBAN PLATFORM</div>
+<p>
+Urban asset management,
+long-term operation,
+and sustainable infrastructure.
+</p>
+</div>
+
+<div class="jp-content hidden">
+<div class="card-title">URBAN PLATFORM</div>
+<p>
+都市資産管理、
+長期運営、
+持続型都市インフラ。
+</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+
+<div class="en-content">
+<div class="card-title">ADAPTIVE MANAGEMENT</div>
+<p>
+Adaptive urban management systems
+designed for the AI era.
+</p>
+</div>
+
+<div class="jp-content hidden">
+<div class="card-title">ADAPTIVE MANAGEMENT</div>
+<p>
+AI時代に対応する
+適応型都市運営システム。
+</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects" class="gray">
+
+<div class="en-content">
+
+<div class="label">PROJECTS</div>
+
+<h2>
+Urban Sustainability<br>
+Project Archive
+</h2>
+
+<p>
+AZRAS project archives include
+architecture,
+long-life RC systems,
+urban sustainability concepts,
+adaptive infrastructure,
+and structural development studies.
+
+These projects explore
+future urban continuity
+through real architectural implementation.
+</p>
+
+</div>
+
+<div class="jp-content hidden">
+
+<div class="label">PROJECTS</div>
+
+<h2>
+都市持続化<br>
+プロジェクトアーカイブ
+</h2>
+
+<p>
+AZRASプロジェクトアーカイブでは、
+
+建築、
+長寿命RC構造、
+都市持続思想、
+適応型インフラ、
+構造開発研究など、
+
+実際の建築実装を通じた
+未来都市継続モデルを提示します。
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-content">
+
+<div class="en-content">
+<div class="card-title">RC UPRIGHT SYSTEM</div>
+<p>
+Long-life RC structural systems,
+adaptive residential concepts,
+and seismic sustainability studies.
+</p>
+</div>
+
+<div class="jp-content hidden">
+<div class="card-title">RC UPRIGHT SYSTEM</div>
+<p>
+長寿命RC構造、
+適応型住宅、
+耐震持続化研究。
+</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+
+<div class="en-content">
+<div class="card-title">ARCHITECTURE</div>
+<p>
+Architectural implementation,
+completed buildings,
+and urban design archives.
+</p>
+</div>
+
+<div class="jp-content hidden">
+<div class="card-title">ARCHITECTURE</div>
+<p>
+建築実装、
+完成建築、
+都市設計アーカイブ。
+</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+
+<div class="en-content">
+<div class="card-title">URBAN FUTURE MODEL</div>
+<p>
+Future-oriented urban continuity
+and adaptive infrastructure models.
+</p>
+</div>
+
+<div class="jp-content hidden">
+<div class="card-title">URBAN FUTURE MODEL</div>
+<p>
+未来都市継続モデルと
+適応型インフラ思想。
+</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="documents" class="dark">
+
+<div class="en-content">
+
+<div class="label">DOCUMENTS</div>
+
+<h2>
+Urban Sustainability<br>
+Research Archive
+</h2>
+
+<p>
+AZRAS documents include
+technical reports,
+research papers,
+structural systems,
+urban theories,
+and sustainability archives.
+
+This section functions as
+a long-term knowledge archive
+for future urban management systems.
+</p>
+
+</div>
+
+<div class="jp-content hidden">
+
+<div class="label">DOCUMENTS</div>
+
+<h2>
+都市持続化<br>
+研究アーカイブ
+</h2>
+
+<p>
+AZRASドキュメントでは、
+
+技術資料、
+研究論文、
+構造システム、
+都市思想、
+持続化研究など、
+
+未来都市運営に向けた
+知識アーカイブを構築します。
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-content">
+
+<div class="en-content">
+<div class="card-title">STRUCTURAL REPORTS</div>
+<p>
+Structural calculations,
+RC systems,
+and seismic engineering archives.
+</p>
+</div>
+
+<div class="jp-content hidden">
+<div class="card-title">STRUCTURAL REPORTS</div>
+<p>
+構造計算、
+RCシステム、
+耐震技術アーカイブ。
+</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+
+<div class="en-content">
+<div class="card-title">URBAN THEORY</div>
+<p>
+Urban sustainability concepts,
+asset continuity,
+and future city philosophy.
+</p>
+</div>
+
+<div class="jp-content hidden">
+<div class="card-title">URBAN THEORY</div>
+<p>
+都市持続思想、
+資産継続論、
+未来都市哲学。
+</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+
+<div class="en-content">
+<div class="card-title">MEDIA ARCHIVE</div>
+<p>
+Presentation materials,
+videos,
+project images,
+and PDF archives.
+</p>
+</div>
+
+<div class="jp-content hidden">
+<div class="card-title">MEDIA ARCHIVE</div>
+<p>
+プレゼン資料、
+動画、
+完成写真、
+PDFアーカイブ。
+</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="light">
+
+<div class="en-content">
+
+<div class="label">CONTACT</div>
+
+<h2>
+ACE Comprehensive<br>
+Consulting
+</h2>
+
+<p>
+Japan / Urban Sustainability Concept / AZRAS
+</p>
+
+</div>
+
+<div class="jp-content hidden">
+
+<div class="label">CONTACT</div>
+
+<h2>
+ACE総合コンサル
+</h2>
+
+<p>
+日本 / 都市持続化構想 / AZRAS
+</p>
 
 </div>
 
