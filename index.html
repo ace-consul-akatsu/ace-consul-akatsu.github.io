@@ -20,7 +20,7 @@ html{
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#ffffff;
+    background:#f5f5f5;
     color:#111;
 }
 
@@ -145,11 +145,11 @@ SECTION
 ====================================================== */
 
 section{
-    padding:100px 8vw;
+    padding:110px 8vw;
 }
 
 .light{
-    background:#fff;
+    background:#f5f5f5;
     color:#111;
 }
 
@@ -159,66 +159,86 @@ section{
 }
 
 .gray{
-    background:#f3f3f3;
+    background:#ededed;
 }
 
 .label{
     color:#6c35ff;
-    font-size:12px;
-    letter-spacing:0.2em;
-    margin-bottom:20px;
+    font-size:13px;
+    letter-spacing:0.25em;
+    margin-bottom:24px;
     font-weight:bold;
 }
 
 h1,h2{
-    font-size:clamp(40px,5vw,76px);
-    line-height:1.1;
-    margin-bottom:28px;
+    font-size:clamp(48px,6vw,96px);
+    line-height:1.05;
+    margin-bottom:40px;
+    font-weight:700;
 }
 
 p{
-    max-width:780px;
+    max-width:980px;
     line-height:1.9;
-    font-size:17px;
-    opacity:0.85;
+    font-size:20px;
+    color:#444;
 }
 
+/* ======================================================
+CARDS
+====================================================== */
+
 .cards{
-    margin-top:50px;
+    margin-top:70px;
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:24px;
+    gap:30px;
 }
 
 .card{
-    background:#fff;
+    background:#f7f7f7;
     border:1px solid rgba(0,0,0,0.08);
-    border-radius:16px;
+    border-radius:22px;
     overflow:hidden;
-    transition:0.3s;
+    transition:0.35s;
 }
 
 .card:hover{
     transform:translateY(-6px);
-    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+    box-shadow:0 18px 40px rgba(0,0,0,0.10);
 }
 
 .card-content{
-    padding:36px;
+    padding:42px;
 }
 
 .card-title{
     font-size:28px;
-    margin-bottom:18px;
+    line-height:1.25;
+    margin-bottom:28px;
     color:#6c35ff;
-    line-height:1.2;
+    font-weight:500;
 }
+
+.card p{
+    font-size:18px;
+    line-height:1.9;
+    color:#444;
+}
+
+/* ======================================================
+FOOTER
+====================================================== */
 
 .footer{
     background:#050506;
     color:#fff;
     padding:80px 8vw;
 }
+
+/* ======================================================
+RESPONSIVE
+====================================================== */
 
 @media(max-width:900px){
 
@@ -228,6 +248,10 @@ p{
 
     .cards{
         grid-template-columns:1fr;
+    }
+
+    h1,h2{
+        font-size:56px;
     }
 
 }
@@ -245,7 +269,7 @@ TOP IMAGE
 
 <img
 class="top-visual"
-src="images/azras-top-page_jp.png"
+src="images/azras-top-page_en.jpg"
 alt="AZRAS"
 />
 
@@ -275,7 +299,7 @@ ABOUT
 
 <section id="about" class="light">
 
-<div class="en-content hidden">
+<div class="en-content">
 
 <div class="label">ABOUT AZRAS</div>
 
@@ -302,7 +326,7 @@ to
 
 </div>
 
-<div class="jp-content">
+<div class="jp-content hidden">
 
 <div class="label">AZRASとは</div>
 
@@ -328,11 +352,14 @@ AI時代における都市維持、
 
 </div>
 
-<!-- ABOUT CONCEPT CARDS -->
+<!-- ======================================================
+ABOUT CONCEPT CARDS
+====================================================== -->
 
 <div class="cards">
 
 <div class="card">
+
 <div class="card-content">
 
 <div class="card-title">
@@ -340,16 +367,19 @@ LONG-LIFE RC
 </div>
 
 <p>
-長寿命RC構造
+Long-life RC structures.
 
-都市資産を長期に維持する
-構造思想。
+A structural philosophy
+for maintaining urban assets
+over generations.
 </p>
 
 </div>
+
 </div>
 
 <div class="card">
+
 <div class="card-content">
 
 <div class="card-title">
@@ -357,16 +387,17 @@ URBAN ASSET CONTINUITY
 </div>
 
 <p>
-都市資産継続思想
-
-建替え依存を減らし、
-都市価値を維持する概念。
+An urban asset continuity concept
+that reduces dependence on rebuilding
+while preserving urban value.
 </p>
 
 </div>
+
 </div>
 
 <div class="card">
+
 <div class="card-content">
 
 <div class="card-title">
@@ -374,11 +405,13 @@ AI-ERA URBAN MANAGEMENT
 </div>
 
 <p>
-AI社会に適応する
-持続型都市システム。
+A sustainable urban system
+adapted for the AI era
+and future infrastructure society.
 </p>
 
 </div>
+
 </div>
 
 </div>
@@ -391,7 +424,7 @@ VISION
 
 <section id="vision" class="dark">
 
-<div class="jp-content">
+<div class="jp-content hidden">
 
 <div class="label">思想</div>
 
@@ -409,7 +442,7 @@ AI時代には、
 
 </div>
 
-<div class="en-content hidden">
+<div class="en-content">
 
 <div class="label">VISION</div>
 
@@ -434,7 +467,7 @@ AZRAS
 
 <section id="azras" class="light">
 
-<div class="jp-content">
+<div class="jp-content hidden">
 
 <div class="label">AZRAS</div>
 
@@ -452,7 +485,7 @@ AZRASは、
 
 </div>
 
-<div class="en-content hidden">
+<div class="en-content">
 
 <div class="label">AZRAS</div>
 
@@ -475,7 +508,7 @@ PROJECTS
 
 <section id="projects" class="gray">
 
-<div class="jp-content">
+<div class="jp-content hidden">
 
 <div class="label">プロジェクト</div>
 
@@ -490,7 +523,7 @@ RC構造、
 
 </div>
 
-<div class="en-content hidden">
+<div class="en-content">
 
 <div class="label">PROJECTS</div>
 
@@ -513,7 +546,7 @@ DOCUMENTS
 
 <section id="documents" class="dark">
 
-<div class="jp-content">
+<div class="jp-content hidden">
 
 <div class="label">資料・アーカイブ</div>
 
@@ -528,7 +561,7 @@ DOCUMENTS
 
 </div>
 
-<div class="en-content hidden">
+<div class="en-content">
 
 <div class="label">DOCUMENTS</div>
 
@@ -551,7 +584,7 @@ CONTACT
 
 <section id="contact" class="light">
 
-<div class="jp-content">
+<div class="jp-content hidden">
 
 <div class="label">お問い合わせ</div>
 
@@ -564,7 +597,7 @@ info@ace-consul.jp
 
 </div>
 
-<div class="en-content hidden">
+<div class="en-content">
 
 <div class="label">CONTACT</div>
 
@@ -578,6 +611,10 @@ info@ace-consul.jp
 </div>
 
 </section>
+
+<!-- ======================================================
+SCRIPT
+====================================================== -->
 
 <script>
 
