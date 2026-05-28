@@ -1,158 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ACE Comprehensive Consulting | AZRAS</title>
-  <meta name="description" content="ACE Comprehensive Consulting introduces AZRAS: Open-Core Architecture and Adaptive Zero-Rebuild Asset System." />
-  <meta property="og:title" content="ACE Comprehensive Consulting | AZRAS" />
-  <meta property="og:description" content="Designing the Future through architecture, construction, estate and energy consulting." />
-  <meta property="og:image" content="assets/hero-en-clean.png" />
-  <link rel="preload" as="image" href="assets/hero-en-clean.png" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="ACE Comprehensive Consulting home">
-      <img src="assets/ace-logo.jpg" alt="ACE logo" />
-      <span>ACE Comprehensive Consulting</span>
-    </a>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACE × AZRAS | Urban Management Philosophy for the AI Era</title>
+  <meta name="description" content="AZRAS is an Adaptive Zero-Rebuild Asset System for sustainable urban infrastructure in the AI era." />
 
-    <button class="menu-button" type="button" aria-label="Open menu" aria-controls="main-nav" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <nav class="nav" id="main-nav" aria-label="Main navigation">
-      <a href="#about" data-en="About" data-ja="会社概要">About</a>
-      <a href="#vision" data-en="Vision" data-ja="ビジョン">Vision</a>
-      <a href="#azras" data-en="AZRAS" data-ja="AZRAS">AZRAS</a>
-      <a href="#projects" data-en="Projects" data-ja="実績・構想">Projects</a>
-      <a href="#documents" data-en="Documents" data-ja="資料">Documents</a>
-      <a href="#contact" data-en="Contact" data-ja="お問い合わせ">Contact</a>
-    </nav>
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <div class="lang-switch" aria-label="Language switch">
-      <button class="active" data-lang="en" type="button">EN</button>
-      <button data-lang="ja" type="button">JP</button>
-    </div>
-  </header>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #111;
+    }
 
-  <main>
-    <section class="hero" aria-label="First view">
-      <img id="hero-image" src="assets/hero-en-clean.png" alt="ACE Comprehensive Consulting first view" />
-      <div class="hero-copy">
-        <p class="eyebrow">ACE × AZRAS</p>
-        <h1 data-en="Designing the Future." data-ja="未来を、設計する。">Designing the Future.</h1>
-        <p data-en="We maximize sustainable society and asset value through the power of technology and design." data-ja="持続可能な社会と資産価値の最大化を、テクノロジーとデザインの力で実現します。">We maximize sustainable society and asset value through the power of technology and design.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#documents" data-en="View Documents" data-ja="資料を見る">View Documents</a>
-          <a class="button ghost" href="#azras" data-en="Explore AZRAS" data-ja="AZRASを見る">Explore AZRAS</a>
-        </div>
-      </div>
-    </section>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    <section class="section intro" id="about">
-      <div>
-        <p class="eyebrow" data-en="About ACE" data-ja="ACEについて">About ACE</p>
-        <h2 data-en="Architecture, construction, real estate and energy — integrated as one strategy." data-ja="建築・建設・不動産・エネルギーを、ひとつの戦略として統合する。">Architecture, construction, real estate and energy — integrated as one strategy.</h2>
-      </div>
-      <div class="lead-box">
-        <p data-en="ACE Comprehensive Consulting provides architectural design supervision, construction, real estate consulting and energy consulting from a long-term asset-value perspective." data-ja="ACE総合コンサルは、建築設計監理・建設・不動産コンサルティング・エネルギーコンサルティングを、長期的な資産価値の視点から統合的に提案します。">ACE Comprehensive Consulting provides architectural design supervision, construction, real estate consulting and energy consulting from a long-term asset-value perspective.</p>
-        <dl>
-          <div><dt data-en="Company" data-ja="会社名">Company</dt><dd data-en="ACE Comprehensive Consulting Co., Ltd." data-ja="株式会社 ACE総合コンサル">ACE Comprehensive Consulting Co., Ltd.</dd></div>
-          <div><dt data-en="Location" data-ja="所在地">Location</dt><dd data-en="Kasugai City, Aichi, Japan" data-ja="日本国 愛知県春日井市">Kasugai City, Aichi, Japan</dd></div>
-          <div><dt data-en="Email" data-ja="メール">Email</dt><dd><a href="mailto:ace.consul.ma@gmail.com">ace.consul.ma@gmail.com</a></dd></div>
-        </dl>
-      </div>
-    </section>
+    /* =========================================================
+       FIRST VIEW: fixed visual mockup with transparent links
+       ========================================================= */
+    .first-view {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      background: #fff;
+    }
 
-    <section class="section statement" id="vision">
-      <p class="eyebrow" data-en="Vision" data-ja="ビジョン">Vision</p>
-      <h2 data-en="Pioneering architecture for the era of AGI and Quantum Computing." data-ja="AI・量子コンピューター時代を生きる、未来の建築思想をカタチに。">Pioneering architecture for the era of AGI and Quantum Computing.</h2>
-      <p data-en="We propose and implement next-generation architectural philosophies to maximize long-term asset value and sustainable societies in the rapidly evolving age of advanced AI and quantum technology." data-ja="人工知能や量子技術がもたらす激変の時代において、次世代の建築思想を提案・実装し、持続可能な社会と色褪せない資産価値の最大化を追求します。">We propose and implement next-generation architectural philosophies to maximize long-term asset value and sustainable societies in the rapidly evolving age of advanced AI and quantum technology.</p>
-    </section>
+    .top-visual {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-    <section class="section" id="azras">
-      <div class="section-title">
-        <p class="eyebrow">AZRAS</p>
-        <h2 data-en="Open-Core Architecture · Adaptive Zero-Rebuild Asset System" data-ja="オープンコア・アーキテクチャ · 可変型ゼロ・リビルド資産システム">Open-Core Architecture · Adaptive Zero-Rebuild Asset System</h2>
-      </div>
-      <div class="cards">
-        <article>
-          <span class="card-number">01</span>
-          <h3 data-en="Permanent RC Core" data-ja="半永久的なRCコア">Permanent RC Core</h3>
-          <p data-en="The robust RC structure and core utility paths function as a long-life urban asset." data-ja="強靭なRC構造体と基幹配管経路を、長寿命の都市資産として活用します。">The robust RC structure and core utility paths function as a long-life urban asset.</p>
-        </article>
-        <article>
-          <span class="card-number">02</span>
-          <h3 data-en="Replaceable Modules" data-ja="交換可能なモジュール">Replaceable Modules</h3>
-          <p data-en="Interior spaces and facades can be inserted, removed or reconfigured without altering the main structure." data-ja="内部空間や外壁を、構造体を傷つけることなく挿入・撤去・再構成できます。">Interior spaces and facades can be inserted, removed or reconfigured without altering the main structure.</p>
-        </article>
-        <article>
-          <span class="card-number">03</span>
-          <h3 data-en="Zero-Rebuild Future" data-ja="ゼロ・リビルドの未来">Zero-Rebuild Future</h3>
-          <p data-en="A building can evolve from housing to commercial use and mixed-use facilities across its lifecycle." data-ja="住宅から商業施設、複合型施設へと、建物のライフサイクルに合わせて進化できます。">A building can evolve from housing to commercial use and mixed-use facilities across its lifecycle.</p>
-        </article>
-      </div>
-    </section>
+    .hotspot {
+      position: absolute;
+      z-index: 10;
+      display: block;
+      background: rgba(90, 61, 255, 0);
+      border-radius: 8px;
+    }
 
-    <section class="section projects" id="projects">
-      <div class="section-title">
-        <p class="eyebrow" data-en="Projects & Concepts" data-ja="実績・構想">Projects & Concepts</p>
-        <h2 data-en="From residential life to adaptive mixed-use futures." data-ja="住宅から、用途が変化する未来の建築へ。">From residential life to adaptive mixed-use futures.</h2>
-      </div>
-      <div class="gallery">
-        <figure><img src="assets/project-house.jpg" alt="South-facing home with wood deck"><figcaption data-en="South-facing home with wood deck" data-ja="南側にウッドデッキのある住宅">South-facing home with wood deck</figcaption></figure>
-        <figure><img src="assets/project-terrace-1.jpg" alt="Terrace house concept"><figcaption data-en="Terrace house concept" data-ja="テラスハウス構想">Terrace house concept</figcaption></figure>
-        <figure><img src="assets/project-terrace-2.jpg" alt="Advanced terrace house concept"><figcaption data-en="Advanced adaptable housing" data-ja="可変型先進住宅">Advanced adaptable housing</figcaption></figure>
-      </div>
-    </section>
+    .hotspot:hover {
+      background: rgba(90, 61, 255, 0.08);
+      outline: 1px solid rgba(90, 61, 255, 0.25);
+    }
 
-    <section class="section documents" id="documents">
-      <div class="section-title">
-        <p class="eyebrow" data-en="Documents" data-ja="資料">Documents</p>
-        <h2 data-en="Download official PDFs" data-ja="公式PDF資料ダウンロード">Download official PDFs</h2>
-        <p data-en="English documents are prioritized for global readers. Japanese versions are also available." data-ja="海外向けに英語版を先に配置し、日本語版も併せて掲載しています。">English documents are prioritized for global readers. Japanese versions are also available.</p>
-      </div>
-      <div class="doc-grid">
-        <a class="doc-card featured" href="docs/azras-system_en.pdf" target="_blank" rel="noopener">
-          <span>EN</span>
-          <h3>AZRAS Architectural System</h3>
-          <p>Open-Core Architecture & Adaptive Zero-Rebuild Asset System</p>
-        </a>
-        <a class="doc-card" href="docs/company-profile_en.pdf" target="_blank" rel="noopener">
-          <span>EN</span>
-          <h3>Company Profile</h3>
-          <p>ACE Comprehensive Consulting corporate overview and founder background.</p>
-        </a>
-        <a class="doc-card" href="docs/azras-system_jp.pdf" target="_blank" rel="noopener">
-          <span>JP</span>
-          <h3>AZRAS Architectural System</h3>
-          <p>AZRAS建築システム 日本語版</p>
-        </a>
-        <a class="doc-card" href="docs/company-profile_jp.pdf" target="_blank" rel="noopener">
-          <span>JP</span>
-          <h3>Company Profile</h3>
-          <p>ACE総合コンサル 会社概要 日本語版</p>
-        </a>
-      </div>
-    </section>
+    /* Header navigation hotspots */
+    .hs-about     { top: 2.2%; left: 54.5%; width: 5.0%; height: 4.2%; }
+    .hs-vision    { top: 2.2%; left: 60.5%; width: 5.0%; height: 4.2%; }
+    .hs-azras     { top: 2.2%; left: 66.4%; width: 5.0%; height: 4.2%; }
+    .hs-projects  { top: 2.2%; left: 72.4%; width: 6.0%; height: 4.2%; }
+    .hs-documents { top: 2.2%; left: 79.6%; width: 7.0%; height: 4.2%; }
+    .hs-contact   { top: 2.2%; left: 87.4%; width: 6.0%; height: 4.2%; }
 
-    <section class="section contact" id="contact">
-      <div>
-        <p class="eyebrow" data-en="Contact" data-ja="お問い合わせ">Contact</p>
-        <h2 data-en="For commercial licensing proposals and large-scale project discussions." data-ja="商業ライセンス提案・大規模プロジェクトのご相談について。">For commercial licensing proposals and large-scale project discussions.</h2>
-        <p data-en="2-18-7 Matsukawado-cho, Kasugai City, Aichi 486-0932 Japan" data-ja="〒486-0932 日本国愛知県春日井市松河戸町2丁目18-7">2-18-7 Matsukawado-cho, Kasugai City, Aichi 486-0932 Japan</p>
-      </div>
-      <a class="button primary" href="mailto:ace.consul.ma@gmail.com">ace.consul.ma@gmail.com</a>
-    </section>
-  </main>
+    /* Hero buttons */
+    .hs-explore   { top: 52.2%; left: 5.0%; width: 12.8%; height: 6.6%; }
 
-  <footer>
-    <span>© ACE Comprehensive Consulting Co., Ltd.</span>
-    <span>AZRAS — Open-Core Architecture · Adaptive Zero-Rebuild Asset System</span>
-  </footer>
+    /* Service blocks */
+    .hs-architecture { top: 66.5%; left: 5.5%; width: 19.0%; height: 10.5%; }
+    .hs-construction { top: 66.5%; left: 28.5%; width: 19.0%; height: 10.5%; }
+    .hs-estate       { top: 66.5%; left: 51.5%; width: 19.0%; height: 10.5%; }
+    .hs-energy       { top: 66.5%; left: 74.5%; width: 19.0%; height: 10.5%; }
 
-  <script src="script.js"></script>
+    /* Project cards */
+    .hs-project-1 { top: 81.0%; left: 5.5%; width: 24.0%; height: 16.0%; }
+    .hs-project-2 { top: 81.0%; left: 31.0%; width: 27.0%; height: 16.0%; }
+    .hs-project-3 { top: 81.0%; left: 59.5%; width: 24.0%; height: 16.0%; }
+
+    /* =========================================================
+       LOWER CONTENT SECTIONS
+       ========================================================= */
+    section {
+      padding: 96px 8vw;
+    }
+
+    .section-dark {
+      background: #0b0b0d;
+      color: #fff;
+    }
+
+    .section-light {
+      background: #fff;
+      color: #111;
+    }
+
+    .section-gray {
+      background: #f1f2f4;
+      color: #111;
+    }
+</html>
+
+
 </body>
 </html>
