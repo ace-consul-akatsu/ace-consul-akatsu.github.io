@@ -6,10 +6,31 @@
   <title>ACE × AZRAS</title>
 
   <style>
-    *{ margin:0; padding:0; box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{ font-family:Arial, Helvetica, sans-serif; background:#fff; color:#111; }
-    a{ text-decoration:none; color:inherit; }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:#fff;
+      color:#111;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* =======================================================
+       TOP IMAGE
+    ======================================================= */
 
     .first-view{
       position:relative;
@@ -22,30 +43,103 @@
       display:block;
     }
 
+    /* =======================================================
+       HOTSPOTS
+    ======================================================= */
+
     .hotspot{
       position:absolute;
       z-index:10;
       display:block;
-      background:rgba(255,255,255,0);
+
+      /* 確認用 */
+      background:rgba(255,0,0,0.20);
+      border:2px solid red;
     }
 
     .hotspot:hover{
-      background:rgba(90,61,255,0.08);
+      background:rgba(90,61,255,0.20);
     }
 
-    .hs-about{ top:2.45%; left:50.25%; width:5.35%; height:3.85%; }
-    .hs-vision{ top:2.45%; left:55.75%; width:5.30%; height:3.85%; }
-    .hs-azras{ top:2.45%; left:61.15%; width:5.35%; height:3.85%; }
-    .hs-projects{ top:2.45%; left:66.75%; width:6.55%; height:3.85%; }
-    .hs-documents{ top:2.45%; left:73.55%; width:7.50%; height:3.85%; }
-    .hs-contact{ top:2.45%; left:81.45%; width:6.35%; height:3.85%; }
+    /* =======================================================
+       HEADER MENU
+    ======================================================= */
 
-    .hs-explore{ top:72.70%; left:4.95%; width:12.55%; height:7.10%; }
+    .hs-about{
+      top:2.52%;
+      left:50.55%;
+      width:4.55%;
+      height:3.45%;
+    }
 
-    section{ padding:100px 8vw; }
-    .dark{ background:#0b0b0d; color:#fff; }
-    .light{ background:#fff; color:#111; }
-    .gray{ background:#f2f2f2; color:#111; }
+    .hs-vision{
+      top:2.52%;
+      left:55.15%;
+      width:4.55%;
+      height:3.45%;
+    }
+
+    .hs-azras{
+      top:2.52%;
+      left:59.75%;
+      width:4.95%;
+      height:3.45%;
+    }
+
+    .hs-projects{
+      top:2.52%;
+      left:64.85%;
+      width:6.10%;
+      height:3.45%;
+    }
+
+    .hs-documents{
+      top:2.52%;
+      left:71.15%;
+      width:7.40%;
+      height:3.45%;
+    }
+
+    .hs-contact{
+      top:2.52%;
+      left:78.95%;
+      width:5.90%;
+      height:3.45%;
+    }
+
+    /* =======================================================
+       EXPLORE BUTTON
+    ======================================================= */
+
+    .hs-explore{
+      top:71.75%;
+      left:4.65%;
+      width:11.85%;
+      height:6.15%;
+    }
+
+    /* =======================================================
+       SECTIONS
+    ======================================================= */
+
+    section{
+      padding:100px 8vw;
+    }
+
+    .dark{
+      background:#0b0b0d;
+      color:#fff;
+    }
+
+    .light{
+      background:#fff;
+      color:#111;
+    }
+
+    .gray{
+      background:#f2f2f2;
+      color:#111;
+    }
 
     .label{
       color:#5a3dff;
@@ -113,18 +207,43 @@
     }
 
     @media(max-width:900px){
-      .hotspot{ display:none; }
-      .cards{ grid-template-columns:1fr; }
-      .archive a{ grid-template-columns:1fr; }
-      section{ padding:70px 24px; }
+
+      .hotspot{
+        display:none;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .archive a{
+        grid-template-columns:1fr;
+      }
+
+      section{
+        padding:70px 24px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
+  <!-- =======================================================
+       TOP IMAGE
+  ======================================================= -->
+
   <div class="first-view">
-    <img class="top-visual" src="images/azras-top-page.jpg" alt="AZRAS TOP PAGE" />
+
+    <img
+      class="top-visual"
+      src="images/azras-top-page.jpg"
+      alt="AZRAS TOP PAGE"
+    />
+
+    <!-- HEADER -->
 
     <a class="hotspot hs-about" href="#about"></a>
     <a class="hotspot hs-vision" href="#vision"></a>
@@ -132,33 +251,59 @@
     <a class="hotspot hs-projects" href="#projects"></a>
     <a class="hotspot hs-documents" href="#documents"></a>
     <a class="hotspot hs-contact" href="#contact"></a>
+
+    <!-- EXPLORE -->
+
     <a class="hotspot hs-explore" href="#azras"></a>
+
   </div>
 
+  <!-- ABOUT -->
+
   <section id="about" class="light">
+
     <div class="label">ABOUT</div>
+
     <h1>ACE Comprehensive Consulting</h1>
+
     <p>
       ACE develops architectural, structural,
       and urban sustainability concepts based on
       long-life RC infrastructure and adaptive asset systems.
     </p>
+
   </section>
 
+  <!-- VISION -->
+
   <section id="vision" class="dark">
+
     <div class="label">VISION</div>
-    <h2>Urban Management Philosophy<br>for the AI Era</h2>
+
+    <h2>
+      Urban Management Philosophy<br>
+      for the AI Era
+    </h2>
+
     <p>
       The AI era will require resilient infrastructure,
       sustainable urban continuity,
       and long-term asset preservation.
       AZRAS proposes a new model for adaptive urban systems.
     </p>
+
   </section>
 
+  <!-- AZRAS -->
+
   <section id="azras" class="light">
+
     <div class="label">AZRAS</div>
-    <h2>Adaptive Zero-Rebuild Asset System</h2>
+
+    <h2>
+      Adaptive Zero-Rebuild Asset System
+    </h2>
+
     <p>
       AZRAS integrates long-life RC systems,
       adaptive infrastructure,
@@ -167,33 +312,63 @@
     </p>
 
     <div class="cards">
-      <div class="card"><h3>Adaptive</h3><p>Flexible urban systems.</p></div>
-      <div class="card"><h3>Zero-Rebuild</h3><p>Reducing rebuild dependency.</p></div>
-      <div class="card"><h3>Asset</h3><p>Preserving long-term value.</p></div>
-      <div class="card"><h3>System</h3><p>Integrating infrastructure and sustainability.</p></div>
+
+      <div class="card">
+        <h3>Adaptive</h3>
+        <p>Flexible urban systems.</p>
+      </div>
+
+      <div class="card">
+        <h3>Zero-Rebuild</h3>
+        <p>Reducing rebuild dependency.</p>
+      </div>
+
+      <div class="card">
+        <h3>Asset</h3>
+        <p>Preserving long-term value.</p>
+      </div>
+
+      <div class="card">
+        <h3>System</h3>
+        <p>Integrating infrastructure and sustainability.</p>
+      </div>
+
     </div>
+
   </section>
 
+  <!-- PROJECTS -->
+
   <section id="projects" class="gray">
+
     <div class="label">PROJECTS</div>
+
     <h2>Project Archive</h2>
+
     <p>
       Architectural drawings,
       RC structural systems,
       seismic diagnostics,
       and completed project photographs.
     </p>
+
   </section>
 
+  <!-- DOCUMENTS -->
+
   <section id="documents" class="dark">
+
     <div class="label">DOCUMENTS</div>
+
     <h2>Urban Sustainability Research Archive</h2>
+
     <p>
       Reports, technical archives,
       drawings, and urban sustainability studies.
     </p>
 
     <div class="archive">
+
       <a href="pdf/06_New Market Creation Report – June 2005.pdf" target="_blank">
         <div>2005</div>
         <div>New Market Creation Report</div>
@@ -205,13 +380,23 @@
         <div>Dynamic Seismic Diagnostics Report</div>
         <div>PDF</div>
       </a>
+
     </div>
+
   </section>
 
+  <!-- CONTACT -->
+
   <section id="contact" class="light">
+
     <div class="label">CONTACT</div>
+
     <h2>ACE Comprehensive Consulting</h2>
-    <p>Japan / Urban Sustainability Concept / AZRAS</p>
+
+    <p>
+      Japan / Urban Sustainability Concept / AZRAS
+    </p>
+
   </section>
 
   <footer>
