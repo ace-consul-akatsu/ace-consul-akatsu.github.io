@@ -28,6 +28,10 @@
       color:inherit;
     }
 
+    .hidden{
+      display:none;
+    }
+
     /* =======================================================
        TOP IMAGE
     ======================================================= */
@@ -105,6 +109,24 @@
       left:81.5%;
       width:5.5%;
       height:3.45%;
+    }
+
+    /* =======================================================
+       EN / JP BUTTONS
+    ======================================================= */
+
+    .hs-en{
+      top:2.10%;
+      left:88.6%;
+      width:2.7%;
+      height:4.9%;
+    }
+
+    .hs-jp{
+      top:2.10%;
+      left:92.0%;
+      width:2.7%;
+      height:4.9%;
     }
 
     /* =======================================================
@@ -252,6 +274,11 @@
     <a class="hotspot hs-documents" href="#documents"></a>
     <a class="hotspot hs-contact" href="#contact"></a>
 
+    <!-- EN / JP -->
+
+    <a class="hotspot hs-en" onclick="switchLanguage('en')"></a>
+    <a class="hotspot hs-jp" onclick="switchLanguage('jp')"></a>
+
     <!-- EXPLORE -->
 
     <a class="hotspot hs-explore" href="#azras"></a>
@@ -262,15 +289,33 @@
 
   <section id="about" class="light">
 
-    <div class="label">ABOUT</div>
+    <div class="en-content">
 
-    <h1>ACE Comprehensive Consulting</h1>
+      <div class="label">ABOUT</div>
 
-    <p>
-      ACE develops architectural, structural,
-      and urban sustainability concepts based on
-      long-life RC infrastructure and adaptive asset systems.
-    </p>
+      <h1>ACE Comprehensive Consulting</h1>
+
+      <p>
+        ACE develops architectural, structural,
+        and urban sustainability concepts based on
+        long-life RC infrastructure and adaptive asset systems.
+      </p>
+
+    </div>
+
+    <div class="jp-content hidden">
+
+      <div class="label">会社概要</div>
+
+      <h1>ACE総合コンサル</h1>
+
+      <p>
+        ACE総合コンサルは、
+        長寿命RCインフラと都市資産維持思想を基盤として、
+        建築・構造・都市持続化システムを提案します。
+      </p>
+
+    </div>
 
   </section>
 
@@ -278,19 +323,40 @@
 
   <section id="vision" class="dark">
 
-    <div class="label">VISION</div>
+    <div class="en-content">
 
-    <h2>
-      Urban Management Philosophy<br>
-      for the AI Era
-    </h2>
+      <div class="label">VISION</div>
 
-    <p>
-      The AI era will require resilient infrastructure,
-      sustainable urban continuity,
-      and long-term asset preservation.
-      AZRAS proposes a new model for adaptive urban systems.
-    </p>
+      <h2>
+        Urban Management Philosophy<br>
+        for the AI Era
+      </h2>
+
+      <p>
+        The AI era will require resilient infrastructure,
+        sustainable urban continuity,
+        and long-term asset preservation.
+      </p>
+
+    </div>
+
+    <div class="jp-content hidden">
+
+      <div class="label">思想</div>
+
+      <h2>
+        AI時代の<br>
+        都市運営思想
+      </h2>
+
+      <p>
+        AI時代には、
+        持続可能な都市インフラ、
+        長期資産維持、
+        都市継続性が求められます。
+      </p>
+
+    </div>
 
   </section>
 
@@ -298,110 +364,65 @@
 
   <section id="azras" class="light">
 
-    <div class="label">AZRAS</div>
+    <div class="en-content">
 
-    <h2>
-      Adaptive Zero-Rebuild Asset System
-    </h2>
+      <div class="label">AZRAS</div>
 
-    <p>
-      AZRAS integrates long-life RC systems,
-      adaptive infrastructure,
-      asset continuity,
-      and sustainable urban operation.
-    </p>
+      <h2>Adaptive Zero-Rebuild Asset System</h2>
 
-    <div class="cards">
-
-      <div class="card">
-        <h3>Adaptive</h3>
-        <p>Flexible urban systems.</p>
-      </div>
-
-      <div class="card">
-        <h3>Zero-Rebuild</h3>
-        <p>Reducing rebuild dependency.</p>
-      </div>
-
-      <div class="card">
-        <h3>Asset</h3>
-        <p>Preserving long-term value.</p>
-      </div>
-
-      <div class="card">
-        <h3>System</h3>
-        <p>Integrating infrastructure and sustainability.</p>
-      </div>
+      <p>
+        AZRAS integrates long-life RC systems,
+        adaptive infrastructure,
+        asset continuity,
+        and sustainable urban operation.
+      </p>
 
     </div>
 
-  </section>
+    <div class="jp-content hidden">
 
-  <!-- PROJECTS -->
+      <div class="label">AZRAS</div>
 
-  <section id="projects" class="gray">
+      <h2>適応型ゼロ建替え資産システム</h2>
 
-    <div class="label">PROJECTS</div>
-
-    <h2>Project Archive</h2>
-
-    <p>
-      Architectural drawings,
-      RC structural systems,
-      seismic diagnostics,
-      and completed project photographs.
-    </p>
-
-  </section>
-
-  <!-- DOCUMENTS -->
-
-  <section id="documents" class="dark">
-
-    <div class="label">DOCUMENTS</div>
-
-    <h2>Urban Sustainability Research Archive</h2>
-
-    <p>
-      Reports, technical archives,
-      drawings, and urban sustainability studies.
-    </p>
-
-    <div class="archive">
-
-      <a href="pdf/06_New Market Creation Report – June 2005.pdf" target="_blank">
-        <div>2005</div>
-        <div>New Market Creation Report</div>
-        <div>PDF</div>
-      </a>
-
-      <a href="pdf/05_Dynamic_Seismic_Diagnosis_System_Test_Report_Beik.pdf" target="_blank">
-        <div>REPORT</div>
-        <div>Dynamic Seismic Diagnostics Report</div>
-        <div>PDF</div>
-      </a>
+      <p>
+        AZRASは、
+        長寿命RC、
+        都市インフラ維持、
+        資産継続、
+        持続可能都市運営を統合する思想です。
+      </p>
 
     </div>
-
-  </section>
-
-  <!-- CONTACT -->
-
-  <section id="contact" class="light">
-
-    <div class="label">CONTACT</div>
-
-    <h2>ACE Comprehensive Consulting</h2>
-
-    <p>
-      Japan / Urban Sustainability Concept / AZRAS
-    </p>
 
   </section>
 
   <footer>
     ACE Comprehensive Consulting / AZRAS
   </footer>
+
+  <script>
+
+    function switchLanguage(lang){
+
+      const en = document.querySelectorAll('.en-content');
+      const jp = document.querySelectorAll('.jp-content');
+
+      if(lang === 'jp'){
+
+        en.forEach(el => el.classList.add('hidden'));
+        jp.forEach(el => el.classList.remove('hidden'));
+
+      }else{
+
+        jp.forEach(el => el.classList.add('hidden'));
+        en.forEach(el => el.classList.remove('hidden'));
+
+      }
+
+    }
+
+  </script>
 
 </body>
 </html>
