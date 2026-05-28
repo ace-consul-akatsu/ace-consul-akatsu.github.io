@@ -33,10 +33,6 @@ a{
     display:none;
 }
 
-/* ======================================================
-TOP IMAGE
-====================================================== */
-
 .first-view{
     position:relative;
     width:100%;
@@ -48,15 +44,9 @@ TOP IMAGE
     display:block;
 }
 
-/* ======================================================
-HOTSPOT
-====================================================== */
-
 .hotspot{
     position:absolute;
     z-index:50;
-
-    /* 確認用赤枠 */
     background:rgba(255,0,0,0.18);
     border:2px solid red;
 }
@@ -65,84 +55,17 @@ HOTSPOT
     background:rgba(120,80,255,0.18);
 }
 
-/* ======================================================
-HEADER MENU
-====================================================== */
+.hs-about{ top:2.1%; left:44.2%; width:5.3%; height:4.4%; }
+.hs-vision{ top:2.1%; left:50.0%; width:4.8%; height:4.4%; }
+.hs-azras{ top:2.1%; left:55.2%; width:5.6%; height:4.4%; }
+.hs-projects{ top:2.1%; left:61.3%; width:7.0%; height:4.4%; }
+.hs-documents{ top:2.1%; left:68.9%; width:10.3%; height:4.4%; }
+.hs-contact{ top:2.1%; left:80.0%; width:8.0%; height:4.4%; }
 
-.hs-about{
-    top:2.1%;
-    left:44.2%;
-    width:5.3%;
-    height:4.4%;
-}
+.hs-jp{ top:1.4%; left:88.7%; width:4.3%; height:5.8%; }
+.hs-en{ top:1.4%; left:93.4%; width:4.3%; height:5.8%; }
 
-.hs-vision{
-    top:2.1%;
-    left:50.0%;
-    width:4.8%;
-    height:4.4%;
-}
-
-.hs-azras{
-    top:2.1%;
-    left:55.2%;
-    width:5.6%;
-    height:4.4%;
-}
-
-.hs-projects{
-    top:2.1%;
-    left:61.3%;
-    width:7.0%;
-    height:4.4%;
-}
-
-.hs-documents{
-    top:2.1%;
-    left:68.9%;
-    width:10.3%;
-    height:4.4%;
-}
-
-.hs-contact{
-    top:2.1%;
-    left:80.0%;
-    width:8.0%;
-    height:4.4%;
-}
-
-/* ======================================================
-JP EN BUTTON
-====================================================== */
-
-.hs-jp{
-    top:1.4%;
-    left:88.7%;
-    width:4.3%;
-    height:5.8%;
-}
-
-.hs-en{
-    top:1.4%;
-    left:93.4%;
-    width:4.3%;
-    height:5.8%;
-}
-
-/* ======================================================
-EXPLORE BUTTON
-====================================================== */
-
-.hs-explore{
-    top:56.0%;
-    left:3.8%;
-    width:16.5%;
-    height:7.5%;
-}
-
-/* ======================================================
-SECTION
-====================================================== */
+.hs-explore{ top:56.0%; left:3.8%; width:16.5%; height:7.5%; }
 
 section{
     padding:110px 8vw;
@@ -184,9 +107,9 @@ p{
     color:#444;
 }
 
-/* ======================================================
-CARDS
-====================================================== */
+.dark p{
+    color:rgba(255,255,255,0.82);
+}
 
 .cards{
     margin-top:70px;
@@ -226,19 +149,11 @@ CARDS
     color:#444;
 }
 
-/* ======================================================
-FOOTER
-====================================================== */
-
 .footer{
     background:#050506;
     color:#fff;
     padding:80px 8vw;
 }
-
-/* ======================================================
-RESPONSIVE
-====================================================== */
 
 @media(max-width:900px){
 
@@ -261,10 +176,6 @@ RESPONSIVE
 
 <body>
 
-<!-- ======================================================
-TOP IMAGE
-====================================================== -->
-
 <div class="first-view">
 
 <img
@@ -273,8 +184,6 @@ src="images/azras-top-page_en.jpg"
 alt="AZRAS"
 />
 
-<!-- HEADER -->
-
 <a class="hotspot hs-about" href="#about"></a>
 <a class="hotspot hs-vision" href="#vision"></a>
 <a class="hotspot hs-azras" href="#azras"></a>
@@ -282,20 +191,12 @@ alt="AZRAS"
 <a class="hotspot hs-documents" href="#documents"></a>
 <a class="hotspot hs-contact" href="#contact"></a>
 
-<!-- JP EN -->
-
 <a class="hotspot hs-jp" onclick="switchLanguage('jp')"></a>
 <a class="hotspot hs-en" onclick="switchLanguage('en')"></a>
-
-<!-- EXPLORE -->
 
 <a class="hotspot hs-explore" href="#azras"></a>
 
 </div>
-
-<!-- ======================================================
-ABOUT
-====================================================== -->
 
 <section id="about" class="light">
 
@@ -309,19 +210,11 @@ Beyond Rebuilding
 </h2>
 
 <p>
-AZRAS stands for
-Adaptive Zero-Rebuild Asset System.
-
-It integrates long-life RC structures,
-urban asset continuity,
-adaptive infrastructure,
-and sustainable urban operation
-for the AI era.
-
-AZRAS proposes a transition from
-“cities that repeatedly rebuild”
-to
-“cities that evolve while being maintained.”
+AZRAS stands for Adaptive Zero-Rebuild Asset System.
+It integrates long-life RC structures, urban asset continuity,
+adaptive infrastructure, and sustainable urban operation for the AI era.
+AZRAS proposes a transition from “cities that repeatedly rebuild”
+to “cities that evolve while being maintained.”
 </p>
 
 </div>
@@ -336,91 +229,86 @@ to
 </h2>
 
 <p>
-AZRASは、
-Adaptive Zero-Rebuild Asset System
-の略称です。
-
-AI時代における都市維持、
-長寿命RC構造、
-資産継続、
+AZRASは、Adaptive Zero-Rebuild Asset Systemの略称です。
+AI時代における都市維持、長寿命RC構造、資産継続、
 持続可能インフラを統合し、
-
-「壊して建て直す都市」から、
-「維持しながら進化する都市」
+「壊して建て直す都市」から「維持しながら進化する都市」
 への転換を目指します。
 </p>
 
 </div>
 
-<!-- ======================================================
-ABOUT CONCEPT CARDS
-====================================================== -->
-
 <div class="cards">
 
 <div class="card">
-
 <div class="card-content">
 
-<div class="card-title">
-LONG-LIFE RC
-</div>
-
+<div class="en-content">
+<div class="card-title">LONG-LIFE RC</div>
 <p>
 Long-life RC structures.
-
-A structural philosophy
-for maintaining urban assets
-over generations.
+A structural philosophy for maintaining urban assets over generations.
 </p>
-
 </div>
 
+<div class="jp-content hidden">
+<div class="card-title">LONG-LIFE RC</div>
+<p>
+長寿命RC構造。  
+都市資産を世代を超えて長期に維持するための構造思想。
+</p>
+</div>
+
+</div>
 </div>
 
 <div class="card">
-
 <div class="card-content">
 
-<div class="card-title">
-URBAN ASSET CONTINUITY
-</div>
-
+<div class="en-content">
+<div class="card-title">URBAN ASSET CONTINUITY</div>
 <p>
-An urban asset continuity concept
-that reduces dependence on rebuilding
+An urban asset continuity concept that reduces dependence on rebuilding
 while preserving urban value.
 </p>
-
 </div>
 
+<div class="jp-content hidden">
+<div class="card-title">URBAN ASSET CONTINUITY</div>
+<p>
+都市資産継続思想。  
+建替え依存を減らしながら、都市価値を長期に維持するための概念。
+</p>
+</div>
+
+</div>
 </div>
 
 <div class="card">
-
 <div class="card-content">
 
-<div class="card-title">
-AI-ERA URBAN MANAGEMENT
-</div>
-
+<div class="en-content">
+<div class="card-title">AI-ERA URBAN MANAGEMENT</div>
 <p>
-A sustainable urban system
-adapted for the AI era
+A sustainable urban system adapted for the AI era
 and future infrastructure society.
 </p>
-
 </div>
 
+<div class="jp-content hidden">
+<div class="card-title">AI-ERA URBAN MANAGEMENT</div>
+<p>
+AI時代都市運営。  
+AI社会と未来インフラに適応する、持続型都市システム。
+</p>
+</div>
+
+</div>
 </div>
 
 </div>
 
 </section>
-
-<!-- ======================================================
-VISION
-====================================================== -->
 
 <section id="vision" class="dark">
 
@@ -434,9 +322,7 @@ AI時代の<br>
 </h2>
 
 <p>
-AI時代には、
-持続可能な都市、
-長寿命資産、
+AI時代には、持続可能な都市、長寿命資産、
 柔軟な都市運営が必要となります。
 </p>
 
@@ -453,17 +339,12 @@ for the AI Era
 
 <p>
 Future cities require adaptive systems,
-sustainability,
-and resilient infrastructure.
+sustainability, and resilient infrastructure.
 </p>
 
 </div>
 
 </section>
-
-<!-- ======================================================
-AZRAS
-====================================================== -->
 
 <section id="azras" class="light">
 
@@ -477,10 +358,8 @@ AZRAS
 </h2>
 
 <p>
-AZRASは、
-建替え依存を減らし、
-長期資産維持を可能とする
-都市思想システムです。
+AZRASは、建替え依存を減らし、
+長期資産維持を可能とする都市思想システムです。
 </p>
 
 </div>
@@ -502,10 +381,6 @@ with long-life structural concepts.
 
 </section>
 
-<!-- ======================================================
-PROJECTS
-====================================================== -->
-
 <section id="projects" class="gray">
 
 <div class="jp-content hidden">
@@ -515,10 +390,7 @@ PROJECTS
 <h2>プロジェクトアーカイブ</h2>
 
 <p>
-建築、
-RC構造、
-都市運営、
-持続可能都市開発の記録。
+建築、RC構造、都市運営、持続可能都市開発の記録。
 </p>
 
 </div>
@@ -530,19 +402,13 @@ RC構造、
 <h2>Project Archive</h2>
 
 <p>
-Architecture,
-RC systems,
-urban sustainability,
+Architecture, RC systems, urban sustainability,
 adaptive development archives.
 </p>
 
 </div>
 
 </section>
-
-<!-- ======================================================
-DOCUMENTS
-====================================================== -->
 
 <section id="documents" class="dark">
 
@@ -553,10 +419,7 @@ DOCUMENTS
 <h2>都市持続化研究アーカイブ</h2>
 
 <p>
-技術資料、
-研究資料、
-構造資料、
-映像アーカイブ。
+技術資料、研究資料、構造資料、映像アーカイブ。
 </p>
 
 </div>
@@ -568,19 +431,13 @@ DOCUMENTS
 <h2>Urban Sustainability Archive</h2>
 
 <p>
-Technical reports,
-research archives,
-structural systems,
-and media archives.
+Technical reports, research archives,
+structural systems, and media archives.
 </p>
 
 </div>
 
 </section>
-
-<!-- ======================================================
-CONTACT
-====================================================== -->
 
 <section id="contact" class="light">
 
@@ -611,10 +468,6 @@ info@ace-consul.jp
 </div>
 
 </section>
-
-<!-- ======================================================
-SCRIPT
-====================================================== -->
 
 <script>
 
