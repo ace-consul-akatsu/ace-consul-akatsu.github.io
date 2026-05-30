@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AZRAS | Adaptive Zero-Rebuild Asset System</title>
+  <style>
+    :root{
+      --azras-green:#67d36f;
+      --azras-green-dark:#1f8f5f;
+      --ace-blue:#1f4f78;
+      --text:#1f2933;
+      --muted:#5f6b76;
+      --bg:#eef1f3;
+      --panel:#ffffff;
+      --line:rgba(255,255,255,.68);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:Arial, "Helvetica Neue", sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      overflow-x:hidden;
+    }
+
+    body.no-scroll{
+      overflow:hidden;
+    }
+
+    .top-bar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:54px;
+      z-index:50;
+      background:rgba(255,255,255,.58);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.72);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 28px;
+    }
+
+    .brand{
+      font-weight:800;
+      letter-spacing:.08em;
+      color:#12334d;
+      font-size:16px;
+      text-shadow:0 1px 2px rgba(255,255,255,.55);
+      white-space:nowrap;
+    }
+
+    .lang-switch{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .lang-btn{
+      border:1px solid rgba(31,79,120,.25);
+      background:rgba(255,255,255,.78);
+      color:#15364f;
+      border-radius:999px;
+      padding:7px 13px;
+      font-size:13px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover{
+      background:linear-gradient(135deg,var(--azras-green),var(--azras-green-dark));
+      color:#fff;
+      border-color:transparent;
+    }
+
+    .hero-wrap{
+      width:100%;
+      min-height:100vh;
+      background:#dfe5e8;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding-top:54px;
+    }
+
+    /*
+      IMPORTANT:
+      The top image size is intentionally limited.
+      This prevents both English and Japanese images from becoming too large.
+    */
+    .hero-stage{
+      position:relative;
+      width:min(100vw, 1920px);
+      margin:0 auto;
+      background:#dfe5e8;
+      overflow:hidden;
+    }
+
+    .hero-img{
+      width:100%;
+      max-width:1920px;
+      height:auto;
+      display:block;
+      margin:0 auto;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    .hero-img.jp{
+      display:none;
+    }
+
+    body.lang-ja .hero-img.en{
+      display:none;
+    }
+
+    body.lang-ja .hero-img.jp{
+      display:block;
+    }
+
+    .hotspot{
+      position:absolute;
+      z-index:10;
+      display:block;
+      border:2px solid rgba(255,0,0,.75);
+      background:rgba(255,0,0,.05);
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    .hotspot:hover{
+      background:rgba(103,211,111,.18);
+      border-color:rgba(103,211,111,.95);
+    }
+
+    .hs-about{top:1.8%;left:50.8%;width:5.2%;height:4.4%;}
+    .hs-vision{top:1.8%;left:57.6%;width:5.4%;height:4.4%;}
+    .hs-azras{top:1.8%;left:64.4%;width:5.2%;height:4.4%;}
+    .hs-projects{top:1.8%;left:71.4%;width:6.9%;height:4.4%;}
+    .hs-documents{top:1.8%;left:79.7%;width:8.3%;height:4.4%;}
+    .hs-contact{top:1.8%;left:89.4%;width:6.5%;height:4.4%;}
+    .hs-explore{top:62.5%;left:8.7%;width:15.5%;height:6.2%;}
+
+    .section{
+      display:none;
+      min-height:100vh;
+      background:var(--bg);
+      padding:92px 8vw 54px;
+    }
+
+    .section.active{
+      display:block;
+    }
+
+    .section-inner{
+      max-width:1180px;
+      margin:0 auto;
+      background:rgba(255,255,255,.86);
+      border:1px solid rgba(255,255,255,.88);
+      border-radius:28px;
+      box-shadow:0 18px 48px rgba(18,42,60,.10);
+      padding:48px;
+    }
+
+    .section h1{
+      margin:0 0 18px;
+      font-size:clamp(30px,4vw,56px);
+      line-height:1.08;
+      color:#17364f;
+      letter-spacing:-.02em;
+    }
+
+    .section h2{
+      margin:34px 0 12px;
+      color:#204b6b;
+      font-size:clamp(22px,2.2vw,32px);
+    }
+
+    .section p{
+      font-size:clamp(17px,1.55vw,21px);
+      line-height:1.85;
+      color:var(--muted);
+    }
+
+    .lead{
+      font-size:clamp(19px,1.8vw,25px) !important;
+      line-height:1.75 !important;
+      color:#2d3c48 !important;
+      font-weight:500;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+      margin-top:28px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:22px;
+      padding:24px;
+      border:1px solid rgba(32,75,107,.08);
+      box-shadow:0 10px 26px rgba(18,42,60,.07);
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      color:#17364f;
+      font-size:22px;
+    }
+
+    .card p{
+      font-size:16px;
+      line-height:1.65;
+      margin:0;
+    }
+
+    .doc-list{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .doc-list a{
+      display:block;
+      padding:16px 18px;
+      border-radius:16px;
+      background:#fff;
+      color:#17466a;
+      text-decoration:none;
+      font-weight:700;
+      border:1px solid rgba(32,75,107,.10);
+      transition:.18s;
+    }
+
+    .doc-list a:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(18,42,60,.10);
+      color:var(--azras-green-dark);
+    }
+
+    .back-top{
+      position:fixed;
+      right:28px;
+      bottom:28px;
+      z-index:60;
+      display:none;
+      border:none;
+      border-radius:999px;
+      padding:13px 18px;
+      background:linear-gradient(135deg,var(--azras-green),var(--azras-green-dark));
+      color:#fff;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 10px 28px rgba(31,143,95,.28);
+    }
+
+    .back-top.show{
+      display:block;
+    }
+
+    .ja-text{
+      display:none;
+    }
+
+    body.lang-ja .en-text{
+      display:none;
+    }
+
+    body.lang-ja .ja-text{
+      display:block;
+    }
+
+    @media(max-width:900px){
+      body.no-scroll{
+        overflow:auto;
+      }
+
+      .top-bar{
+        height:58px;
+        padding:0 14px;
+      }
+
+      .brand{
+        font-size:12px;
+      }
+
+      .hero-wrap{
+        min-height:auto;
+        padding-top:58px;
+      }
+
+      .hero-stage{
+        width:100%;
+      }
+
+      .hotspot{
+        border-width:1.5px;
+      }
+
+      .section{
+        padding:82px 18px 46px;
+      }
+
+      .section-inner{
+        padding:28px 22px;
+        border-radius:22px;
+      }
+
+      .grid,
+      .doc-list{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="no-scroll">
+  <header class="top-bar">
+    <div class="brand">ACE GENERAL CONSULTING / AZRAS</div>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+      <button class="lang-btn" onclick="setLang('ja')" id="btn-ja">JP</button>
+    </div>
+  </header>
+
+  <main id="top" class="hero-wrap">
+    <div class="hero-stage">
+      <img class="hero-img en" src="images/azras-top-page_en.jpg" alt="AZRAS English Top Page">
+      <img class="hero-img jp" src="images/azras-top-page_jp.png" alt="AZRAS Japanese Top Page">
+
+      <a class="hotspot hs-about" href="#about" onclick="showSection('about')"></a>
+      <a class="hotspot hs-vision" href="#vision" onclick="showSection('vision')"></a>
+      <a class="hotspot hs-azras" href="#azras" onclick="showSection('azras')"></a>
+      <a class="hotspot hs-projects" href="#projects" onclick="showSection('projects')"></a>
+      <a class="hotspot hs-documents" href="#documents" onclick="showSection('documents')"></a>
+      <a class="hotspot hs-contact" href="#contact" onclick="showSection('contact')"></a>
+      <a class="hotspot hs-explore" href="#azras" onclick="showSection('azras')"></a>
+    </div>
+  </main>
+
+  <section id="about" class="section">
+    <div class="section-inner">
+      <div class="en-text">
+        <h1>About ACE General Consulting</h1>
+        <p class="lead">ACE General Consulting develops architectural and asset systems for long-term value, combining design, construction, real estate, and energy consulting.</p>
+        <div class="grid">
+          <div class="card"><h3>Long-Life RC Core</h3><p>A durable reinforced concrete core designed to remain as the permanent asset foundation.</p></div>
+          <div class="card"><h3>Replaceable Infill</h3><p>Interior and exterior infill units can be renewed according to future needs.</p></div>
+          <div class="card"><h3>Unit-by-Unit Renovation</h3><p>Renovation can be performed by individual units without rebuilding the entire structure.</p></div>
+        </div>
+      </div>
+      <div class="ja-text">
+        <h1>ACE総合コンサルについて</h1>
+        <p class="lead">株式会社ACE総合コンサルは、建築設計・施工・不動産・エネルギーの知見を統合し、長期的な資産価値を生み出す建築システムを提案しています。</p>
+        <div class="grid">
+          <div class="card"><h3>長寿命RCコア</h3><p>建物の恒久的な資産基盤として残る、耐久性の高いRC構造体です。</p></div>
+          <div class="card"><h3>交換可能なインフィル</h3><p>内外装や木造ユニット部分を、時代や用途に応じて更新できます。</p></div>
+          <div class="card"><h3>住戸単位の改修</h3><p>建物全体を壊さず、必要な部分だけを段階的に改修することができます。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision" class="section">
+    <div class="section-inner">
+      <div class="en-text">
+        <h1>Pioneering Architecture for the Era of AGI and Quantum Computing.</h1>
+        <p class="lead">AZRAS is not only a construction method. It is an urban management philosophy for the AI era, designed to keep buildings, cities, and assets adaptable for the future.</p>
+      </div>
+      <div class="ja-text">
+        <h1>AI・量子コンピューター時代を生きる、未来の建築思想をカタチに。</h1>
+        <p class="lead">AZRASは単なる建築工法ではありません。建物・都市・資産を未来に適応させ続けるための、AI時代の都市運営思想です。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="azras" class="section">
+    <div class="section-inner">
+      <div class="en-text">
+        <h1>AZRAS</h1>
+        <p class="lead">Adaptive Zero-Rebuild Asset System is a Japanese architectural asset system combining a permanent RC core, replaceable infill units, disaster resilience, and 100+ year asset continuity.</p>
+        <h2>Never rebuild the entire building again.</h2>
+        <p>AZRAS separates what should remain from what should change. The reinforced concrete core becomes the long-life asset, while the infill can evolve with residents, businesses, cities, and technology.</p>
+      </div>
+      <div class="ja-text">
+        <h1>AZRAS</h1>
+        <p class="lead">Adaptive Zero-Rebuild Asset System は、恒久的なRCコア、交換可能なインフィル、災害対応力、100年以上の資産継続性を組み合わせた日本発の建築資産システムです。</p>
+        <h2>建て替えゼロで、資産価値を100年先へ。</h2>
+        <p>AZRASは「残すべき部分」と「変化すべき部分」を分離します。RCコアを長寿命資産として残し、インフィル部分を時代・居住者・事業・都市・技術に合わせて更新していきます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="section-inner">
+      <div class="en-text">
+        <h1>Projects</h1>
+        <p class="lead">The RC Upright Method was built and verified in Japan in 2005, including applications such as the EXPO 2005 hydrogen station management building and rental housing prototypes.</p>
+        <div class="grid">
+          <div class="card"><h3>EXPO 2005</h3><p>Hydrogen station management building developed with the RC Upright Method.</p></div>
+          <div class="card"><h3>Rental Housing</h3><p>Long-life rental housing concept based on permanent RC and replaceable infill.</p></div>
+          <div class="card"><h3>Future Cities</h3><p>Adaptable urban assets for disaster recovery, modular neighborhoods, and next-generation infrastructure.</p></div>
+        </div>
+      </div>
+      <div class="ja-text">
+        <h1>プロジェクト</h1>
+        <p class="lead">RCアップライト工法は、2005年に日本で建設・検証され、愛・地球博の水素ステーション管理棟や長寿命賃貸住宅に応用されました。</p>
+        <div class="grid">
+          <div class="card"><h3>愛・地球博 2005</h3><p>水素ステーション管理棟にRCアップライト工法を採用。</p></div>
+          <div class="card"><h3>賃貸住宅</h3><p>恒久的なRC構造と交換可能なインフィルによる長寿命賃貸住宅。</p></div>
+          <div class="card"><h3>未来都市</h3><p>災害復興、モジュール型住宅地、次世代インフラへ展開可能な都市資産。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="documents" class="section">
+    <div class="section-inner">
+      <div class="en-text">
+        <h1>Documents</h1>
+        <p class="lead">Technical materials, concept documents, reports, drawings, and verification documents are available below.</p>
+      </div>
+      <div class="ja-text">
+        <h1>資料</h1>
+        <p class="lead">技術資料、構想資料、レポート、図面、検証資料はこちらからご覧いただけます。</p>
+      </div>
+
+      <div class="doc-list">
+        <a href="docs/azras-system_en.pdf" target="_blank">AZRAS System / English</a>
+        <a href="docs/azras-system_jp.pdf" target="_blank">AZRAS System / Japanese</a>
+        <a href="docs/company-profile_en.pdf" target="_blank">Company Profile / English</a>
+        <a href="docs/company-profile_jp.pdf" target="_blank">Company Profile / Japanese</a>
+        <a href="docs/01_architectural-drawings.pdf" target="_blank">01 Architectural Drawings</a>
+        <a href="docs/02_rc-structural-drawings.pdf" target="_blank">02 RC Structural Drawings</a>
+        <a href="docs/03_rc-partial-structural-calculation.pdf" target="_blank">03 RC Partial Structural Calculation</a>
+        <a href="docs/05_dynamic-seismic-diagnosis-system-test-report.pdf" target="_blank">05 Dynamic Seismic Diagnosis System Test Report</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="section-inner">
+      <div class="en-text">
+        <h1>Contact</h1>
+        <p class="lead">ACE General Consulting Co., Ltd.</p>
+        <p>Architectural Design · Construction · Estate & Energy Consulting<br>Kasugai City, Aichi Prefecture, Japan</p>
+      </div>
+      <div class="ja-text">
+        <h1>お問い合わせ</h1>
+        <p class="lead">株式会社ACE総合コンサル</p>
+        <p>建築設計・施工・不動産・エネルギーコンサルティング<br>日本 愛知県春日井市</p>
+      </div>
+    </div>
+  </section>
+
+  <button class="back-top" id="backTop" onclick="goTop()">TOP</button>
+
+  <script>
+    function setLang(lang){
+      document.body.classList.toggle('lang-ja', lang === 'ja');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+    }
+
+    function hideAllSections(){
+      document.querySelectorAll('.section').forEach(function(sec){
+        sec.classList.remove('active');
+      });
+    }
+
+    function showSection(id){
+      hideAllSections();
+      var target = document.getElementById(id);
+      if(target){
+        target.classList.add('active');
+        document.getElementById('top').style.display = 'none';
+        document.getElementById('backTop').classList.add('show');
+        window.scrollTo({top:0, behavior:'instant'});
+      }
+    }
+
+    function goTop(){
+      hideAllSections();
+      document.getElementById('top').style.display = 'flex';
+      document.getElementById('backTop').classList.remove('show');
+      window.scrollTo({top:0, behavior:'instant'});
+    }
+  </script>
+</body>
+</html>
