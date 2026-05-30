@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACE × AZRAS</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#e8e8e8;
+  color:#111;
+}
+
+.hidden{
+  display:none;
+}
+
+.page{
+  display:none;
+  width:100%;
+  height:100vh;
+}
+
+.page.active{
+  display:block;
+}
+
+/* ======================================================
+   TOP PAGE
+====================================================== */
+
+.first-view{
+  position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  background:#fff;
+}
+
+.top-visual{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center top;
+  display:block;
+}
+
+/* ======================================================
+   HOTSPOTS
+====================================================== */
+
+.hotspot{
+  position:absolute;
+  z-index:50;
+  background:rgba(255,0,0,0.18);
+  border:2px solid red;
+  cursor:pointer;
+}
+
+.hotspot:hover{
+  background:rgba(120,80,255,0.18);
+}
+
+.hs-about{     top:1.2%; left:44.0%; width:5.2%;  height:3.5%; }
+.hs-vision{    top:1.2%; left:49.6%; width:4.8%;  height:3.5%; }
+.hs-azras{     top:1.2%; left:54.8%; width:5.2%;  height:3.5%; }
+.hs-projects{  top:1.2%; left:60.4%; width:6.5%;  height:3.5%; }
+.hs-documents{ top:1.2%; left:67.3%; width:9.0%;  height:3.5%; }
+.hs-contact{   top:1.2%; left:76.7%; width:6.8%;  height:3.5%; }
+.hs-en{        top:1.0%; left:83.9%; width:3.8%;  height:5.0%; }
+.hs-jp{        top:1.0%; left:87.9%; width:3.8%;  height:5.0%; }
+.hs-explore{
+  top:53.5%;
+  left:8.5%;
+  width:17.0%;
+  height:6.0%;
+}
+
+/* ======================================================
+   CONTENT PAGES
+====================================================== */
+
+.content-page{
+  height:100vh;
+  padding:90px 8vw;
+  position:relative;
+  overflow:hidden;
+  background:#e8e8e8;
+  color:#111;
+}
+
+.back-button{
+  position:absolute;
+  top:34px;
+  right:48px;
+  z-index:20;
+  border:2px solid #6c35ff;
+  color:#6c35ff;
+  background:transparent;
+  padding:14px 24px;
+  font-size:16px;
+  font-weight:bold;
+  letter-spacing:0.12em;
+  cursor:pointer;
+  border-radius:999px;
+}
+
+.back-button:hover{
+  background:#6c35ff;
+  color:#fff;
+}
+
+.label{
+  color:#6c35ff;
+  font-size:26px;
+  letter-spacing:0.25em;
+  margin-bottom:24px;
+  font-weight:bold;
+}
+
+h1,h2{
+  font-size:clamp(24px,3vw,48px);
+  line-height:1.1;
+  margin-bottom:38px;
+  font-weight:700;
+}
+
+p{
+  max-width:1100px;
+  line-height:1.75;
+  font-size:36px;
+  color:#333;
+}
+
+/* ======================================================
+   CARDS
+====================================================== */
+
+.cards{
+  margin-top:54px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+.card{
+  background:#f4f4f4;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:22px;
+  overflow:hidden;
+  transition:0.35s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 40px rgba(0,0,0,0.10);
+}
+
+.card-content{
+  padding:36px;
+}
+
+.card-title{
+  font-size:36px;
+  line-height:1.2;
+  margin-bottom:22px;
+  color:#6c35ff;
+  font-weight:500;
+}
+
+.card p{
+  font-size:30px;
+  line-height:1.65;
+  color:#333;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media(max-width:900px){
+  html,body{
+    overflow:auto;
+  }
+  .hotspot{
+    display:none;
+  }
+  .content-page{
+    overflow:auto;
+    padding:80px 24px;
+  }
+  .cards{
+    grid-template-columns:1fr;
+  }
+  p{
+    font-size:22px;
+  }
+  .card p{
+    font-size:20px;
+  }
+  .card-title{
+    font-size:26px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================================================
+     TOP PAGE
+====================================================== -->
+<div id="top" class="page active">
+  <div class="first-view">
+    <img
+      class="top-visual"
+      src="images/azras-top-page_jp.png"
+      alt="AZRAS"
+      id="top-image"
+    >
+
+    <button class="hotspot hs-about"     onclick="showPage('about')"></button>
+    <button class="hotspot hs-vision"    onclick="showPage('vision')"></button>
+    <button class="hotspot hs-azras"     onclick="showPage('azras')"></button>
+    <button class="hotspot hs-projects"  onclick="showPage('projects')"></button>
+    <button class="hotspot hs-documents" onclick="showPage('documents')"></button>
+    <button class="hotspot hs-contact"   onclick="showPage('contact')"></button>
+    <button class="hotspot hs-jp"        onclick="switchLanguage('jp')"></button>
+    <button class="hotspot hs-en"        onclick="switchLanguage('en')"></button>
+    <button class="hotspot hs-explore"   onclick="showPage('azras')"></button>
+  </div>
+</div>
+
+<!-- ======================================================
+     ABOUT
+====================================================== -->
+<section id="about" class="page content-page">
+  <button class="back-button" onclick="showPage('top')">BACK TO TOP</button>
+
+  <div class="en-content hidden">
+    <div class="label">ABOUT AZRAS</div>
+    <h2>Urban Sustainability<br>Beyond Rebuilding</h2>
+    <p>
+      AZRAS stands for Adaptive Zero-Rebuild Asset System.
+      It integrates long-life RC structures, urban asset continuity,
+      adaptive infrastructure, and sustainable urban operation for the AI era.
+      AZRAS proposes a transition from "cities that repeatedly rebuild"
+      to "cities that evolve while being maintained."
+    </p>
+  </div>
+
+  <div class="jp-content">
+    <div class="label">AZRASとは</div>
+    <h2>建替え依存を超える<br>都市持続思想</h2>
+    <p>
+      AZRASは、Adaptive Zero-Rebuild Asset Systemの略称です。
+      AI時代における都市維持、長寿命RC構造、資産継続、
+      持続可能インフラを統合し、
+      「壊して建て直す都市」から「維持しながら進化する都市」
+      への転換を目指します。
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">LONG-LIFE RC</div>
+          <p>Long-life RC structures. A structural philosophy for maintaining urban assets over generations.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">LONG-LIFE RC</div>
+          <p>長寿命RC構造。都市資産を世代を超えて長期に維持するための構造思想。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">URBAN ASSET CONTINUITY</div>
+          <p>An urban asset continuity concept that reduces dependence on rebuilding while preserving urban value.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">URBAN ASSET CONTINUITY</div>
+          <p>都市資産継続思想。建替え依存を減らしながら、都市価値を長期に維持するための概念。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">AI-ERA URBAN MANAGEMENT</div>
+          <p>A sustainable urban system adapted for the AI era and future infrastructure society.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">AI-ERA URBAN MANAGEMENT</div>
+          <p>AI時代都市運営。AI社会と未来インフラに適応する、持続型都市システム。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     VISION
+====================================================== -->
+<section id="vision" class="page content-page">
+  <button class="back-button" onclick="showPage('top')">BACK TO TOP</button>
+
+  <div class="en-content hidden">
+    <div class="label">VISION</div>
+    <h2>Urban Management Philosophy<br>for the AI Era</h2>
+    <p>
+      In the era of AI, energy transition, aging infrastructure,
+      and demographic transformation, cities can no longer survive
+      through endless rebuilding. AZRAS proposes a long-term urban philosophy
+      that enables cities to evolve while being maintained.
+    </p>
+  </div>
+
+  <div class="jp-content">
+    <div class="label">VISION</div>
+    <h2>AI時代の<br>都市運営思想</h2>
+    <p>
+      AI、エネルギー転換、老朽化インフラ、人口変動の時代において、
+      都市は建て替えを繰り返すだけでは持続できなくなります。
+      AZRASは「壊して更新する都市」から「維持しながら進化する都市」への転換を目指す、長期都市運営思想です。
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">AI ERA</div>
+          <p>Urban pressure created by AI evolution, automation, and computational infrastructure.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">AI ERA</div>
+          <p>AI進化、自動化、計算インフラ拡大によって増大する都市負荷。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">ENERGY</div>
+          <p>Energy sustainability and future urban resilience in the age of massive power demand.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">ENERGY</div>
+          <p>莫大な電力需要時代におけるエネルギー持続性と都市レジリエンス。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">INFRASTRUCTURE</div>
+          <p>Long-life infrastructure and adaptive urban assets for future generations.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">INFRASTRUCTURE</div>
+          <p>未来世代へ継承する長寿命インフラと適応型都市資産。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     AZRAS
+====================================================== -->
+<section id="azras" class="page content-page">
+  <button class="back-button" onclick="showPage('top')">BACK TO TOP</button>
+
+  <div class="en-content hidden">
+    <div class="label">AZRAS</div>
+    <h2>Adaptive Zero-Rebuild<br>Asset System</h2>
+    <p>
+      AZRAS integrates architecture, urban infrastructure,
+      asset continuity, and adaptive management systems
+      into a unified urban sustainability platform.
+      It proposes a new urban model where buildings,
+      infrastructure, and city assets continue evolving without repetitive destruction and rebuilding.
+    </p>
+  </div>
+
+  <div class="jp-content">
+    <div class="label">AZRAS</div>
+    <h2>適応型ゼロ建替え<br>資産システム</h2>
+    <p>
+      AZRASは、建築、都市インフラ、資産継続、
+      適応型運営システムを統合した都市持続化プラットフォームです。
+      建築、インフラ、都市資産を、繰り返し壊して更新するのではなく、
+      維持しながら進化させる新しい都市モデルを提案します。
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">STRUCTURAL SYSTEM</div>
+          <p>Long-life RC structures, seismic resilience, and adaptive architectural systems.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">STRUCTURAL SYSTEM</div>
+          <p>長寿命RC構造、耐震性能、可変型建築システム。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">URBAN PLATFORM</div>
+          <p>Urban asset management, long-term operation, and sustainable infrastructure.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">URBAN PLATFORM</div>
+          <p>都市資産管理、長期運営、持続型都市インフラ。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">ADAPTIVE MANAGEMENT</div>
+          <p>Adaptive urban management systems designed for the AI era.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">ADAPTIVE MANAGEMENT</div>
+          <p>AI時代に対応する適応型都市運営システム。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     PROJECTS
+====================================================== -->
+<section id="projects" class="page content-page">
+  <button class="back-button" onclick="showPage('top')">BACK TO TOP</button>
+
+  <div class="en-content hidden">
+    <div class="label">PROJECTS</div>
+    <h2>Urban Sustainability<br>Project Archive</h2>
+    <p>
+      AZRAS project archives include architecture, long-life RC systems,
+      urban sustainability concepts, adaptive infrastructure,
+      and structural development studies. These projects explore future urban continuity through real architectural implementation.
+    </p>
+  </div>
+
+  <div class="jp-content">
+    <div class="label">PROJECTS</div>
+    <h2>都市持続化<br>プロジェクトアーカイブ</h2>
+    <p>
+      AZRASプロジェクトアーカイブでは、建築、長寿命RC構造、
+      都市持続思想、適応型インフラ、構造開発研究など、
+      実際の建築実装を通じた未来都市継続モデルを提示します。
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">RC UPRIGHT SYSTEM</div>
+          <p>Long-life RC structural systems, adaptive residential concepts, and seismic sustainability studies.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">RC UPRIGHT SYSTEM</div>
+          <p>長寿命RC構造、適応型住宅、耐震持続化研究。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">ARCHITECTURE</div>
+          <p>Architectural implementation, completed buildings, and urban design archives.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">ARCHITECTURE</div>
+          <p>建築実装、完成建築、都市設計アーカイブ。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">URBAN FUTURE MODEL</div>
+          <p>Future-oriented urban continuity and adaptive infrastructure models.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">URBAN FUTURE MODEL</div>
+          <p>未来都市継続モデルと適応型インフラ思想。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     DOCUMENTS
+====================================================== -->
+<section id="documents" class="page content-page">
+  <button class="back-button" onclick="showPage('top')">BACK TO TOP</button>
+
+  <div class="en-content hidden">
+    <div class="label">DOCUMENTS</div>
+    <h2>Urban Sustainability<br>Research Archive</h2>
+    <p>
+      AZRAS documents include technical reports, research papers,
+      structural systems, urban theories, and sustainability archives.
+      This section functions as a long-term knowledge archive for future urban management systems.
+    </p>
+  </div>
+
+  <div class="jp-content">
+    <div class="label">DOCUMENTS</div>
+    <h2>都市持続化<br>研究アーカイブ</h2>
+    <p>
+      AZRASドキュメントでは、技術資料、研究論文、構造システム、
+      都市思想、持続化研究など、
+      未来都市運営に向けた知識アーカイブを構築します。
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">STRUCTURAL REPORTS</div>
+          <p>Structural calculations, RC systems, and seismic engineering archives.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">STRUCTURAL REPORTS</div>
+          <p>構造計算、RCシステム、耐震技術アーカイブ。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">URBAN THEORY</div>
+          <p>Urban sustainability concepts, asset continuity, and future city philosophy.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">URBAN THEORY</div>
+          <p>都市持続思想、資産継続論、未来都市哲学。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="en-content hidden">
+          <div class="card-title">MEDIA ARCHIVE</div>
+          <p>Presentation materials, videos, project images, and PDF archives.</p>
+        </div>
+        <div class="jp-content">
+          <div class="card-title">MEDIA ARCHIVE</div>
+          <p>プレゼン資料、動画、完成写真、PDFアーカイブ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     CONTACT
+====================================================== -->
+<section id="contact" class="page content-page">
+  <button class="back-button" onclick="showPage('top')">BACK TO TOP</button>
+
+  <div class="en-content hidden">
+    <div class="label">CONTACT</div>
+    <h2>ACE Integrated Consulting</h2>
+    <p>Japan / Urban Sustainability Concept / AZRAS</p>
+  </div>
+
+  <div class="jp-content">
+    <div class="label">CONTACT</div>
+    <h2>株式会社ACE総合コンサル</h2>
+    <p>日本 / 都市持続化構想 / AZRAS</p>
+  </div>
+</section>
+
+<!-- ======================================================
+     SCRIPT
+====================================================== -->
+<script>
+function showPage(pageId){
+  document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+  const target = document.getElementById(pageId);
+  if(target) target.classList.add('active');
+}
+
+function switchLanguage(lang){
+  const jpEls = document.querySelectorAll('.jp-content');
+  const enEls = document.querySelectorAll('.en-content');
+  const topImage = document.querySelector('.top-visual');
+
+  if(lang === 'en'){
+    // 英語画像に切替
+    topImage.src = 'images/azras-top-page_en.png';
+    jpEls.forEach(el => el.classList.add('hidden'));
+    enEls.forEach(el => el.classList.remove('hidden'));
+  } else {
+    // 日本語画像に切替
+    topImage.src = 'images/azras-top-page_jp.png';
+    enEls.forEach(el => el.classList.add('hidden'));
+    jpEls.forEach(el => el.classList.remove('hidden'));
+  }
+}
+</script>
+
+</body>
+</html>
