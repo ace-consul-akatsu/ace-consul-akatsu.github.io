@@ -430,7 +430,7 @@ section + section{ border-top:1px solid var(--line); }
 .track-record{
   margin-top:48px;
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   border:1px solid var(--line);
   border-radius:4px;
   overflow:hidden;
@@ -462,10 +462,17 @@ section + section{ border-top:1px solid var(--line); }
   margin-top:10px;
   line-height:1.5;
 }
-@media(max-width:860px){
+@media(max-width:980px){
+  .track-record{grid-template-columns:repeat(2,1fr);}
+  .track-record .tr-item:nth-child(odd){border-left:none;}
+  .track-record .tr-item:nth-child(1),.track-record .tr-item:nth-child(2){border-top:none;}
+  .track-record .tr-item:nth-child(n+3){border-top:1px solid var(--line);}
+}
+@media(max-width:600px){
   .track-record{grid-template-columns:1fr;}
-  .track-record .tr-item{border-left:none;border-top:1px solid var(--line);}
+  .track-record .tr-item{border-left:none !important;}
   .track-record .tr-item:first-child{border-top:none;}
+  .track-record .tr-item:not(:first-child){border-top:1px solid var(--line);}
 }
 .adapt-note{
   margin-top:32px;
@@ -542,6 +549,10 @@ section + section{ border-top:1px solid var(--line); }
   object-fit:cover;
   border-bottom:1px solid var(--line);
   display:block;
+}
+.res-card.tall img{
+  aspect-ratio:16/14;
+  object-position:top;
 }
 .res-card .res-body{
   padding:22px 24px 26px;
@@ -771,6 +782,11 @@ footer{
         <div class="tr-num">100+</div>
         <div class="tr-label">Year Design Horizon</div>
         <div class="tr-detail">The RC core — mat foundation, load-bearing exterior walls, and party walls — is engineered for multi-generational durability.</div>
+      </div>
+      <div class="tr-item">
+        <div class="tr-num">2005</div>
+        <div class="tr-label">Patented in Japan</div>
+        <div class="tr-detail">JP 2005-240511 — filed 2004, published Sep 2005. Inventor: Makito Akatsu.</div>
       </div>
     </div>
 
@@ -1024,6 +1040,17 @@ footer{
             <h3>Inheritance Strategy</h3>
             <p>Unit-level ownership simplifies inheritance, asset division, and payment-in-kind for tax purposes in Japan.</p>
             <div class="res-link">View full sheet →</div>
+          </div>
+        </a>
+      </div>
+      <div class="res-card tall">
+        <a class="res-card-link" href="images/resources/JP2005-240511_Original_Patent.pdf" target="_blank" rel="noopener">
+          <img src="images/resources/patent-thumb.jpg" alt="Original 2005 Japanese patent JP 2005-240511, Building Structure" loading="lazy">
+          <div class="res-body">
+            <div class="res-idx">08 — IP / PATENT</div>
+            <h3>Original Patent (JP 2005-240511)</h3>
+            <p>The original Japanese patent publication covering the building structure — filed 2004, published September 2005, inventor Makito Akatsu.</p>
+            <div class="res-link">View patent PDF →</div>
           </div>
         </a>
       </div>
