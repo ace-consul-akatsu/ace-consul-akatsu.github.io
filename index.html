@@ -97,16 +97,11 @@ header{
   justify-content:space-between;
 }
 .wordmark{
-  font-family:'Space Grotesk', sans-serif;
-  font-weight:700;
-  font-size:21px;
-  letter-spacing:0.04em;
   display:flex;
   align-items:center;
-  gap:10px;
 }
-.wordmark .mark{flex-shrink:0;}
-nav.links{display:flex;gap:26px;}
+.wordmark .logo-img{height:24px;width:auto;}
+nav.links{display:flex;gap:20px;}
 nav.links a{
   font-family:'IBM Plex Mono', monospace;
   font-size:12.5px;
@@ -229,11 +224,7 @@ section + section{ border-top:1px solid var(--line); }
   align-items:center;
   gap:16px;
 }
-.hero-logo .mark{flex-shrink:0;}
-.hero-logo .wordmark-img{
-  height:48px;
-  width:auto;
-}
+.hero-logo .logo-img{height:46px;width:auto;}
 .hero-tagline{
   font-family:'IBM Plex Sans', sans-serif;
   font-weight:500;
@@ -515,13 +506,7 @@ footer{
 <header>
   <div class="nav-inner">
     <a class="wordmark" href="#home">
-      <svg class="mark" width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M14 8 V44 C14 51.5 19.5 57 27 57 H37 C44.5 57 50 51.5 50 44 V8" stroke="#9C988C" stroke-width="5.5" stroke-linecap="round"/>
-        <rect x="21" y="24" width="7" height="23" rx="2.5" fill="#2E6B45"/>
-        <rect x="30.5" y="31" width="7" height="16" rx="2.5" fill="#4C8866"/>
-        <rect x="40" y="15" width="7" height="32" rx="2.5" fill="#1F4C33"/>
-      </svg>
-      <span>AZRAS</span>
+      <img class="logo-img" src="images/azras-logo-combined.png" alt="AZRAS">
     </a>
     <nav class="links" id="navLinks">
       <a href="#about">About</a>
@@ -553,13 +538,7 @@ footer{
   </div>
   <div class="wrap hero-inner">
     <div class="hero-logo">
-      <svg class="mark" width="50" height="50" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M14 8 V44 C14 51.5 19.5 57 27 57 H37 C44.5 57 50 51.5 50 44 V8" stroke="#9C988C" stroke-width="5.5" stroke-linecap="round"/>
-        <rect x="21" y="24" width="7" height="23" rx="2.5" fill="#2E6B45"/>
-        <rect x="30.5" y="31" width="7" height="16" rx="2.5" fill="#4C8866"/>
-        <rect x="40" y="15" width="7" height="32" rx="2.5" fill="#1F4C33"/>
-      </svg>
-      <img class="wordmark-img" src="images/azras-wordmark.png" alt="AZRAS">
+      <img class="logo-img" src="images/azras-logo-combined.png" alt="AZRAS">
     </div>
     <div class="hero-tagline">Adaptive Zero-Rebuild Asset System</div>
     <div class="hero-divider"></div>
