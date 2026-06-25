@@ -78,37 +78,7 @@ img{max-width:100%;display:block;}
   padding:0 32px;
 }
 
-/* ============ STRUCTURAL CORE LINE ============ */
-.core-line{
-  position:absolute;
-  top:0; bottom:0;
-  left:50px;
-  width:2px;
-  background:var(--line);
-  z-index:1;
-}
-.core-line::after{
-  content:"";
-  position:absolute;
-  top:0; left:50%;
-  width:2px; height:100%;
-  background:var(--core);
-  transform:translateX(-50%) scaleY(0);
-  transform-origin:top;
-  animation:draw-core 2.2s ease-out forwards;
-}
-@keyframes draw-core{ to{ transform:translateX(-50%) scaleY(1); } }
-.tie{
-  position:absolute;
-  left:42px;
-  width:18px; height:2px;
-  background:var(--bronze);
-  z-index:2;
-}
-@media(max-width:860px){
-  .core-line{ left:18px; }
-  .tie{ left:10px; width:14px; }
-}
+/* ============ (structural core line removed) ============ */
 
 /* ============ NAV ============ */
 header{
@@ -536,14 +506,11 @@ footer{
 .footer-inner a{text-decoration:underline;}
 
 @media (prefers-reduced-motion: reduce){
-  .core-line::after{animation:none;transform:translateX(-50%) scaleY(1);}
   html{scroll-behavior:auto;}
 }
 </style>
 </head>
 <body>
-
-<div class="core-line" id="coreLine"></div>
 
 <header>
   <div class="nav-inner">
@@ -631,7 +598,6 @@ footer{
 
 <!-- ================= ABOUT ================= -->
 <section id="about">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">01 / About AZRAS</div>
@@ -660,7 +626,6 @@ footer{
 
 <!-- ================= PHILOSOPHY ================= -->
 <section id="philosophy">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">02 / Philosophy</div>
@@ -681,7 +646,6 @@ footer{
 
 <!-- ================= TECHNOLOGY ================= -->
 <section id="technology">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">03 / Technology</div>
@@ -701,7 +665,6 @@ footer{
 
 <!-- ================= INVESTMENT VALUE ================= -->
 <section id="value">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">04 / Investment Value</div>
@@ -721,7 +684,6 @@ footer{
 
 <!-- ================= APPLICATIONS ================= -->
 <section id="applications">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">05 / Applications</div>
@@ -743,7 +705,6 @@ footer{
 
 <!-- ================= MARKET OPPORTUNITY ================= -->
 <section id="market">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">06 / Market Opportunity</div>
@@ -761,7 +722,6 @@ footer{
 
 <!-- ================= ROADMAP ================= -->
 <section id="roadmap">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">07 / Roadmap</div>
@@ -798,7 +758,6 @@ footer{
 
 <!-- ================= OPEN INNOVATION / PARTNERSHIPS ================= -->
 <section id="partnerships">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">08 / Open Innovation</div>
@@ -818,7 +777,6 @@ footer{
 
 <!-- ================= NEWS ================= -->
 <section id="news">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">09 / News &amp; Insights</div>
@@ -833,7 +791,6 @@ footer{
 
 <!-- ================= COMPANY ================= -->
 <section id="company">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">10 / Company</div>
@@ -853,7 +810,6 @@ footer{
 
 <!-- ================= CONTACT ================= -->
 <section id="contact">
-  <div class="tie" style="top:0;"></div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">11 / Contact</div>
@@ -914,12 +870,6 @@ menuBtn.addEventListener('click', () => {
 });
 navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => navLinks.classList.remove('open'));
-});
-
-// Place structural "ties" at the top boundary of each section that has one
-document.querySelectorAll('section .tie').forEach(tie => {
-  const rectTop = tie.closest('section').offsetTop;
-  tie.style.top = '0px';
 });
 
 // Placeholder contact form behavior (GitHub Pages cannot process form submissions natively).
