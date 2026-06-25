@@ -487,6 +487,33 @@ section + section{ border-top:1px solid var(--line); }
   line-height:1.6;
   max-width:760px;
 }
+.proof-gallery{
+  margin-top:40px;
+}
+.proof-gallery .pg-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-bottom:14px;
+}
+.proof-gallery .pg-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.proof-gallery img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:3px;
+  border:1px solid var(--line);
+  display:block;
+}
+@media(max-width:860px){
+  .proof-gallery .pg-grid{grid-template-columns:1fr;}
+}
 
 /* ============ NEWS EMPTY STATE ============ */
 .res-grid{
@@ -750,6 +777,15 @@ footer{
     <div class="adapt-note">
       <h4>Engineered for international adaptation</h4>
       <p>The original system uses cast-in-place RC walls as its primary structural element. For markets with different structural norms or seismic codes — including the United States, Southeast Asia, the Middle East, and Latin America — portions of the RC walls can be replaced with moment-frame systems (columns and beams), retaining RC walls only where structurally essential. AZRAS is a framework engineered to local conditions, not a single fixed construction method.</p>
+    </div>
+
+    <div class="proof-gallery">
+      <div class="pg-label">Completed in 2005 — still in service today</div>
+      <div class="pg-grid">
+        <img src="images/projects/building-01.jpg" alt="AZRAS building completed in 2005, exterior view" loading="lazy">
+        <img src="images/projects/building-02.jpg" alt="AZRAS building, current exterior condition" loading="lazy">
+        <img src="images/projects/building-03.jpg" alt="AZRAS building, current exterior condition" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
