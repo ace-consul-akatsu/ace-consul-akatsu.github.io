@@ -1102,7 +1102,8 @@ footer{
       <p class="lede">For investment inquiries, licensing discussions, partnership proposals, or white paper requests.</p>
     </div>
     <div class="contact-grid">
-      <form id="contactForm">
+      <form id="contactForm" action="https://formspree.io/f/mgojaqqj" method="POST">
+        <input type="hidden" name="_subject" value="New inquiry from AZRAS website">
         <div>
           <label for="name">Name</label>
           <input id="name" name="name" type="text" required>
@@ -1130,6 +1131,7 @@ footer{
           <textarea id="message" name="message" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary" style="align-self:flex-start;border:none;cursor:pointer;">Send Inquiry</button>
+        <p id="contactFormStatus" style="margin-top:12px;font-size:14px;"></p>
       </form>
       <div>
         <p class="contact-direct">You can also reach us directly at <a href="mailto:ace.consul.ma@gmail.com">ace.consul.ma@gmail.com</a>.</p>
@@ -1157,12 +1159,44 @@ navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
-// Placeholder contact form behavior (GitHub Pages cannot process form submissions natively).
-// Connect this to a form backend such as Formspree, Getform, or Netlify Forms by setting
-// the form's action/method, or by replacing this handler with a fetch() call to that service.
+// Contact form — submits to Formspree (https://formspree.io/f/mgojaqqj).
 document.getElementById('contactForm').addEventListener('submit', function(e){
   e.preventDefault();
-  alert('This form is not yet connected to an email service. Set up Formspree, Getform, or Netlify Forms and update this script — or use the direct email link.');
+  const form = e.target;
+  const statusEl = document.getElementById('contactFormStatus');
+  const btn = form.querySelector('button[type="submit"]');
+  const btnLabel = btn.textContent;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  statusEl.textContent = '';
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      form.reset();
+      statusEl.textContent = 'Thank you — your message has been sent. We will be in touch shortly.';
+      statusEl.style.color = 'var(--core)';
+    } else {
+      return response.json().then(data => {
+        const msg = (data && data.errors) ? data.errors.map(e => e.message).join(', ') : 'Something went wrong. Please try again or email us directly.';
+        statusEl.textContent = msg;
+        statusEl.style.color = '#b3261e';
+      });
+    }
+  })
+  .catch(() => {
+    statusEl.textContent = 'Network error. Please try again or email us directly.';
+    statusEl.style.color = '#b3261e';
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.textContent = btnLabel;
+  });
 });
 </script>
 </body>
