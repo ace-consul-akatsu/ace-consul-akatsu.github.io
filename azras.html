@@ -8,10 +8,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --green-dark:#1C3D2A;
-  --green-mid:#2D6A42;
-  --green-accent:#4A8C5C;
-  --green-light:#7AB893;
+  --green-dark:#00175A;
+  --green-mid:#1E3579;
+  --green-accent:#304EA6;
+  --green-light:#617ED1;
   --concrete:#8C8C84;
   --concrete-light:#C8C8C0;
   --concrete-bg:#F2F0EB;
@@ -27,8 +27,8 @@ body{font-family:'Noto Sans JP',sans-serif;color:var(--text-dark);background:var
 /* NAV */
 nav{
   position:fixed;top:0;width:100%;z-index:200;
-  background:rgba(28,61,42,0.96);backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(74,140,92,0.2);
+  background:rgba(0,23,90,0.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(48,78,166,0.2);
   padding:0 56px;height:72px;
   display:flex;align-items:center;justify-content:space-between;
 }
@@ -52,7 +52,7 @@ nav{
 }
 .hero-grid{
   position:absolute;inset:0;
-  background-image:linear-gradient(rgba(122,184,147,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(122,184,147,0.04) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(97,126,209,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(97,126,209,0.04) 1px,transparent 1px);
   background-size:56px 56px;
 }
 .hero-inner{position:relative;z-index:2;padding:80px 64px;max-width:900px;}
@@ -72,7 +72,7 @@ nav{
 }
 .toc-btn{
   font-family:'Barlow',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;
-  border:1px solid rgba(122,184,147,0.4);color:rgba(255,255,255,0.7);
+  border:1px solid rgba(97,126,209,0.4);color:rgba(255,255,255,0.7);
   padding:9px 18px;text-decoration:none;transition:all 0.2s;
 }
 .toc-btn:hover{border-color:var(--green-light);color:var(--green-light);}
@@ -91,7 +91,7 @@ section{padding:88px 64px;}
 /* CONCEPT */
 .concept{background:var(--off-white);}
 .concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px;}
-.concept-card{background:var(--white);border:1px solid rgba(28,61,42,0.1);padding:40px 36px;position:relative;}
+.concept-card{background:var(--white);border:1px solid rgba(0,23,90,0.1);padding:40px 36px;position:relative;}
 .concept-card-tag{font-family:'Barlow',sans-serif;font-size:9px;letter-spacing:0.25em;color:var(--green-mid);font-weight:600;margin-bottom:12px;}
 .concept-card-title{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:12px;}
 .concept-card-desc{font-size:13px;color:var(--text-mid);line-height:2;}
@@ -116,11 +116,11 @@ section{padding:88px 64px;}
 /* FEATURES */
 .features{background:var(--white);}
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.feature-card{border:1px solid rgba(28,61,42,0.1);padding:36px 28px;transition:border-color 0.3s,transform 0.3s;position:relative;overflow:hidden;}
+.feature-card{border:1px solid rgba(0,23,90,0.1);padding:36px 28px;transition:border-color 0.3s,transform 0.3s;position:relative;overflow:hidden;}
 .feature-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--green-mid);transform:scaleX(0);transition:transform 0.3s;transform-origin:left;}
-.feature-card:hover{border-color:rgba(45,106,66,0.3);transform:translateY(-3px);}
+.feature-card:hover{border-color:rgba(30,53,121,0.3);transform:translateY(-3px);}
 .feature-card:hover::after{transform:scaleX(1);}
-.feature-num{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:700;color:rgba(28,61,42,0.07);line-height:1;margin-bottom:12px;}
+.feature-num{font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:700;color:rgba(0,23,90,0.07);line-height:1;margin-bottom:12px;}
 .feature-title-en{font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:0.2em;color:var(--green-mid);font-weight:600;margin-bottom:6px;}
 .feature-title{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:10px;}
 .feature-desc{font-size:12px;color:var(--text-mid);line-height:1.9;}
@@ -132,7 +132,7 @@ section{padding:88px 64px;}
 .data-kpi-val{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:700;color:var(--green-light);line-height:1;}
 .data-kpi-label{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;margin-top:6px;}
 .data-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.data-card{background:rgba(255,255,255,0.04);border:1px solid rgba(122,184,147,0.12);padding:28px 24px;}
+.data-card{background:rgba(255,255,255,0.04);border:1px solid rgba(97,126,209,0.12);padding:28px 24px;}
 .data-card-tag{font-family:'Barlow',sans-serif;font-size:9px;letter-spacing:0.2em;color:var(--green-light);font-weight:600;margin-bottom:8px;}
 .data-card-title{font-size:14px;color:var(--white);font-weight:500;margin-bottom:8px;line-height:1.6;}
 .data-card-detail{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.8;}
@@ -141,7 +141,7 @@ section{padding:88px 64px;}
 .whitepaper{background:var(--concrete-bg);}
 .wp-list{display:flex;flex-direction:column;gap:0;}
 .wp-item{
-  background:var(--white);border:1px solid rgba(28,61,42,0.1);
+  background:var(--white);border:1px solid rgba(0,23,90,0.1);
   padding:28px 32px;display:flex;align-items:center;gap:20px;
   margin-bottom:12px;transition:border-color 0.2s;
 }
@@ -171,13 +171,13 @@ section{padding:88px 64px;}
 }
 .doc-toc-btn{
   font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:0.12em;font-weight:600;
-  border:1px solid rgba(28,61,42,0.2);color:var(--text-mid);
+  border:1px solid rgba(0,23,90,0.2);color:var(--text-mid);
   padding:7px 14px;cursor:pointer;transition:all 0.2s;background:var(--white);
 }
 .doc-toc-btn.active,.doc-toc-btn:hover{background:var(--green-dark);color:var(--white);border-color:var(--green-dark);}
 .doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .doc-card{
-  background:var(--white);border:1px solid rgba(28,61,42,0.1);
+  background:var(--white);border:1px solid rgba(0,23,90,0.1);
   padding:24px 20px;transition:border-color 0.2s;
 }
 .doc-card:hover{border-color:var(--green-mid);}
@@ -188,7 +188,7 @@ section{padding:88px 64px;}
   display:inline-flex;align-items:center;gap:6px;
   font-family:'Barlow',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;
   color:var(--green-mid);text-decoration:none;
-  border-bottom:1px solid rgba(45,106,66,0.3);padding-bottom:2px;
+  border-bottom:1px solid rgba(30,53,121,0.3);padding-bottom:2px;
   transition:border-color 0.2s;
 }
 .doc-link:hover{border-color:var(--green-mid);}
@@ -196,7 +196,7 @@ section{padding:88px 64px;}
 /* GLOBAL */
 .global{background:var(--white);}
 .global-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-.global-card{border:1px solid rgba(28,61,42,0.1);padding:36px 32px;position:relative;overflow:hidden;}
+.global-card{border:1px solid rgba(0,23,90,0.1);padding:36px 32px;position:relative;overflow:hidden;}
 .global-card.featured{border-color:var(--green-mid);border-width:1.5px;}
 .global-card::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--green-mid);opacity:0;transition:opacity 0.2s;}
 .global-card:hover::after{opacity:1;}
@@ -204,12 +204,12 @@ section{padding:88px 64px;}
 .global-title{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:700;color:var(--text-dark);margin-bottom:10px;}
 .global-desc{font-size:13px;color:var(--text-mid);line-height:1.9;margin-bottom:16px;}
 .global-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.g-tag{font-size:10px;letter-spacing:0.08em;border:1px solid rgba(45,106,66,0.3);color:var(--green-mid);padding:2px 8px;}
+.g-tag{font-size:10px;letter-spacing:0.08em;border:1px solid rgba(30,53,121,0.3);color:var(--green-mid);padding:2px 8px;}
 
 /* LICENSE */
 .license{background:var(--green-dark);}
 .license-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.license-card{background:rgba(255,255,255,0.04);border:1px solid rgba(122,184,147,0.15);padding:36px 32px;}
+.license-card{background:rgba(255,255,255,0.04);border:1px solid rgba(97,126,209,0.15);padding:36px 32px;}
 .license-type{font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:0.2em;color:var(--green-light);font-weight:600;margin-bottom:12px;}
 .license-title{font-family:'Noto Serif JP',serif;font-size:17px;color:var(--white);font-weight:700;margin-bottom:12px;}
 .license-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.9;}
@@ -217,13 +217,13 @@ section{padding:88px 64px;}
 
 /* CONTACT */
 .contact-section{background:var(--concrete-bg);}
-.contact-box{background:var(--white);border:1px solid rgba(28,61,42,0.1);padding:52px;position:relative;max-width:680px;margin:0 auto;}
+.contact-box{background:var(--white);border:1px solid rgba(0,23,90,0.1);padding:52px;position:relative;max-width:680px;margin:0 auto;}
 .contact-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green-mid);}
 .contact-row{margin-bottom:20px;}
 .contact-label{font-size:11px;letter-spacing:0.1em;color:var(--text-mid);font-weight:500;margin-bottom:7px;display:block;}
-.contact-input{width:100%;border:1px solid rgba(28,61,42,0.15);padding:11px 14px;font-size:13px;color:var(--text-dark);font-family:'Noto Sans JP',sans-serif;outline:none;transition:border-color 0.2s;background:var(--white);border-radius:0;}
+.contact-input{width:100%;border:1px solid rgba(0,23,90,0.15);padding:11px 14px;font-size:13px;color:var(--text-dark);font-family:'Noto Sans JP',sans-serif;outline:none;transition:border-color 0.2s;background:var(--white);border-radius:0;}
 .contact-input:focus{border-color:var(--green-mid);}
-.contact-input::placeholder{color:rgba(28,61,42,0.22);}
+.contact-input::placeholder{color:rgba(0,23,90,0.22);}
 textarea.contact-input{height:110px;resize:vertical;}
 select.contact-input{appearance:none;cursor:pointer;}
 .contact-submit{width:100%;background:var(--green-dark);color:var(--white);border:none;padding:15px;font-size:13px;font-weight:700;letter-spacing:0.14em;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:background 0.2s;margin-top:6px;}
@@ -231,7 +231,7 @@ select.contact-input{appearance:none;cursor:pointer;}
 .contact-note{text-align:center;font-size:11px;color:var(--text-light);margin-top:14px;line-height:1.8;}
 
 /* FOOTER */
-footer{background:var(--green-dark);padding:40px 64px;border-top:1px solid rgba(122,184,147,0.1);}
+footer{background:var(--green-dark);padding:40px 64px;border-top:1px solid rgba(97,126,209,0.1);}
 .footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
 .footer-ace{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--white);}
 .footer-ace span{color:var(--green-light);}
@@ -290,9 +290,9 @@ footer{background:var(--green-dark);padding:40px 64px;border-top:1px solid rgba(
     <div class="hero-logo-block">
       <div class="hero-mark">
         <div class="hb" style="width:12px;height:32px;background:#8C8C84;border-radius:1px;"></div>
-        <div class="hb" style="width:12px;height:46px;background:#2D6A42;border-radius:1px;"></div>
+        <div class="hb" style="width:12px;height:46px;background:#1E3579;border-radius:1px;"></div>
         <div class="hb" style="width:12px;height:24px;background:#8C8C84;border-radius:1px;"></div>
-        <div class="hb" style="width:12px;height:52px;background:#2D6A42;border-radius:1px;"></div>
+        <div class="hb" style="width:12px;height:52px;background:#1E3579;border-radius:1px;"></div>
         <div class="hb" style="width:12px;height:36px;background:#8C8C84;border-radius:1px;"></div>
       </div>
       <div class="hero-azras">AZRAS</div>
@@ -337,15 +337,15 @@ footer{background:var(--green-dark);padding:40px 64px;border-top:1px solid rgba(
       <div class="diagram-visual">
         <div class="diagram-bars">
           <div class="diagram-bar" style="width:14px;height:40px;background:#8C8C84;border-radius:1px;"></div>
-          <div class="diagram-bar" style="width:14px;height:60px;background:#2D6A42;border-radius:1px;"></div>
+          <div class="diagram-bar" style="width:14px;height:60px;background:#1E3579;border-radius:1px;"></div>
           <div class="diagram-bar" style="width:14px;height:28px;background:#8C8C84;border-radius:1px;"></div>
-          <div class="diagram-bar" style="width:14px;height:70px;background:#2D6A42;border-radius:1px;"></div>
+          <div class="diagram-bar" style="width:14px;height:70px;background:#1E3579;border-radius:1px;"></div>
           <div class="diagram-bar" style="width:14px;height:46px;background:#8C8C84;border-radius:1px;"></div>
         </div>
       </div>
       <div class="diagram-legend">
         <div class="diagram-legend-item">
-          <div class="legend-line" style="background:#7AB893;"></div>
+          <div class="legend-line" style="background:#617ED1;"></div>
           <div>
             <div class="legend-title">ADAPTIVE INFILL（木造インフィル）</div>
             <div class="legend-desc">時代と用途に合わせて自由に更新可能。住戸単位での独立交換により、隣戸への影響なし。上階全体が木造のため、間取り・開口・空間レイアウトを次世代に応じて変更可能。</div>
@@ -438,19 +438,19 @@ footer{background:var(--green-dark);padding:40px 64px;border-top:1px solid rgba(
     <div id="adaptive-e">
       <img src="https://raw.githubusercontent.com/ace-consul-akatsu/ace-consul-akatsu.github.io/main/Adaptable%20design_E.png"
            alt="Future-Adaptive Living — English"
-           style="width:100%;display:block;border:1px solid rgba(28,61,42,0.1);">
+           style="width:100%;display:block;border:1px solid rgba(0,23,90,0.1);">
     </div>
 
     <!-- 日本語版 -->
     <div id="adaptive-j" style="display:none;">
       <img src="https://raw.githubusercontent.com/ace-consul-akatsu/ace-consul-akatsu.github.io/main/Adaptable%20design_J.png"
            alt="可変性のある未来の住まい — 日本語"
-           style="width:100%;display:block;border:1px solid rgba(28,61,42,0.1);">
+           style="width:100%;display:block;border:1px solid rgba(0,23,90,0.1);">
     </div>
 
     <!-- STAGE説明 -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;">
-      <div style="background:var(--white);border:1px solid rgba(28,61,42,0.1);padding:28px 24px;">
+      <div style="background:var(--white);border:1px solid rgba(0,23,90,0.1);padding:28px 24px;">
         <div style="font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:0.22em;color:var(--green-mid);font-weight:600;margin-bottom:8px;">STAGE 1</div>
         <div style="font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:8px;">南向きウッドデッキのある住宅</div>
         <div style="font-size:12px;color:var(--text-mid);line-height:1.9;">南側に広がるウッドデッキが室内と屋外をつなぎ、明るく開放的なリビングと庭を実現。家族の暮らしを豊かに育む住まい。</div>
@@ -461,7 +461,7 @@ footer{background:var(--green-dark);padding:40px 64px;border-top:1px solid rgba(
         <div style="font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:8px;">イタリアンレストランへ転用</div>
         <div style="font-size:12px;color:var(--text-mid);line-height:1.9;">大きく開いた南側の開口部が街とつながる心地よい空間に。木造インフィルの交換だけで完全に用途を転換。建て替え不要。</div>
       </div>
-      <div style="background:var(--white);border:1px solid rgba(28,61,42,0.1);padding:28px 24px;">
+      <div style="background:var(--white);border:1px solid rgba(0,23,90,0.1);padding:28px 24px;">
         <div style="font-family:'Barlow',sans-serif;font-size:10px;letter-spacing:0.22em;color:var(--green-mid);font-weight:600;margin-bottom:8px;">STAGE 3</div>
         <div style="font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:8px;">1階が車庫・2階が先進的な住宅へ</div>
         <div style="font-size:12px;color:var(--text-mid);line-height:1.9;">ライフスタイルの変化に合わせて機能と価値を最適化。長く快適に住み続けられる次世代の住まいへと進化。</div>
