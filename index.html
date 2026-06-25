@@ -421,7 +421,66 @@ section + section{ border-top:1px solid var(--line); }
 .rm-row p{color:var(--ink-soft);font-size:15px;max-width:600px;}
 
 /* ============ NEWS EMPTY STATE ============ */
-.empty-state{
+.res-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+@media(max-width:980px){ .res-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:640px){ .res-grid{grid-template-columns:1fr;} }
+.res-card{
+  border:1px solid var(--line);
+  border-radius:4px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  background:var(--paper);
+  transition:box-shadow .2s, transform .2s;
+}
+.res-card:hover{
+  box-shadow:0 14px 30px rgba(0,0,0,0.08);
+  transform:translateY(-3px);
+}
+.res-card img{
+  width:100%;
+  aspect-ratio:16/11;
+  object-fit:cover;
+  border-bottom:1px solid var(--line);
+  display:block;
+}
+.res-card .res-body{
+  padding:22px 24px 26px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.res-card .res-idx{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  color:var(--bronze);
+  margin-bottom:8px;
+}
+.res-card h3{font-size:17.5px;margin-bottom:8px;}
+.res-card p{
+  color:var(--ink-soft);
+  font-size:14.5px;
+  line-height:1.55;
+  flex:1;
+}
+.res-card .res-link{
+  margin-top:14px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--core);
+}
+.res-card a.res-card-link{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  color:inherit;
+}
   border:1px dashed var(--line);
   background:var(--paper);
   padding:48px 40px;
@@ -517,6 +576,7 @@ footer{
       <a href="#market">Market</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#partnerships">Partnerships</a>
+      <a href="#resources">Resources</a>
       <a href="#news">News</a>
       <a href="#company">Company</a>
       <a href="#contact">Contact</a>
@@ -754,11 +814,101 @@ footer{
   </div>
 </section>
 
+<!-- ================= RESOURCES ================= -->
+<section id="resources">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">09 / Resources</div>
+      <h2>Technical Detail Sheets</h2>
+      <p class="lede">In-depth reference material behind the summaries above — structural performance, lifecycle economics, and disaster recovery data.</p>
+    </div>
+    <div class="res-grid">
+      <div class="res-card">
+        <a class="res-card-link" href="images/resources/adaptability.jpg" target="_blank" rel="noopener">
+          <img src="images/resources/adaptability-thumb.jpg" alt="Physical Adaptability detail sheet" loading="lazy">
+          <div class="res-body">
+            <div class="res-idx">01 — STRUCTURE</div>
+            <h3>Physical Adaptability</h3>
+            <p>RC walls can be freely positioned to fit irregular plots and sloped terrain without losing structural efficiency.</p>
+            <div class="res-link">View full sheet →</div>
+          </div>
+        </a>
+      </div>
+      <div class="res-card">
+        <a class="res-card-link" href="images/resources/flexibility.jpg" target="_blank" rel="noopener">
+          <img src="images/resources/flexibility-thumb.jpg" alt="Flexibility detail sheet" loading="lazy">
+          <div class="res-body">
+            <div class="res-idx">02 — STRUCTURE</div>
+            <h3>Flexibility — Evolve Without Demolition</h3>
+            <p>Interior layouts and building use can change freely over time without ever touching the structural core.</p>
+            <div class="res-link">View full sheet →</div>
+          </div>
+        </a>
+      </div>
+      <div class="res-card">
+        <a class="res-card-link" href="images/resources/thermal-mass.jpg" target="_blank" rel="noopener">
+          <img src="images/resources/thermal-mass-thumb.jpg" alt="Thermal Mass Advantage detail sheet" loading="lazy">
+          <div class="res-body">
+            <div class="res-idx">03 — PERFORMANCE</div>
+            <h3>Thermal Mass Advantage</h3>
+            <p>300mm RC walls store heat and coolth, stabilizing indoor temperature and lowering HVAC energy use.</p>
+            <div class="res-link">View full sheet →</div>
+          </div>
+        </a>
+      </div>
+      <div class="res-card">
+        <a class="res-card-link" href="images/resources/sound-insulation.jpg" target="_blank" rel="noopener">
+          <img src="images/resources/sound-insulation-thumb.jpg" alt="Sound Insulation detail sheet" loading="lazy">
+          <div class="res-body">
+            <div class="res-idx">04 — PERFORMANCE</div>
+            <h3>Sound Insulation</h3>
+            <p>300mm RC party walls give terrace and multi-unit housing the privacy of a detached home.</p>
+            <div class="res-link">View full sheet →</div>
+          </div>
+        </a>
+      </div>
+      <div class="res-card">
+        <a class="res-card-link" href="images/resources/profitability.jpg" target="_blank" rel="noopener">
+          <img src="images/resources/profitability-thumb.jpg" alt="Profitability detail sheet" loading="lazy">
+          <div class="res-body">
+            <div class="res-idx">05 — ECONOMICS</div>
+            <h3>Profitability</h3>
+            <p>2005 case study: renovating instead of rebuilding lifts return on investment from 8.28% to 20.70%.</p>
+            <div class="res-link">View full sheet →</div>
+          </div>
+        </a>
+      </div>
+      <div class="res-card">
+        <a class="res-card-link" href="images/resources/recoverability.jpg" target="_blank" rel="noopener">
+          <img src="images/resources/recoverability-thumb.jpg" alt="Recoverability detail sheet" loading="lazy">
+          <div class="res-body">
+            <div class="res-idx">06 — ECONOMICS</div>
+            <h3>Disaster Recoverability</h3>
+            <p>Structural preservation cuts disaster recovery cost by ~80% and recovery time by ~85% versus a full rebuild.</p>
+            <div class="res-link">View full sheet →</div>
+          </div>
+        </a>
+      </div>
+      <div class="res-card">
+        <a class="res-card-link" href="images/resources/inheritance.jpg" target="_blank" rel="noopener">
+          <img src="images/resources/inheritance-thumb.jpg" alt="Inheritance Strategy detail sheet" loading="lazy">
+          <div class="res-body">
+            <div class="res-idx">07 — OWNERSHIP</div>
+            <h3>Inheritance Strategy</h3>
+            <p>Unit-level ownership simplifies inheritance, asset division, and payment-in-kind for tax purposes in Japan.</p>
+            <div class="res-link">View full sheet →</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= NEWS ================= -->
 <section id="news">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">09 / News &amp; Insights</div>
+      <div class="eyebrow">10 / News &amp; Insights</div>
       <h2>Updates</h2>
     </div>
     <div class="empty-state">
@@ -772,7 +922,7 @@ footer{
 <section id="company">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">10 / Company</div>
+      <div class="eyebrow">11 / Company</div>
       <h2>Operated by ACE Comprehensive Consulting</h2>
     </div>
     <div class="company-grid">
@@ -791,7 +941,7 @@ footer{
 <section id="contact">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">11 / Contact</div>
+      <div class="eyebrow">12 / Contact</div>
       <h2>Start the Conversation</h2>
       <p class="lede">For investment inquiries, licensing discussions, partnership proposals, or white paper requests.</p>
     </div>
