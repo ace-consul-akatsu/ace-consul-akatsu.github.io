@@ -365,6 +365,12 @@ section + section{ border-top:1px solid var(--line); }
   .stats-bar .wrap{grid-template-columns:1fr;}
   .stats-bar .item:nth-child(2){border-top:1px solid rgba(255,255,255,0.14);}
 }
+.grid{
+  display:grid;
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
 .grid-3{grid-template-columns:repeat(3,1fr);}
 .grid-2{grid-template-columns:repeat(2,1fr);}
 @media(max-width:860px){
@@ -419,6 +425,68 @@ section + section{ border-top:1px solid var(--line); }
 }
 .rm-row h3{font-size:18px;margin-bottom:6px;}
 .rm-row p{color:var(--ink-soft);font-size:15px;max-width:600px;}
+
+/* ============ ABOUT: TRACK RECORD + ADAPTABILITY NOTE ============ */
+.track-record{
+  margin-top:48px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--line);
+  border-radius:4px;
+  overflow:hidden;
+}
+.track-record .tr-item{
+  padding:28px 26px;
+  border-left:1px solid var(--line);
+  background:var(--paper);
+}
+.track-record .tr-item:first-child{border-left:none;}
+.track-record .tr-num{
+  font-family:'Space Grotesk', sans-serif;
+  font-size:30px;
+  font-weight:600;
+  color:var(--core);
+  line-height:1;
+}
+.track-record .tr-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-top:8px;
+}
+.track-record .tr-detail{
+  font-size:14px;
+  color:var(--ink-soft);
+  margin-top:10px;
+  line-height:1.5;
+}
+@media(max-width:860px){
+  .track-record{grid-template-columns:1fr;}
+  .track-record .tr-item{border-left:none;border-top:1px solid var(--line);}
+  .track-record .tr-item:first-child{border-top:none;}
+}
+.adapt-note{
+  margin-top:32px;
+  border-left:2px solid var(--core);
+  padding:18px 24px;
+  background:var(--bg-soft);
+}
+.adapt-note h4{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--core);
+  margin-bottom:8px;
+}
+.adapt-note p{
+  font-size:15px;
+  color:var(--ink-soft);
+  line-height:1.6;
+  max-width:760px;
+}
 
 /* ============ NEWS EMPTY STATE ============ */
 .res-grid{
@@ -659,6 +727,29 @@ footer{
         <h3>AI-era cities can't afford to keep rebuilding</h3>
         <p>Rising material costs, embodied carbon targets, and accelerating infrastructure demand all favor assets that adapt instead of reset.</p>
       </div>
+    </div>
+
+    <div class="track-record">
+      <div class="tr-item">
+        <div class="tr-num">3</div>
+        <div class="tr-label">Buildings Completed</div>
+        <div class="tr-detail">Designed, built, and in service in Japan since 2005.</div>
+      </div>
+      <div class="tr-item">
+        <div class="tr-num">2</div>
+        <div class="tr-label">Independent Seismic Verifications</div>
+        <div class="tr-detail">Dynamic nonlinear seismic response analysis (Jun 2005) and a full-scale vibration response measurement on the completed building (May 2005), conducted by an external specialized institution and Vibration Instruments Co., Ltd. (VIIC) respectively.</div>
+      </div>
+      <div class="tr-item">
+        <div class="tr-num">100+</div>
+        <div class="tr-label">Year Design Horizon</div>
+        <div class="tr-detail">The RC core — mat foundation, load-bearing exterior walls, and party walls — is engineered for multi-generational durability.</div>
+      </div>
+    </div>
+
+    <div class="adapt-note">
+      <h4>Engineered for international adaptation</h4>
+      <p>The original system uses cast-in-place RC walls as its primary structural element. For markets with different structural norms or seismic codes — including the United States, Southeast Asia, the Middle East, and Latin America — portions of the RC walls can be replaced with moment-frame systems (columns and beams), retaining RC walls only where structurally essential. AZRAS is a framework engineered to local conditions, not a single fixed construction method.</p>
     </div>
   </div>
 </section>
