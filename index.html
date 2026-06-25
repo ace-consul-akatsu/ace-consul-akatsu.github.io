@@ -260,12 +260,9 @@ section + section{ border-top:1px solid var(--line); }
   gap:16px;
 }
 .hero-logo .mark{flex-shrink:0;}
-.hero-logo span{
-  font-family:'Space Grotesk', sans-serif;
-  font-weight:700;
-  font-size:56px;
-  letter-spacing:0.06em;
-  color:var(--ink);
+.hero-logo .wordmark-img{
+  height:48px;
+  width:auto;
 }
 .hero-tagline{
   font-family:'IBM Plex Sans', sans-serif;
@@ -295,11 +292,11 @@ section + section{ border-top:1px solid var(--line); }
 .hero-art{
   position:absolute;
   top:0; right:0;
-  width:58%;
+  width:66%;
   height:100%;
   z-index:1;
-  -webkit-mask-image:linear-gradient(to right, transparent, #000 28%);
-  mask-image:linear-gradient(to right, transparent, #000 28%);
+  -webkit-mask-image:linear-gradient(to right, transparent, #000 22%);
+  mask-image:linear-gradient(to right, transparent, #000 22%);
 }
 .hero-art img{
   width:100%;
@@ -595,7 +592,7 @@ footer{
         <rect x="30.5" y="31" width="7" height="16" rx="2.5" fill="#4C8866"/>
         <rect x="40" y="15" width="7" height="32" rx="2.5" fill="#1F4C33"/>
       </svg>
-      <span>AZRAS</span>
+      <img class="wordmark-img" src="images/azras-wordmark.png" alt="AZRAS">
     </div>
     <div class="hero-tagline">Adaptive Zero-Rebuild Asset System</div>
     <div class="hero-divider"></div>
