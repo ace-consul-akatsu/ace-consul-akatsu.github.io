@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AZRAS — Adaptive Zero-Rebuild Asset System</title>
+<meta name="description" content="AZRAS is an asset design system that separates a long-life structural core from a renewable infill layer — built once in 2005, designed to adapt for a century.">
+<link rel="icon" type="image/svg+xml" href="images/azras-mark.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="AZRAS — Adaptive Zero-Rebuild Asset System">
+<meta property="og:description" content="A long-life RC core paired with a renewable infill layer — built once in Japan in 2005, designed to adapt for a century. Operated by ACE Comprehensive Consulting.">
+<meta property="og:image" content="https://ace-consul-akatsu.github.io/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://ace-consul-akatsu.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AZRAS — Adaptive Zero-Rebuild Asset System">
+<meta name="twitter:description" content="Built once. Adapt forever. A long-life structural core paired with a renewable infill layer.">
+<meta name="twitter:image" content="https://ace-consul-akatsu.github.io/images/og-cover.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECE9E1;
+  --bg-soft:#E2DED2;
+  --ink:#1B1F1C;
+  --ink-soft:#52564F;
+  --line:#C9C3B2;
+  --core:#2F6B52;
+  --core-deep:#1F4C3A;
+  --bronze:#8A7A5C;
+  --paper:#F6F4ED;
+  --max:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'IBM Plex Sans', sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:'Space Grotesk', sans-serif;
+  font-weight:600;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.mono{font-family:'IBM Plex Mono', monospace;}
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:13px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--core);
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:18px;height:1px;
+  background:var(--core);
+  display:inline-block;
+}
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 32px;
+}
+
+/* ============ STRUCTURAL CORE LINE ============ */
+.core-line{
+  position:absolute;
+  top:0; bottom:0;
+  left:50px;
+  width:2px;
+  background:var(--line);
+  z-index:1;
+}
+.core-line::after{
+  content:"";
+  position:absolute;
+  top:0; left:50%;
+  width:2px; height:100%;
+  background:var(--core);
+  transform:translateX(-50%) scaleY(0);
+  transform-origin:top;
+  animation:draw-core 2.2s ease-out forwards;
+}
+@keyframes draw-core{ to{ transform:translateX(-50%) scaleY(1); } }
+.tie{
+  position:absolute;
+  left:42px;
+  width:18px; height:2px;
+  background:var(--bronze);
+  z-index:2;
+}
+@media(max-width:860px){
+  .core-line{ left:18px; }
+  .tie{ left:10px; width:14px; }
+}
+
+/* ============ NAV ============ */
+header{
+  position:fixed; top:0; left:0; right:0;
+  z-index:100;
+  background:rgba(236,233,225,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:18px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.wordmark{
+  font-family:'Space Grotesk', sans-serif;
+  font-weight:700;
+  font-size:21px;
+  letter-spacing:0.04em;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.wordmark .mark{flex-shrink:0;}
+nav.links{display:flex;gap:26px;}
+nav.links a{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12.5px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  transition:color .2s;
+}
+nav.links a:hover{color:var(--core);}
+.menu-btn{
+  display:none;
+  background:none;border:none;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:13px;
+  letter-spacing:0.08em;
+  border:1px solid var(--ink);
+  padding:8px 14px;
+  border-radius:2px;
+  cursor:pointer;
+}
+@media(max-width:980px){
+  nav.links{
+    position:fixed; top:64px; left:0; right:0; bottom:0;
+    background:var(--paper);
+    flex-direction:column;
+    gap:0;
+    padding:10px 0;
+    display:none;
+    overflow-y:auto;
+    border-top:1px solid var(--line);
+  }
+  nav.links.open{display:flex;}
+  nav.links a{
+    padding:16px 32px;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  .menu-btn{display:block;}
+}
+
+/* ============ SECTION BASE ============ */
+section{
+  position:relative;
+  padding:120px 0 96px;
+}
+section + section{ border-top:1px solid var(--line); }
+.section-head{
+  max-width:760px;
+  margin-bottom:56px;
+}
+.section-head h2{
+  font-size:clamp(28px,3.4vw,42px);
+  line-height:1.15;
+}
+.lede{
+  font-size:19px;
+  color:var(--ink-soft);
+  max-width:680px;
+  margin-top:18px;
+}
+
+/* ============ HERO ============ */
+.hero{
+  padding:140px 0 0;
+  position:relative;
+  overflow:hidden;
+}
+.hero-inner{
+  padding:60px 0 80px;
+}
+.leaf-corner{
+  position:absolute;
+  top:0; left:0;
+  width:200px;
+  z-index:4;
+  pointer-events:none;
+}
+.credit{
+  position:absolute;
+  top:100px; right:32px;
+  z-index:4;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-align:right;
+  background:rgba(236,233,225,0.82);
+  backdrop-filter:blur(4px);
+  padding:12px 18px;
+  border-radius:6px;
+}
+.credit .by{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  display:block;
+}
+.credit .ace{
+  font-family:'Space Grotesk', sans-serif;
+  font-weight:700;
+  font-size:22px;
+  color:var(--core);
+  line-height:1;
+}
+.credit .divider{width:1px;height:30px;background:var(--line);}
+.credit .full{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  line-height:1.3;
+  text-align:left;
+}
+@media(max-width:720px){
+  .credit{display:none;}
+  .leaf-corner{width:120px;}
+}
+.hero .wrap{position:relative;z-index:3;}
+.hero h1{
+  font-size:clamp(40px,6.4vw,78px);
+  line-height:1.04;
+  max-width:880px;
+}
+.hero h1 em{
+  font-style:normal;
+  color:var(--core);
+}
+.hero .sub{
+  margin-top:28px;
+  font-size:19px;
+  color:var(--ink-soft);
+  max-width:560px;
+}
+.hero-art{
+  position:absolute;
+  top:0; right:0;
+  width:58%;
+  height:100%;
+  z-index:1;
+  -webkit-mask-image:linear-gradient(to right, transparent, #000 28%);
+  mask-image:linear-gradient(to right, transparent, #000 28%);
+}
+.hero-art img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.cta-row{
+  margin-top:46px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.btn{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:13px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  padding:15px 26px;
+  border-radius:2px;
+  display:inline-block;
+  transition:all .2s;
+}
+.btn-primary{
+  background:var(--core);
+  color:#fff;
+  border:1px solid var(--core);
+}
+.btn-primary:hover{background:var(--core-deep);}
+.btn-ghost{
+  border:1px solid var(--ink);
+  color:var(--ink);
+}
+.btn-ghost:hover{background:var(--ink);color:var(--bg);}
+
+.stat-row{
+  margin-top:72px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  max-width:680px;
+}
+.stat{
+  background:var(--paper);
+  padding:22px 20px;
+}
+.stat .num{
+  font-family:'Space Grotesk', sans-serif;
+  font-size:28px;
+  font-weight:600;
+  color:var(--core);
+}
+.stat .label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-top:6px;
+}
+@media(max-width:720px){
+  .stat-row{grid-template-columns:1fr;max-width:100%;}
+  .hero-art{display:none;}
+}
+
+/* ============ CARD GRIDS ============ */
+.stats-bar{
+  background:var(--core-deep);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+.stats-bar .wrap{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.stats-bar .item{
+  padding:38px 30px;
+  border-left:1px solid rgba(255,255,255,0.14);
+  display:flex;
+  gap:16px;
+}
+.stats-bar .item:first-child{border-left:none;}
+.stats-bar svg{flex-shrink:0;margin-top:2px;}
+.stats-bar h4{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12.5px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#fff;
+  margin-bottom:8px;
+}
+.stats-bar p{
+  font-size:13.5px;
+  line-height:1.5;
+  color:rgba(255,255,255,0.72);
+}
+@media(max-width:900px){
+  .stats-bar .wrap{grid-template-columns:repeat(2,1fr);}
+  .stats-bar .item{border-left:none;border-top:1px solid rgba(255,255,255,0.14);}
+  .stats-bar .item:nth-child(1),.stats-bar .item:nth-child(2){border-top:none;}
+}
+@media(max-width:540px){
+  .stats-bar .wrap{grid-template-columns:1fr;}
+  .stats-bar .item:nth-child(2){border-top:1px solid rgba(255,255,255,0.14);}
+}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+@media(max-width:860px){
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+}
+.cell{
+  background:var(--paper);
+  padding:34px 30px;
+}
+.cell .idx{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+  color:var(--bronze);
+  margin-bottom:14px;
+}
+.cell h3{font-size:19px;margin-bottom:10px;}
+.cell p{color:var(--ink-soft); font-size:15.5px;}
+
+/* ============ PHILOSOPHY QUOTE ============ */
+.quote-block{
+  margin-top:60px;
+  border-left:2px solid var(--core);
+  padding-left:28px;
+}
+.quote-block p{
+  font-family:'Space Grotesk', sans-serif;
+  font-size:clamp(22px,2.6vw,32px);
+  font-weight:500;
+  line-height:1.3;
+}
+
+/* ============ ROADMAP ============ */
+.roadmap{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  margin-top:10px;
+}
+.rm-row{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:24px;
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+}
+.rm-row:last-child{border-bottom:none;}
+.rm-year{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:15px;
+  color:var(--core);
+  font-weight:500;
+}
+.rm-row h3{font-size:18px;margin-bottom:6px;}
+.rm-row p{color:var(--ink-soft);font-size:15px;max-width:600px;}
+
+/* ============ NEWS EMPTY STATE ============ */
+.empty-state{
+  border:1px dashed var(--line);
+  background:var(--paper);
+  padding:48px 40px;
+  max-width:680px;
+}
+.empty-state h3{font-size:18px;margin-bottom:10px;}
+.empty-state p{color:var(--ink-soft);font-size:15px;}
+
+/* ============ COMPANY ============ */
+.company-grid{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+}
+.fact-list dt{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  color:var(--bronze);
+  margin-top:18px;
+}
+.fact-list dd{font-size:16px;margin-top:4px;}
+@media(max-width:860px){ .company-grid{grid-template-columns:1fr;} }
+
+/* ============ CONTACT ============ */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+}
+form{display:flex;flex-direction:column;gap:18px;}
+label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  color:var(--ink-soft);
+  margin-bottom:6px;
+  display:block;
+}
+input, select, textarea{
+  width:100%;
+  font-family:'IBM Plex Sans', sans-serif;
+  font-size:15px;
+  padding:13px 14px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  color:var(--ink);
+  border-radius:2px;
+}
+input:focus, select:focus, textarea:focus{
+  outline:2px solid var(--core);
+  outline-offset:1px;
+}
+textarea{resize:vertical;min-height:110px;}
+.contact-direct{font-size:15px;}
+.contact-direct a{color:var(--core);text-decoration:underline;}
+@media(max-width:860px){ .contact-grid{grid-template-columns:1fr;} }
+
+footer{
+  padding:48px 0 60px;
+  border-top:1px solid var(--line);
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+  font-size:13.5px;
+  color:var(--ink-soft);
+}
+.footer-inner a{text-decoration:underline;}
+
+@media (prefers-reduced-motion: reduce){
+  .core-line::after{animation:none;transform:translateX(-50%) scaleY(1);}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<div class="core-line" id="coreLine"></div>
+
+<header>
+  <div class="nav-inner">
+    <a class="wordmark" href="#home">
+      <svg class="mark" width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M14 8 V44 C14 51.5 19.5 57 27 57 H37 C44.5 57 50 51.5 50 44 V8" stroke="#9C988C" stroke-width="5.5" stroke-linecap="round"/>
+        <rect x="21" y="24" width="7" height="23" rx="2.5" fill="#2E6B45"/>
+        <rect x="30.5" y="31" width="7" height="16" rx="2.5" fill="#4C8866"/>
+        <rect x="40" y="15" width="7" height="32" rx="2.5" fill="#1F4C33"/>
+      </svg>
+      <span>AZRAS</span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#technology">Technology</a>
+      <a href="#value">Value</a>
+      <a href="#applications">Applications</a>
+      <a href="#market">Market</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#partnerships">Partnerships</a>
+      <a href="#news">News</a>
+      <a href="#company">Company</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn">MENU</button>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<section id="home" class="hero">
+  <img class="leaf-corner" src="images/leaf-corner.png" alt="">
+  <div class="credit">
+    <div>
+      <span class="by">Developed by</span>
+      <span class="ace">ACE</span>
+    </div>
+    <div class="divider"></div>
+    <div class="full">ACE Comprehensive<br>Consulting Co., Ltd.</div>
+  </div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Adaptive Zero-Rebuild Asset System</div>
+    <h1>Built Once.<br><em>Adapt Forever.</em></h1>
+    <p class="sub">AZRAS separates a building into a long-life structural core and a renewable infill layer — so a property's value doesn't expire when its interior does. First built and verified in Japan in 2005, it's designed for a century of adaptation, not a decade of depreciation.</p>
+    <div class="cta-row">
+      <a href="#value" class="btn btn-primary">View Investment Case</a>
+      <a href="#contact" class="btn btn-ghost">Request White Paper</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <img src="images/hero-skyline.jpg" alt="Long-life RC tower skyline beside an adaptive low-rise AZRAS building">
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="wrap">
+    <div class="item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 3 4 6v6c0 5 3.6 8 8 9 4.4-1 8-4 8-9V6l-8-3Z"/></svg>
+      <div><h4>Durability</h4><p>100+ years<br>RC core structure</p></div>
+    </div>
+    <div class="item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+      <div><h4>Flexibility</h4><p>Infill components<br>update freely</p></div>
+    </div>
+    <div class="item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 20h18M6 20v-6h3v6M11 20V9h3v11M16 20v-4h3v4"/><path d="M16 6l4-1.2L18.6 9"/></svg>
+      <div><h4>Asset Value</h4><p>Maintain and enhance<br>value without rebuilding</p></div>
+    </div>
+    <div class="item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
+      <div><h4>Sustainability</h4><p>Lower environmental impact<br>for a sustainable future</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">01 / About AZRAS</div>
+      <h2>From Rebuild to Evolution</h2>
+      <p class="lede">AZRAS — Adaptive Zero-Rebuild Asset System — is an asset design philosophy, not just a construction method. It was developed and physically built in Japan in 2005, pairing a minimal reinforced-concrete core with a fully replaceable infill layer.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="cell">
+        <div class="idx">WHAT IT IS</div>
+        <h3>A core that outlasts cycles</h3>
+        <p>The structural core is engineered for multi-generational service life, independent of how the interior is used.</p>
+      </div>
+      <div class="cell">
+        <div class="idx">WHY IT EXISTS</div>
+        <h3>Demolition is a default, not a necessity</h3>
+        <p>Most buildings are renovated by being torn down. AZRAS treats the core and the interior as separate assets with separate lifespans.</p>
+      </div>
+      <div class="cell">
+        <div class="idx">WHY NOW</div>
+        <h3>AI-era cities can't afford to keep rebuilding</h3>
+        <p>Rising material costs, embodied carbon targets, and accelerating infrastructure demand all favor assets that adapt instead of reset.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHILOSOPHY ================= -->
+<section id="philosophy">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">02 / Philosophy</div>
+      <h2>Five Principles of Asset Design</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="cell"><h3>Adaptability</h3><p>Interior systems can be reconfigured, replaced, or upgraded without disturbing the structural core.</p></div>
+      <div class="cell"><h3>Circularity</h3><p>Infill materials are designed to be removed, recovered, and reused across renovation cycles.</p></div>
+      <div class="cell"><h3>Sustainability</h3><p>A longer core lifespan means fewer demolitions, less embodied carbon, and lower lifetime material throughput.</p></div>
+      <div class="cell"><h3>AI-Driven Optimization</h3><p>Sensor and digital-twin readiness let operators monitor and optimize the asset across its full life.</p></div>
+      <div class="cell"><h3>Asset Longevity</h3><p>Value is designed to persist in the core, rather than depreciating with the interior finish.</p></div>
+    </div>
+    <div class="quote-block">
+      <p>“Build once. Adapt forever.”</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECHNOLOGY ================= -->
+<section id="technology">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">03 / Technology</div>
+      <h2>Core Technologies, Read by Their Asset Value</h2>
+      <p class="lede">Each component is explained by what it protects or unlocks for the asset — not just how it works.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="cell"><h3>Exterior Insulation</h3><p>Shields the concrete core from thermal stress, protecting the structural asset that the rest of the system depends on.</p></div>
+      <div class="cell"><h3>RC Thermal Mass</h3><p>Turns the structure itself into passive climate regulation, lowering lifetime energy cost.</p></div>
+      <div class="cell"><h3>Skeleton &amp; Infill Separation</h3><p>Decouples renovation risk from structural risk — units are updated without ever touching the core.</p></div>
+      <div class="cell"><h3>Modular Construction</h3><p>Shortens renovation cycles and reduces dependence on skilled on-site labor.</p></div>
+      <div class="cell"><h3>AI Integration</h3><p>Converts the building into a continuously monitorable, optimizable asset rather than a static structure.</p></div>
+      <div class="cell"><h3>Digital Twin Readiness</h3><p>Gives operators, lenders, and investors a live model of structural and asset condition.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INVESTMENT VALUE ================= -->
+<section id="value">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">04 / Investment Value</div>
+      <h2>Why Asset Value Compounds Instead of Resetting</h2>
+      <p class="lede">Separating core and infill changes the economics of the building, not just its design.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="cell"><h3>Extended design life</h3><p>The core is engineered to remain in service well beyond a typical rebuild cycle.</p></div>
+      <div class="cell"><h3>Reduced rebuild capex</h3><p>Renovation no longer requires demolishing and re-pouring the structural core.</p></div>
+      <div class="cell"><h3>Lower lifecycle cost</h3><p>Fewer full rebuilds over the asset's life lowers total cost of ownership.</p></div>
+      <div class="cell"><h3>Lower embodied carbon</h3><p>Avoiding repeated demolition and reconstruction reduces the asset's cumulative carbon footprint.</p></div>
+      <div class="cell"><h3>ESG &amp; Net Zero alignment</h3><p>A longevity-first structure supports long-horizon ESG and decarbonization mandates.</p></div>
+      <div class="cell"><h3>Preserved resale value</h3><p>A durable core supports asset value across multiple ownership and tenancy cycles.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPLICATIONS ================= -->
+<section id="applications">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">05 / Applications</div>
+      <h2>Where the System Applies</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="cell"><h3>Smart Cities</h3><p>Long-life cores as the structural backbone of adaptive urban districts.</p></div>
+      <div class="cell"><h3>Data Centers</h3><p>Structural stability for facilities that demand continuous, low-disruption operation.</p></div>
+      <div class="cell"><h3>Hospitals</h3><p>Interior reconfiguration without structural downtime to critical care environments.</p></div>
+      <div class="cell"><h3>Airports</h3><p>High-traffic infrastructure that can update interiors without halting operations.</p></div>
+      <div class="cell"><h3>Universities</h3><p>Campus buildings that adapt to changing academic and research needs over decades.</p></div>
+      <div class="cell"><h3>Residential</h3><p>Unit-by-unit renovation without disturbing the building's structural core.</p></div>
+      <div class="cell"><h3>Commercial Buildings</h3><p>Tenant turnover and fit-out cycles handled at the infill layer only.</p></div>
+      <div class="cell"><h3>Government Projects</h3><p>Public infrastructure built for multi-decade service commitments.</p></div>
+      <div class="cell"><h3>Disaster Resilience</h3><p>Localized damage to one level doesn't necessarily halt operations on others.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARKET OPPORTUNITY ================= -->
+<section id="market">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">06 / Market Opportunity</div>
+      <h2>A Convergence of Four Forces</h2>
+      <p class="lede">Four independent trends are pushing capital toward longer-life, more adaptive infrastructure at the same time.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="cell"><h3>AI-Era Infrastructure Demand</h3><p>Compute, data, and automation are driving new categories of long-horizon physical infrastructure.</p></div>
+      <div class="cell"><h3>Urban Renewal Cycles</h3><p>Aging building stock across Asia, the Middle East, and the Americas is approaching renovation or rebuild decisions.</p></div>
+      <div class="cell"><h3>ESG Capital Allocation</h3><p>Infrastructure and ESG funds are actively seeking assets with verifiable carbon and longevity profiles.</p></div>
+      <div class="cell"><h3>Digital Twin &amp; Infra-Tech Investment</h3><p>Capital is moving toward physical assets that are instrumented and data-ready from the start.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROADMAP ================= -->
+<section id="roadmap">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">07 / Roadmap</div>
+      <h2>From Verified Origin to Global Standard</h2>
+    </div>
+    <div class="roadmap">
+      <div class="rm-row">
+        <div class="rm-year">2005</div>
+        <div><h3>Origin &amp; Verification</h3><p>System designed, built, and verified through seismic testing in Japan.</p></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-year">2026</div>
+        <div><h3>Renewed Development</h3><p>Technical documentation, market positioning, and outreach to research and investment partners.</p></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-year">Next</div>
+        <div><h3>Proof of Concept</h3><p>Formal PoC package prepared for partner and investor evaluation.</p></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-year">Next</div>
+        <div><h3>Pilot Projects</h3><p>Initial pilot deployments with development and operating partners.</p></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-year">Next</div>
+        <div><h3>Licensing</h3><p>Regional licensing structure for partners and developers.</p></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-year">Goal</div>
+        <div><h3>Global Standard</h3><p>AZRAS established as a reference asset-design standard for long-life infrastructure.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPEN INNOVATION / PARTNERSHIPS ================= -->
+<section id="partnerships">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">08 / Open Innovation</div>
+      <h2>Built in the Open</h2>
+      <p class="lede">AZRAS's technical foundation — structural drawings, calculations, and seismic verification reports — is published openly for research and review.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="cell"><h3>Research &amp; Universities</h3><p>Open access for academic study, structural research, and case analysis.</p></div>
+      <div class="cell"><h3>Developers &amp; Operators</h3><p>Pilot and licensing discussions for real-world deployment.</p></div>
+      <div class="cell"><h3>Investors &amp; Licensing Partners</h3><p>Regional partnership and licensing structures under NDA.</p></div>
+    </div>
+    <div class="cta-row" style="margin-top:40px;">
+      <a href="https://github.com/ace-consul-akatsu/ace-consul-akatsu.github.io" class="btn btn-ghost" target="_blank" rel="noopener">View Technical Repository</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section id="news">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">09 / News &amp; Insights</div>
+      <h2>Updates</h2>
+    </div>
+    <div class="empty-state">
+      <h3>Nothing published yet</h3>
+      <p>Project updates, technical notes, and partnership announcements will appear here as AZRAS's pilot program develops. In the meantime, the technical repository on GitHub carries the latest documentation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPANY ================= -->
+<section id="company">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">10 / Company</div>
+      <h2>Operated by ACE Comprehensive Consulting</h2>
+    </div>
+    <div class="company-grid">
+      <p style="color:var(--ink-soft);font-size:16px;">AZRAS is developed and stewarded by ACE Comprehensive Consulting (株式会社ACE総合コンサル), based in Japan. AZRAS is the company's primary technology platform, positioned for global licensing and partnership.</p>
+      <dl class="fact-list">
+        <dt>Company</dt><dd>ACE Comprehensive Consulting Co., Ltd.</dd>
+        <dt>Headquarters</dt><dd>Grandeur H403, 2-18-7 Matsugaodo-cho, Kasugai City, Aichi, Japan</dd>
+        <dt>Founded</dt><dd>March 3, 2025</dd>
+        <dt>Representative</dt><dd>Makito Akatsu, CEO</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="tie" style="top:0;"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">11 / Contact</div>
+      <h2>Start the Conversation</h2>
+      <p class="lede">For investment inquiries, licensing discussions, partnership proposals, or white paper requests.</p>
+    </div>
+    <div class="contact-grid">
+      <form id="contactForm">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div>
+          <label for="org">Organization</label>
+          <input id="org" name="org" type="text">
+        </div>
+        <div>
+          <label for="type">Inquiry Type</label>
+          <select id="type" name="type">
+            <option>Investment</option>
+            <option>Licensing</option>
+            <option>Partnership</option>
+            <option>Press</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;border:none;cursor:pointer;">Send Inquiry</button>
+      </form>
+      <div>
+        <p class="contact-direct">You can also reach us directly at <a href="mailto:ace.consul.ma@gmail.com">ace.consul.ma@gmail.com</a>.</p>
+        <p class="contact-direct" style="margin-top:16px;">Technical documentation and source materials: <a href="https://github.com/ace-consul-akatsu/ace-consul-akatsu.github.io" target="_blank" rel="noopener">GitHub repository</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>AZRAS — Adaptive Zero-Rebuild Asset System. Operated by ACE Comprehensive Consulting.</div>
+    <div><a href="https://github.com/ace-consul-akatsu/ace-consul-akatsu.github.io" target="_blank" rel="noopener">GitHub</a></div>
+  </div>
+</footer>
+
+<script>
+// Mobile nav toggle
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// Place structural "ties" at the top boundary of each section that has one
+document.querySelectorAll('section .tie').forEach(tie => {
+  const rectTop = tie.closest('section').offsetTop;
+  tie.style.top = '0px';
+});
+
+// Placeholder contact form behavior (GitHub Pages cannot process form submissions natively).
+// Connect this to a form backend such as Formspree, Getform, or Netlify Forms by setting
+// the form's action/method, or by replacing this handler with a fetch() call to that service.
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert('This form is not yet connected to an email service. Set up Formspree, Getform, or Netlify Forms and update this script — or use the direct email link.');
+});
+</script>
+</body>
+</html>
