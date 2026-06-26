@@ -327,7 +327,16 @@ section + section{ border-top:1px solid var(--line); }
 }
 @media(max-width:720px){
   .stat-row{grid-template-columns:1fr;max-width:100%;}
-  .hero-art{display:none;}
+  .hero-art{
+    position:static;
+    width:100%;
+    height:200px;
+    margin-top:40px;
+    border-radius:4px;
+    -webkit-mask-image:none;
+    mask-image:none;
+  }
+  .hero-art img{object-position:center;}
 }
 
 /* ============ CONCEPT VISUAL ============ */
