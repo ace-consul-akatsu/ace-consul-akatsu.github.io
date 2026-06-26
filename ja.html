@@ -333,6 +333,36 @@ section + section{ border-top:1px solid var(--line); }
   .hero-art{display:none;}
 }
 
+/* ============ CONCEPT VISUAL ============ */
+.concept-visual{
+  padding:56px 0;
+  background:var(--bg-soft);
+  border-bottom:1px solid var(--line);
+}
+.cv-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:28px;
+  align-items:start;
+}
+.cv-item video,.cv-item img{
+  width:100%;
+  display:block;
+  border:1px solid var(--line);
+  background:#000;
+}
+.cv-item img{background:none;}
+.cv-caption{
+  margin-top:12px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12.5px;
+  letter-spacing:0.02em;
+  color:var(--ink-soft);
+}
+@media(max-width:860px){
+  .cv-grid{grid-template-columns:1fr;}
+}
+
 /* ============ CARD GRIDS ============ */
 .stats-bar{
   background:var(--core-deep);
@@ -757,6 +787,23 @@ footer{
   </div>
   <div class="hero-art">
     <img src="images/hero-skyline.jpg" alt="長寿命のRCタワーと、隣接する低層のAZRAS適応型建築のスカイライン">
+  </div>
+</section>
+
+<section class="concept-visual">
+  <div class="wrap">
+    <div class="cv-grid">
+      <div class="cv-item">
+        <video controls preload="metadata" poster="images/structure-concept.jpg">
+          <source src="00_concept%20animation.mp4" type="video/mp4">
+        </video>
+        <p class="cv-caption">コンセプトアニメーション — 構造コア(スケルトン)とインフィル層が分離する仕組み。</p>
+      </div>
+      <div class="cv-item">
+        <img src="images/structure-concept.jpg" alt="RC構造コアと木造インフィルフレームの構造イメージ" loading="lazy">
+        <p class="cv-caption">RC構造コア(スケルトン)と木造インフィルフレーム。</p>
+      </div>
+    </div>
   </div>
 </section>
 
