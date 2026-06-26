@@ -596,6 +596,44 @@ section + section{ border-top:1px solid var(--line); }
 .empty-state h3{font-size:18px;margin-bottom:10px;}
 .empty-state p{color:var(--ink-soft);font-size:15px;}
 
+/* ============ NEWS & INSIGHTS ============ */
+.news-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+.news-item{
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+}
+.news-item .news-date{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:13px;
+  color:var(--bronze);
+  white-space:nowrap;
+  width:110px;
+  flex-shrink:0;
+  padding-top:3px;
+}
+.news-item .news-body h3{font-size:18px;margin-bottom:6px;}
+.news-item .news-body p{color:var(--ink-soft);font-size:15px;margin-bottom:10px;}
+.news-item .news-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:13px;
+  color:var(--core);
+  text-decoration:underline;
+}
+.news-item .news-thumb{
+  width:64px;height:64px;flex-shrink:0;
+  object-fit:cover;border:1px solid var(--line);
+}
+@media(max-width:640px){
+  .news-item{flex-direction:column;gap:8px;}
+  .news-item .news-date{width:auto;}
+}
+
 /* ============ COMPANY ============ */
 .company-grid{
   display:grid;
@@ -1058,10 +1096,20 @@ footer{
     <div class="section-head">
       <div class="eyebrow">10 / News &amp; Insights</div>
       <h2>Updates</h2>
+      <p class="lede">Project updates, technical notes, and partnership announcements — published as PDFs or images and linked below.</p>
     </div>
-    <div class="empty-state">
-      <h3>Nothing published yet</h3>
-      <p>Project updates, technical notes, and partnership announcements will appear here as AZRAS's pilot program develops. In the meantime, the technical repository on GitHub carries the latest documentation.</p>
+    <div class="news-list">
+      <!-- 投稿サンプル。新しい投稿はこの<div class="news-item">ブロックをコピーして、
+           日付・タイトル・説明・リンク先(news/フォルダ内のファイル)を書き換えてください。
+           新しい投稿は一番上に追加してください(新着順)。 -->
+      <div class="news-item">
+        <div class="news-date">2026.06.26</div>
+        <div class="news-body">
+          <h3>Sample Post Title</h3>
+          <p>One or two lines summarizing the update. The full content lives in the linked PDF or image.</p>
+          <a class="news-link" href="news/2026-06-26-sample.pdf" target="_blank" rel="noopener">View PDF →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
