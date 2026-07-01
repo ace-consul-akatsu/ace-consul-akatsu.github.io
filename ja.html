@@ -760,6 +760,47 @@ footer{
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
 }
+
+/* ============ VISION ============ */
+.hero-vision{
+  margin-top:10px;
+  font-size:15.5px;
+  font-style:italic;
+  color:rgba(255,255,255,0.65);
+  max-width:500px;
+  line-height:1.6;
+}
+.vision-block{
+  margin:2.5rem 0 3rem;
+  padding:2rem 2.2rem;
+  background:rgba(120,50,120,0.05);
+  border-left:3px solid var(--core);
+  border-radius:4px;
+}
+.vision-block .vision-intro{margin-bottom:1.5rem;}
+.vision-block .vision-intro h3{font-size:1.05rem;color:var(--core);margin-bottom:0.4rem;}
+.vision-block .vision-intro p{font-size:0.95rem;color:var(--ink-soft);line-height:1.75;}
+.vision-timeline{display:flex;flex-wrap:wrap;align-items:flex-start;gap:0.4rem 0.6rem;margin:1.5rem 0;}
+.vt-item{display:flex;align-items:flex-start;gap:0.45rem;flex:1 1 120px;min-width:110px;}
+.vt-icon{font-size:1.25rem;line-height:1;margin-top:2px;}
+.vt-item strong{display:block;font-size:0.82rem;color:var(--ink);margin-bottom:2px;}
+.vt-item p{font-size:0.78rem;color:var(--ink-soft);line-height:1.5;margin:0;}
+.vt-arrow{font-size:1.1rem;color:var(--core);padding-top:3px;flex-shrink:0;}
+.vision-circular h3{font-size:1.05rem;color:var(--core);margin-bottom:0.4rem;}
+.vision-circular p{font-size:0.95rem;color:var(--ink-soft);line-height:1.75;}
+.vision-quote{
+  font-style:italic;
+  color:var(--core);
+  border-top:1px solid var(--line);
+  padding-top:0.7rem;
+  margin-top:0.7rem;
+  line-height:1.8;
+}
+@media(max-width:640px){
+  .vt-arrow{display:none;}
+  .vision-timeline{flex-direction:column;}
+  .vision-block{padding:1.4rem 1.2rem;}
+}
 </style>
 </head>
 <body>
@@ -799,6 +840,7 @@ footer{
     <div class="hero-divider"></div>
     <h1>一度建てる。<em>価値は続く。</em></h1>
     <p class="sub">ゼロリビルド。100年先まで続く価値。</p>
+    <p class="hero-vision">あらゆる時の変化に応える建築——<br>竣工から、災害を経て、リニューアルを超えて、200年へ。</p>
     <div class="cta-row">
       <a href="#value" class="btn btn-primary">投資概要を見る</a>
       <a href="#contact" class="btn btn-ghost">ホワイトペーパーを請求</a>
@@ -923,6 +965,45 @@ footer{
       <div class="eyebrow">02 / フィロソフィー</div>
       <h2>アセット設計の5つの原則</h2>
     </div>
+
+    <!-- Vision Block -->
+    <div class="vision-block">
+      <div class="vision-intro">
+        <h3>4次元対応建築というコンセプト</h3>
+        <p>AZRASは空間的な3次元に加え、<strong>時間という第4の次元</strong>に対応します。永続的なスケルトンを持つ建物は、省エネルギーを維持しながら200年以上にわたって進化し続けることができます。</p>
+      </div>
+      <div class="vision-timeline">
+        <div class="vt-item">
+          <span class="vt-icon">🏗️</span>
+          <div><strong>新築完成時</strong><p>初日から省エネ・高性能・長寿命設計。</p></div>
+        </div>
+        <div class="vt-arrow">→</div>
+        <div class="vt-item">
+          <span class="vt-icon">🏢</span>
+          <div><strong>日常運用</strong><p>AIと設備がリアルタイムで最適化。</p></div>
+        </div>
+        <div class="vt-arrow">→</div>
+        <div class="vt-item">
+          <span class="vt-icon">🆘</span>
+          <div><strong>災害復旧</strong><p>コスト▲80%、期間▲85%で復旧。</p></div>
+        </div>
+        <div class="vt-arrow">→</div>
+        <div class="vt-item">
+          <span class="vt-icon">🔄</span>
+          <div><strong>リニューアル</strong><p>躯体を活かし、内外装を世代更新。</p></div>
+        </div>
+        <div class="vt-arrow">→</div>
+        <div class="vt-item">
+          <span class="vt-icon">🌍</span>
+          <div><strong>社会変化への適応</strong><p>用途変更・技術革新・法規変更に柔軟対応。</p></div>
+        </div>
+      </div>
+      <div class="vision-circular">
+        <h3>循環型建築エコシステムへ</h3>
+        <p>AZRASのビジョンは、単一建物の長寿命化にとどまりません。インフィル・アウトフィルは工場でプレハブ生産され、取り外した旧部材は工場で再調整・再生され、別のAZRASへ供給されます——廃棄物ゼロに近い<strong>建材の循環フロー</strong>が生まれます。</p>
+        <p class="vision-quote">建物が「資源を消費するもの」から、<br><em>「資源を循環させるプラットフォーム」</em>へ。</p>
+      </div>
+    </div><!-- /.vision-block -->
     <div class="grid grid-3">
       <div class="cell"><h3>アダプタビリティ(適応性)</h3><p>内装(インフィル)と外装シェル(アウトフィル)はどちらも、構造コアに影響を与えることなく、それぞれ独立して再構成・交換・更新することができます。</p></div>
       <div class="cell"><h3>循環性</h3><p>インフィル材は、改修サイクルを通じて取り外し・回収・再利用できるよう設計されています。</p></div>
