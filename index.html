@@ -757,6 +757,77 @@ footer{
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
 }
+
+/* ============ VISION ============ */
+.hero-vision{
+  margin-top:10px;
+  font-size:15.5px;
+  font-style:italic;
+  color:rgba(255,255,255,0.65);
+  max-width:500px;
+  line-height:1.6;
+}
+.vision-block{
+  margin:2.5rem 0 3rem;
+  padding:2rem 2.2rem;
+  background:rgba(120,50,120,0.05);
+  border-left:3px solid var(--core);
+  border-radius:4px;
+}
+.vision-block .vision-intro{
+  margin-bottom:1.5rem;
+}
+.vision-block .vision-intro h3{
+  font-size:1.05rem;
+  color:var(--core);
+  margin-bottom:0.4rem;
+}
+.vision-block .vision-intro p{
+  font-size:0.95rem;
+  color:var(--ink-soft);
+  line-height:1.75;
+}
+.vision-timeline{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  gap:0.4rem 0.6rem;
+  margin:1.5rem 0;
+}
+.vt-item{
+  display:flex;
+  align-items:flex-start;
+  gap:0.45rem;
+  flex:1 1 120px;
+  min-width:110px;
+}
+.vt-icon{font-size:1.25rem;line-height:1;margin-top:2px;}
+.vt-item strong{display:block;font-size:0.82rem;color:var(--ink);margin-bottom:2px;}
+.vt-item p{font-size:0.78rem;color:var(--ink-soft);line-height:1.5;margin:0;}
+.vt-arrow{font-size:1.1rem;color:var(--core);padding-top:3px;flex-shrink:0;}
+.vision-circular h3{
+  font-size:1.05rem;
+  color:var(--core);
+  margin-bottom:0.4rem;
+}
+.vision-circular p{
+  font-size:0.95rem;
+  color:var(--ink-soft);
+  line-height:1.75;
+}
+.vision-quote{
+  font-style:italic;
+  color:var(--core);
+  border-top:1px solid var(--line);
+  padding-top:0.7rem;
+  margin-top:0.7rem;
+  line-height:1.8;
+}
+@media(max-width:640px){
+  .vt-arrow{display:none;}
+  .vision-timeline{flex-direction:column;}
+  .vision-block{padding:1.4rem 1.2rem;}
+}
 </style>
 </head>
 <body>
@@ -796,6 +867,7 @@ footer{
     <div class="hero-divider"></div>
     <h1>Build Once. <em>Value Endures.</em></h1>
     <p class="sub">Zero rebuild. Value for 100 years ahead.</p>
+    <p class="hero-vision">A building that answers every shift in time —<br>from completion, through disaster, through renewal, for 200 years.</p>
     <div class="cta-row">
       <a href="#value" class="btn btn-primary">View Investment Case</a>
       <a href="#contact" class="btn btn-ghost">Request White Paper</a>
@@ -920,6 +992,45 @@ footer{
       <div class="eyebrow">02 / Philosophy</div>
       <h2>Five Principles of Asset Design</h2>
     </div>
+
+    <!-- Vision Block -->
+    <div class="vision-block">
+      <div class="vision-intro">
+        <h3>The 4D Architecture Concept</h3>
+        <p>AZRAS addresses not only the three spatial dimensions, but also the <strong>fourth dimension: time</strong>. A building with a permanent Skeleton can evolve — energy-efficiently — for 200 years or more.</p>
+      </div>
+      <div class="vision-timeline">
+        <div class="vt-item">
+          <span class="vt-icon">🏗️</span>
+          <div><strong>At Completion</strong><p>Energy-efficient, high-performance, long-life from Day 1.</p></div>
+        </div>
+        <div class="vt-arrow">→</div>
+        <div class="vt-item">
+          <span class="vt-icon">🏢</span>
+          <div><strong>Daily Operation</strong><p>AI and building systems optimize in real time.</p></div>
+        </div>
+        <div class="vt-arrow">→</div>
+        <div class="vt-item">
+          <span class="vt-icon">🆘</span>
+          <div><strong>Disaster Recovery</strong><p>Restoration at −80% cost, −85% time.</p></div>
+        </div>
+        <div class="vt-arrow">→</div>
+        <div class="vt-item">
+          <span class="vt-icon">🔄</span>
+          <div><strong>Renewal</strong><p>Preserve the core; replace interior and exterior across generations.</p></div>
+        </div>
+        <div class="vt-arrow">→</div>
+        <div class="vt-item">
+          <span class="vt-icon">🌍</span>
+          <div><strong>Social Adaptation</strong><p>Flexible response to changes in use, technology, and regulation.</p></div>
+        </div>
+      </div>
+      <div class="vision-circular">
+        <h3>Toward a Circular Building Ecosystem</h3>
+        <p>The AZRAS vision extends far beyond a single long-life building. Infill and outfill components are manufactured in factories, removed components return for reconditioning, and regenerated components are supplied to other AZRAS buildings — creating a near-zero-waste <strong>circular flow of building materials</strong>.</p>
+        <p class="vision-quote">Buildings shift from being <em>consumers of resources</em><br>to becoming <em>platforms that circulate resources</em>.</p>
+      </div>
+    </div><!-- /.vision-block -->
     <div class="grid grid-3">
       <div class="cell"><h3>Adaptability</h3><p>Both the interior (infill) and the exterior shell (outfill) can be reconfigured, replaced, or upgraded independently, without disturbing the structural core.</p></div>
       <div class="cell"><h3>Circularity</h3><p>Infill materials are designed to be removed, recovered, and reused across renovation cycles.</p></div>
