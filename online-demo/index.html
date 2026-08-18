@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="AZRAS Online Demo — Read-only comparison viewer for verified Core Project JSON Schema 3.0 sample data.">
+<title>AZRAS Online Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../" aria-label="AZRAS home">AZRAS</a>
+  <div class="header-actions">
+    <button id="langBtn" class="ghost" type="button">EN</button>
+    <a id="downloadBtn" class="primary" href="../downloads/AZRAS_System_v1.0.0.zip">Full Version</a>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div>
+    <p class="eyebrow" data-i18n="eyebrow">AZRAS COMPARE — ONLINE DEMO</p>
+    <h1 data-i18n="title">3工法を、検証済みサンプルデータで比較</h1>
+    <p class="lead" data-i18n="lead">デスクトップ版AZRASが保存した Core Project JSON Schema 3.0 を読み取る、計算を行わないRead-only Viewerです。</p>
+  </div>
+  <div class="status-card"><span class="dot"></span><span id="loadStatus">Loading verified sample data…</span></div>
+</section>
+
+<nav class="tabs" aria-label="demo sections">
+ <button class="tab active" data-tab="regional" data-i18n="tabRegional">7都市 地域比較</button>
+ <button class="tab" data-tab="detail" data-i18n="tabDetail">詳細比較（元Project）</button>
+ <button class="tab" data-tab="about" data-i18n="tabAbout">データについて</button>
+</nav>
+
+<section id="regional" class="panel active">
+ <div class="section-head">
+  <div><h2 data-i18n="regionalTitle">7都市の8760時間解析結果</h2><p data-i18n="regionalNote">各地域派生JSONの module10_snapshot を使用。年間エネルギー・年間運用CO₂・電力CO₂係数を工法横断で比較します。</p></div>
+  <label><span data-i18n="cityLabel">都市</span><select id="citySelect"></select></label>
+ </div>
+ <div class="audit" id="factorAudit"></div>
+ <div id="regionalCards" class="metric-grid"></div>
+ <div class="chart-card"><h3 data-i18n="energyChart">年間エネルギー消費量</h3><div id="energyBars" class="bars"></div></div>
+ <div class="chart-card"><h3 data-i18n="co2Chart">年間運用CO₂排出量</h3><div id="co2Bars" class="bars"></div></div>
+ <div class="table-wrap"><table><thead><tr><th data-i18n="city">都市</th><th>AZRAS</th><th>2x6 Timber</th><th>RC Frame</th></tr></thead><tbody id="cityMatrix"></tbody></table></div>
+</section>
+
+<section id="detail" class="panel">
+ <div class="section-head"><div><h2 data-i18n="detailTitle">元Project JSONによる詳細比較</h2><p data-i18n="detailNote">Module 4/5/6を保存した元Project JSONを使用します。地域派生JSONにはこれらのModuleが含まれないため、7都市の値としては表示しません。</p></div></div>
+ <div id="detailCards" class="metric-grid"></div>
+ <div class="chart-card"><div class="chart-head"><h3 data-i18n="lifecycleChart">累積ライフサイクルCO₂</h3><label><span data-i18n="period">期間</span><select id="co2Year"><option>50</option><option selected>200</option></select><span data-i18n="years">年</span></label></div><div id="lifecycleLines" class="linechart"></div></div>
+ <div class="chart-card"><div class="chart-head"><h3 data-i18n="cfChart">現在価値累積CF（終価除外）</h3><label><span data-i18n="period">期間</span><select id="cfYear"><option>50</option><option selected>200</option></select><span data-i18n="years">年</span></label></div><div id="cashflowLines" class="linechart"></div></div>
+</section>
+
+<section id="about" class="panel prose">
+ <h2 data-i18n="aboutTitle">このデモの位置付け</h2>
+ <p data-i18n="about1">このページはAZRAS Compare v1.1.37の「Read-only comparison viewer」という契約に沿って構成しています。元JSONへ書き戻しません。</p>
+ <p data-i18n="about2">ブラウザ内では建物計算・8760時間解析・LCA・事業性計算を再実行しません。表示値はAZRAS本体が保存したサンプルJSONから読み取ります。</p>
+ <div class="method-map"><code>azras</code><span>→ AZRAS</span><code>wood_frame</code><span>→ 2x6 Timber</span><code>rc_frame</code><span>→ RC Frame</span></div>
+ <p class="small" data-i18n="disclaimer">Demo data only. Users must verify calculation results before design, construction, or investment decisions.</p>
+</section>
+</main>
+<footer>AZRAS — Adaptive Zero-Rebuild Asset System</footer>
+<script src="js/app.js"></script>
+</body></html>

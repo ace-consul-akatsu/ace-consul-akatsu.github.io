@@ -1,0 +1,37 @@
+[
+  {
+    "id": "azras",
+    "ja": "AZRAS",
+    "en": "AZRAS"
+  },
+  {
+    "id": "wood_post_beam",
+    "ja": "木造軸組工法",
+    "en": "Wood Post-and-Beam Construction"
+  },
+  {
+    "id": "wood_frame",
+    "ja": "木造枠組壁工法",
+    "en": "Wood Framed-Wall Construction"
+  },
+  {
+    "id": "steel",
+    "ja": "S造",
+    "en": "Steel Structure"
+  },
+  {
+    "id": "rc_frame",
+    "ja": "RCラーメン構造",
+    "en": "RC Moment-Resisting Frame"
+  },
+  {
+    "id": "rc_wall",
+    "ja": "RC壁式",
+    "en": "RC Wall Structure"
+  },
+  {
+    "id": "other",
+    "ja": "その他",
+    "en": "Other"
+  }
+]

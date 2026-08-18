@@ -1,0 +1,58 @@
+{
+  "product": "AZRAS Compare",
+  "version": "1.1.37",
+  "role": "Read-only comparison viewer for Core Project JSON",
+  "project_json_inputs": {
+    "common": [
+      "project_name",
+      "construction_method",
+      "country",
+      "city",
+      "project_identity",
+      "detailed_configuration",
+      "construction_feasibility_screening",
+      "accepted_feasibility_adjustment"
+    ],
+    "regional_analysis": [
+      "module10_snapshot.monthly",
+      "module10_snapshot.annual"
+    ],
+    "module_outputs": {
+      "module2": "compatibility fallback only when module10_snapshot is absent",
+      "module4": "saved lifecycle CO2/event timeline and decarbonization assumptions",
+      "module6": "saved cashflow, NPV/payback and rent-related business results"
+    }
+  },
+  "comparison_rules": {
+    "minimum_projects": 2,
+    "maximum_projects": 7,
+    "preferred_methods": [
+      "azras",
+      "wood_frame",
+      "rc_frame"
+    ],
+    "energy_basis": "regional_analysis.module10_snapshot 8760-hour results",
+    "cashflow_basis": "Module 6 saved present-value / nominal cashflow as appropriate",
+    "writes_back_to_source_project": false,
+    "preferred_method_labels": {
+      "azras": "AZRAS",
+      "wood_frame": "2x6 Timber",
+      "rc_frame": "RC Frame"
+    },
+    "construction_method_id_source": "data/construction_methods.json",
+    "feasibility_basis": "01 preliminary screening + 04 accepted adjustment trace stored in Core Project JSON",
+    "feasibility_writeback": false
+  },
+  "downstream_relationship": {
+    "03_AZRAS_Evaluation": "Compare consumes Evaluation/Core Project JSON results; it does not overwrite them.",
+    "04_AZRAS_Feasibility": "Compare reads 04 feasibility information only after it has been explicitly accepted/stored in the Core Project JSON by 03 Evaluation.",
+    "05_AZRAS_Disaster": "No direct write dependency required for Compare; both consume Core Project JSON module outputs."
+  },
+  "schema_compatibility": {
+    "core_project_json_schema_version": "3.0",
+    "compatible_schema_versions": [
+      "3.0"
+    ],
+    "behavior_on_unsupported_schema": "reject_or_warn_before_comparison"
+  }
+}

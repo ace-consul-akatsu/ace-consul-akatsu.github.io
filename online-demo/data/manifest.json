@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "core_project_schema": "3.0",
+  "methods": {
+    "azras": {
+      "label": "AZRAS",
+      "regional": {
+        "Sapporo": "data/projects/azras/Sapporo.json",
+        "Berlin": "data/projects/azras/Berlin.json",
+        "Dubai": "data/projects/azras/Dubai.json",
+        "Los_Angeles": "data/projects/azras/Los_Angeles.json",
+        "Oslo": "data/projects/azras/Oslo.json",
+        "Sydney": "data/projects/azras/Sydney.json",
+        "Bangkok": "data/projects/azras/Bangkok.json"
+      },
+      "base": "data/projects/azras/base.json",
+      "base_city": "愛知県春日井市"
+    },
+    "wood_frame": {
+      "label": "2x6 Timber",
+      "regional": {
+        "Sapporo": "data/projects/wood_frame/Sapporo.json",
+        "Berlin": "data/projects/wood_frame/Berlin.json",
+        "Dubai": "data/projects/wood_frame/Dubai.json",
+        "Los_Angeles": "data/projects/wood_frame/Los_Angeles.json",
+        "Oslo": "data/projects/wood_frame/Oslo.json",
+        "Sydney": "data/projects/wood_frame/Sydney.json",
+        "Bangkok": "data/projects/wood_frame/Bangkok.json"
+      },
+      "base": "data/projects/wood_frame/base.json",
+      "base_city": "愛知県春日井市"
+    },
+    "rc_frame": {
+      "label": "RC Frame",
+      "regional": {
+        "Sapporo": "data/projects/rc_frame/Sapporo.json",
+        "Berlin": "data/projects/rc_frame/Berlin.json",
+        "Dubai": "data/projects/rc_frame/Dubai.json",
+        "Los_Angeles": "data/projects/rc_frame/Los_Angeles.json",
+        "Oslo": "data/projects/rc_frame/Oslo.json",
+        "Sydney": "data/projects/rc_frame/Sydney.json",
+        "Bangkok": "data/projects/rc_frame/Bangkok.json"
+      },
+      "base": "data/projects/rc_frame/base.json",
+      "base_city": "愛知県春日井市"
+    }
+  },
+  "cities": [
+    {
+      "token": "Sapporo",
+      "label": "Sapporo"
+    },
+    {
+      "token": "Berlin",
+      "label": "Berlin"
+    },
+    {
+      "token": "Dubai",
+      "label": "Dubai"
+    },
+    {
+      "token": "Los_Angeles",
+      "label": "Los Angeles"
+    },
+    {
+      "token": "Oslo",
+      "label": "Oslo"
+    },
+    {
+      "token": "Sydney",
+      "label": "Sydney"
+    },
+    {
+      "token": "Bangkok",
+      "label": "Bangkok"
+    }
+  ]
+}
